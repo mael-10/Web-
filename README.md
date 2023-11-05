@@ -4,4 +4,4 @@ In this repository, I will document my progress in coding by sharing real projec
 Bellow is the link you can click to find out Markdown syntax. But you can also explore my coding projects.
 de.org/basic-syntax/#overview)
 ## Useful link: 
-[markdown basic syntax] (https://www.markdowngui)
+[markdown basic syntax] (https://www.markdownguide.org/basic-syntax/#overview)
