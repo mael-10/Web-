@@ -5,4 +5,4 @@ Bellow is the link you can click to find out Markdown syntax. But you can also e
 de.org/basic-syntax/#overview)
 ## Useful link:
 
-[Markdown basic syntax] (https://www.markdownguide.org/basic-syntax/#overview)
+[Markdown basic syntax](https://www.markdownguide.org/basic-syntax/#overview)
