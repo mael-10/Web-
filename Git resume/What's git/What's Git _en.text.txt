@@ -1,0 +1,12 @@
+Git is a free Version Control for management changes to documents, computer programs, large web sites and other colections of information 
+
+Straightforward Terms of Git and GitHub or even programming terms: 
+
+Directory --> Folder 
+Terminal or command line --> Interface for text commands 
+CLI --> Command line interface for text 
+commands 
+cd --> Change Directory 
+code editor --> word processes of writting code 
+repository --> Project or the folder/place where your project is kept 
+GitHub --> Websites to host your repositories

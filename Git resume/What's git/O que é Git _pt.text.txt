@@ -1,0 +1,11 @@
+O Git é um Controle de Versão gratuito para gerenciar alterações em documentos, programas de computador, grandes sites e outras coleções de informações.
+
+Termos simplificados para Git, GitHub ou mesmo termos de programação:
+
+Directory --> Pasta
+Terminal or command line --> Interface para comandos de texto
+CLI --> Interface de Linha de Comando para comandos de texto
+cd --> Mudar de Diretório
+code editor --> Editor de texto para escrever código
+repository --> Projeto ou a pasta/lugar onde seu projeto está armazenado
+GitHub --> Site para hospedar seus repositórios

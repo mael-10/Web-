@@ -1,0 +1,108 @@
+Here you spot the basic commands on git to commit your files and folders 
+
+Git Clone 😎
+- - - - - - - - - - - - - - - -
+
+Bring a repository that is hosted somewhere like github into a folder on your local machine. 
+Example: 
+
+git clone URL_repository 
+
+- - - - - - - - - - - - - - - - -
+Git Add 😊
+
+When you update files, or created or deleted files and folders, you are going to tell git that you would like git track those changes
+Example: 
+
+git add name_of_file.type_of_file --> ex: (git add index.html)
+
+	*or if you changed many files you can add at same time all using: 
+
+git add . 
+
+Tip: Always certify you are in the directory 'main' or 'master' to use 'git add' bacause it means that the repository will be commit
+- - - - - - - - - - - - - - - - - 
+Git status 😗
+
+show all the files that were created or updated or deleted
+Example: 
+
+git status 
+- - - - - - - - - - - - - - - - -
+Git commit 🥰
+
+Telling git to save changes
+Example:  
+
+git commit -m 'a title' or "a title"
+
+	*Doesn't matter if you use quotation marks or double quotes
+	*-m is a massage you commit after using add (Mandatory when have more than one files on the repository)
+
+Can use is that way as well:
+
+git commit -m 'a title' -m "a description" 
+- - - - - - - - - - - - - - - - - -
+Git push 😌
+
+When clone the repository to your local machine git knows where to push it (bridge) and just after (git clone, git add, git commit) use: 
+Exmaple: 
+
+git push 
+
+
+However if you forget to create a repository first, follow this steps: 
+
+1 - Create the folder of your repository 
+2 - Create a commit (same name of the folder) 
+3-  In CLI use: git remote add origin 'link of your repository' (With this you add a bridge to your local machine to the repository because git doesn'n understand where is the repository)
+4- If you can check out the link of repository are subscribed: 
+git remote -v 
+5- git push -u origin main or master 
+
+The next time you use push, just use git push: 
+
+6- Git push 
+
+Tip: Creating a repository first is more easy
+- - - - - - - - - - - - - - - - - -
+Git pull 😮 
+
+Update your local repository. (stay in main or master)
+
+git pull 'link_of_repository'
+- - - - - - - - - - - - - - - - - - 
+Git rm -r 😐
+
+Select the folder or file you want drop
+Example: 
+	
+git rm -r name_of_file.type_of_file --> ex:(git rm -r index.html)
+
+Tip:  Always certify you are in the directory 'main' or 'master' to use it. You should access the same directory that are in your github and after that use this on CLI 
+- - - - - - - - - - - - - - - - - -
+ls -la or ls 😯
+
+
+ls -la is (windows) and la (MacOs) a command used in Unix-like systems, such as macOS, to list the contents of a directory in a detailed manner.
+Example: 
+
+ls -la
+
+- - - - - - - - - - - - - - - - - - 
+Git init 🫡 
+ 
+To inicialize a commit. In other hand git init is a Git command used to initialize a new Git repository in an existing directory. When you run git init, it creates a new hidden subfolder called '.git' in the current directory. This folder contains all the necessary files for the operation of the local Git repository, including configurations, commit history, and other metadata. 
+Example: 
+
+git init 
+
+	*Change the directory and use the command
+
+
+
+
+
+
+
+

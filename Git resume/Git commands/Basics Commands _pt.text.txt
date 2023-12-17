@@ -1,0 +1,89 @@
+Aqui estão os comandos básicos do Git para commitar seus arquivos e pastas:
+
+Git Clone 😎
+
+Traga um repositório hospedado em algum lugar como o GitHub para uma pasta em sua máquina local. Exemplo:
+
+git clone URL_do_repositório
+- - - - - - - - - - - - - - - - 
+Git Add 😊
+
+Quando você atualiza arquivos, ou cria ou exclui arquivos e pastas, você vai dizer ao Git que gostaria de rastrear essas mudanças. Exemplo:
+
+git add nome_do_arquivo.tipo_do_arquivo --> ex:(git add index.html)
+
+Ou, se você alterou muitos arquivos, você pode adicionar todos de uma vez usando:
+
+git add .
+
+Dica: Certifique-se sempre de estar no diretório 'main' ou 'master' para usar 'git add', pois isso significa que o repositório será commitado.
+- - - - - - - - - - - - - - - - 
+Git Status 😗
+
+Mostra todos os arquivos que foram criados, atualizados ou excluídos. Exemplo:
+
+git status
+- - - - - - - - - - - - - - - - -
+Git Commit 🥰
+
+Dizendo ao Git para salvar as alterações. Exemplo:
+
+git commit -m 'um título' ou "um título" (Não importa se você usa aspas simples ou duplas.) 
+
+*-m é uma mensagem que você commita após usar o add (Obrigatório quando há mais de um arquivo no repositório).
+Você também pode usar desta forma:
+
+git commit -m 'um título' -m "uma descrição"
+- - - - - - - - - - - - - - - - - 
+Git Push 😌
+
+Quando você clona o repositório para sua máquina local, o Git sabe para onde enviar (ponte) e logo após (git clone, git add, git commit) use:
+
+Exemplo:
+
+git push
+
+No entanto, se você esquecer de criar um repositório primeiro, siga estas etapas:
+
+1- Crie a pasta do seu repositório.
+2- Crie um commit (mesmo nome da pasta).
+3- No CLI, use: git remote add origin 'link do seu repositório' (Com isso, você adiciona uma ponte para sua máquina local até o repositório, porque o Git não entende onde está o repositório).
+4- Se você puder verificar se o link do repositório está inscrito:
+git remote -v
+5- git push -u origin main ou git push -u origin master. 
+
+Na próxima vez que você usar push, basta usar git push
+
+Dica: Criar um repositório primeiro é mais fácil.
+- - - - - - - - - - - - - - - - - 
+Git Pull 😮
+
+Atualize seu repositório local.
+
+
+git pull 'link_do_repositório'
+- - - - - - - - - - - - - - - - -
+Git Rm -r 😐
+
+Selecione a pasta ou arquivo que você deseja remover. Exemplo:
+
+
+git rm -r nome_do_arquivo.tipo_do_arquivo  --> ex:(git rm -r index.html)
+
+Dica: Certifique-se sempre de estar no diretório 'main' ou 'master' para usar isso. Você deve acessar o mesmo diretório que está no seu GitHub, e depois usar isso no CLI.
+- - - - - - - - - - - - - - - - - 
+ls -la ou ls 😯
+
+ls -la (Windows) e ls (MacOs) é um comando usado em sistemas Unix-like, como o macOS, para listar o conteúdo de um diretório de maneira detalhada. Exemplo:
+
+ls -la
+- - - - - - - - - - - - - - - - -
+Git Init 🫡
+
+Para inicializar um commit. Por outro lado, git init é um comando do Git usado para iniciar um novo repositório Git em um diretório existente. Quando você executa git init, ele cria uma nova subpasta oculta chamada '.git' no diretório atual. Essa pasta contém todos os arquivos necessários para o funcionamento do repositório Git local, incluindo configurações, histórico de commits e outros metadados.
+
+Exemplo:
+
+git init
+
+Mude o diretório e use o comando.
