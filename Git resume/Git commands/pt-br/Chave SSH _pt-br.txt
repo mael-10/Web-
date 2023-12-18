@@ -31,6 +31,14 @@ Para Gerar uma Chave SSH, Digite o Seguinte no Terminal:
    - Chave pública: Coloque no GitHub.
    - Chave privada: Mantenha segura em sua máquina local. Não compartilhe. Usada para autenticar e conectar localmente ao GitHub, fazer push de código ou usar sua conta.
 
-4. **Copie a Chave Pública:
+4. Copie a Chave Pública:
    - Use o comando `cat` para exibir o conteúdo do arquivo e copie.
    - Se tiver dúvidas, consulte o arquivo 'basic commands.txt' para comandos básicos.
+
+5 - Atualmente, ao adicionar uma chave no GitHub
+
+   Ao adicionar uma chave, aparecerão duas opções:
+   1- Chave de autenticação - Com esta opção, você permite acesso e autentica sua identidade no GitHub para operações como: Clone, push ou pull
+   2- Chave de assinatura - Ao selecionar esta opção, você adiciona uma camada extra de autenticação para informar que os commits foram feitos por você (literalmente uma assinatura)
+
+   Nesse caso use: Chave de Autentificação 

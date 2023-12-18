@@ -33,15 +33,21 @@ What's SSH Key?
     3- Public key vs Private
 
         public key: Put it in GitHub --> (Put it in GitHub)
-        private key: keep secure on your local machine and dont follow (Connect with GitHub, push code or use your account your local machine.
-        Used to Show git GitHub you are that generate this public key)
+        private key: keep secure on your local machine and dont follow (Connect with GitHub, push code or use your account on your local machine.
+        Used to Show GitHub that you generate this public key)
 
     4 - Copy public key 
 
-        Use command cat to show what's inside the file and copy 
+        Use command cat to show what's inside the file where is the public key and copy 
 
-        If you have doubt, you should see Basics in 'commands.txt'  
+        If you have doubt about 'cat', you should see Basics in 'commands.txt' 
 
+    5 - At the moment adding a key in GitHub 
 
+        When you add a key will apper two options: 
+        1- Authentication key - Whith this option you allow access and authenticate your identify in GitHub as: Clone, push, or pull 
+        2- Signing key - When has select this option you add a extra layer of authentication to informate that commits has made from you (literilly a sign)
+
+        In that case use: Authentication Key 
           
         
