@@ -1,0 +1,36 @@
+O que é a Chave SSH?
+
+A chave SSH é uma forma de autenticação segura usada para conectar sua máquina local à sua conta no GitHub. 
+Ela funciona como uma espécie de ponte segura, permitindo que o GitHub reconheça você como o proprietário legítimo da conta. 
+Na primeira vez em que você utiliza um comando push, o Git não tem conhecimento sobre onde encontrar sua conta.
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+Para Gerar uma Chave SSH, Digite o Seguinte no Terminal:
+
+1. Gere uma Chave SSH e Especifique o Tipo de Criptografia:
+   -  ssh-keygen -t rsa -b valor_de_criptografia -C email
+
+   Exemplo mais real:
+   - ssh-keygen -t rsa -b 4096 -C seu_email@gmail.com
+
+   Valores comuns de criptografia:
+   - b- 2048: Usado na maioria dos casos.
+   - b- 3072: Usado para segurança aprimorada.
+   - b- 4096: Mais forte que 3072.
+
+   A opção -b mostra o número de bits. Portanto, quanto maior o número de bits, mais complexa é a criptografia e, consequentemente, mais lenta para processar.
+
+2. Buscar a Chave que Você Gerou:
+   -  ls | grep testkey (buscar a chave)
+   -  ls -al ~/.ssh (ver todas as chaves localmente)
+
+   Dica: Ao procurar arquivos, lembre-se de permanecer no diretório correto.
+
+3. Chave Pública vs. Chave Privada:
+   - Chave pública: Coloque no GitHub.
+   - Chave privada: Mantenha segura em sua máquina local. Não compartilhe. Usada para autenticar e conectar localmente ao GitHub, fazer push de código ou usar sua conta.
+
+4. **Copie a Chave Pública:
+   - Use o comando `cat` para exibir o conteúdo do arquivo e copie.
+   - Se tiver dúvidas, consulte o arquivo 'basic commands.txt' para comandos básicos.

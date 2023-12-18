@@ -123,11 +123,3 @@ cat index.html
 
 Always and don't foget to stay in the directory that there're your files 
 - - - - - - - - - - - - - - - - - - 
-
-
-
-
-
-
-
-

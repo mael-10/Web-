@@ -1,0 +1,47 @@
+What's SSH Key? 
+
+    The SSH is a key prove to GitHub you are the owner of the account. It's like a bridge that connects your local machine at your account
+    in a safe way. The first time you do a push command Git doesn't know about where spot your account.
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+    To Generate a SSH Key type it in CLI: 
+ 
+    1- Generate a SSH Key and Specify the type of encryption: 
+        SSH -keygen -t rsa -b encryption_value -C email 
+
+        More or less real example: 
+
+        SSH -keygen -t rsa -b 4096 -C your_email@gmail.com 
+    
+        The encryption is a variable, but here the communs values: 
+
+        b- 2048: Used for most cases.
+        b- 3072: Used for enhanced security.
+        b- 4096: Stronger than 3072.
+
+        The option -b shows the number of bits. Therefore, the higher the number of bits, the more complex the encryption is and then more 
+        low to proceess. 
+
+   2-  Search key that you been generated
+        ls | grep testkey 
+
+        but if you see all the key locally 
+
+        ls -al ~/.ssh
+
+        tip:  When you search files, remember stay into the directory 
+
+    3- Public key vs Private
+
+        public key: Put it in GitHub --> (Put it in GitHub)
+        private key: keep secure on your local machine and dont follow (Connect with GitHub, push code or use your account your local machine.
+        Used to Show git GitHub you are that generate this public key)
+
+    4 - Copy public key 
+
+        Use command cat to show what's inside the file and copy 
+
+        If you have doubt, you should see Basics in 'commands.txt'  
+
+
+          
+        
