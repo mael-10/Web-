@@ -6,6 +6,20 @@ Traga um repositório hospedado em algum lugar como o GitHub para uma pasta em s
 
 git clone URL_do_repositório
 - - - - - - - - - - - - - - - - 
+cd 🤩
+
+cd é um comando para mudar seu diretório para frente ou para trás. Para ir para frente:
+
+cd nome_do_arquivo
+
+ou para voltar:
+
+cd ..
+
+Mas se você quiser sair de todos os diretórios, use:
+
+cd --
+- - - - - - - - - - - - - - - - 
 Git Add 😊
 
 Quando você atualiza arquivos, ou cria ou exclui arquivos e pastas, você vai dizer ao Git que gostaria de rastrear essas mudanças. Exemplo:
@@ -87,3 +101,13 @@ Exemplo:
 git init
 
 Mude o diretório e use o comando.
+- - - - - - - - - - - - - - - - - - 
+Git cat 😳
+
+Mostra o conteúdo do arquivo
+Exemplo:
+
+cat index.html
+
+Sempre e não esqueça de permanecer no diretório onde estão seus arquivos
+- - - - - - - - - - - - - - - - - -

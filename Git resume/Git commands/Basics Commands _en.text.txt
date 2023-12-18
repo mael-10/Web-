@@ -9,6 +9,21 @@ Example:
 git clone URL_repository 
 
 - - - - - - - - - - - - - - - - -
+cd 🤩
+
+cd is a command to change your to directory forward or backward 
+for forward: 
+
+cd file_name
+
+or backward: 
+
+cd .. 
+
+But if you can just only go out all directory, use: 
+
+cd --  
+- - - - - - - - - - - - - - - - -
 Git Add 😊
 
 When you update files, or created or deleted files and folders, you are going to tell git that you would like git track those changes
@@ -98,6 +113,16 @@ Example:
 git init 
 
 	*Change the directory and use the command
+- - - - - - - - - - - - - - - - - - 
+Git cat 😳   
+
+Show what's inside the file 
+Example: 
+
+cat index.html
+
+Always and don't foget to stay in the directory that there're your files 
+- - - - - - - - - - - - - - - - - - 
 
 
 
