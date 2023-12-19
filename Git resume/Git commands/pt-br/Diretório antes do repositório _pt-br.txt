@@ -1,10 +1,18 @@
 Criar um diretório antes do repositório? Siga estes passos:
 
-1- Criar pasta
-2- Criar o commit (mesmo nome da pasta)
-3- No Git Bash: git remote add origin "link_do_repositório"
-4- Para verificar os links dos seus repositórios:
-git remote -v
-5- git push origin -u origin main ou master
+1- git init  
+2- git remote add origin "link_do_repositorio" 
+3- Para verificar o seu link do repositório 
+   git remote -v (para ver para onde o git enviará o seu repositório)
+4- git push origin -u origin main ou master 
 
--u: Apenas use "git push" para as próximas vezes
+-u: Apenas use "git push" nas próximas vezes 
+
+Você também pode usar o mesmo exemplo abaixo:
+
+1- git init
+2- git add README.md
+3- git commit -m "primeiro commit"
+4- git branch -M main
+5- git remote add origin nome_do_repositorio
+6- git push -u origin main
