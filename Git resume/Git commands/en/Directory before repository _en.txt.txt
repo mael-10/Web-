@@ -1,0 +1,10 @@
+Created a directory before repository? Use this steps: 
+
+1- Creat folder 
+2- Create the commity (Same folder's name) 
+3- In Git bash: git remote add origin "repository_link" 
+4- To check out yours repositories links: 
+git remote -v 
+5- git push origin -u origin main or master 
+
+-u: Just use "git push" for next time  
