@@ -96,15 +96,6 @@ git rm -r name_of_file.type_of_file --> ex:(git rm -r index.html)
 
 Tip:  Always certify you are in the directory 'main' or 'master' to use it. You should access the same directory that are in your github and after that use this on CLI 
 - - - - - - - - - - - - - - - - - -
-ls -la or ls 😯
-
-
-ls -la is (windows) and la (MacOs) a command used in Unix-like systems, such as macOS, to list the contents of a directory in a detailed manner.
-Example: 
-
-ls -la
-
-- - - - - - - - - - - - - - - - - - 
 Git init 🫡 
  
 To inicialize a commit. In other hand git init is a Git command used to initialize a new Git repository in an existing directory. When you run git init, it creates a new hidden subfolder called '.git' in the current directory. This folder contains all the necessary files for the operation of the local Git repository, including configurations, commit history, and other metadata. 
@@ -113,6 +104,25 @@ Example:
 git init 
 
 	*Change the directory and use the command
+- - - - - - - - - - - - - - - - - - 
+ls -la or ls 😯
+
+
+ls -la is (windows) and la (MacOs) a command used in Unix-like systems, such as macOS, to list the contents of a directory in a detailed manner.
+Example: 
+
+ls -la
+
+- - - - - - - - - - - - - - - - - -
+rm -rf .git 😮
+
+When you use 'ls -la' you can list all your contents detailed and you can see (if you are in repository where used 'git init') will apper 
+file '.git'. It means the spot where your directory will be commit. But what to do if you use 'git init' on the wrong way?
+
+	1- Identify where is your '.git', is generaly at same why where you put 'git init'. To help use: ls -la
+	2- use: rm -rf .git 
+
+After you delete your .git and now choose the right way to use 'git init'  
 - - - - - - - - - - - - - - - - - - 
 Git cat 😳   
 

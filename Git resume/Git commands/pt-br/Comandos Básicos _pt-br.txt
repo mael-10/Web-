@@ -85,12 +85,6 @@ Selecione a pasta ou arquivo que você deseja remover. Exemplo:
 git rm -r nome_do_arquivo.tipo_do_arquivo  --> ex:(git rm -r index.html)
 
 Dica: Certifique-se sempre de estar no diretório 'main' ou 'master' para usar isso. Você deve acessar o mesmo diretório que está no seu GitHub, e depois usar isso no CLI.
-- - - - - - - - - - - - - - - - - 
-ls -la ou ls 😯
-
-ls -la (Windows) e ls (MacOs) é um comando usado em sistemas Unix-like, como o macOS, para listar o conteúdo de um diretório de maneira detalhada. Exemplo:
-
-ls -la
 - - - - - - - - - - - - - - - - -
 Git Init 🫡
 
@@ -101,7 +95,22 @@ Exemplo:
 git init
 
 Mude o diretório e use o comando.
-- - - - - - - - - - - - - - - - - - 
+- - - - - - - - - - - - - - - - - 
+ls -la ou ls 😯
+
+ls -la (Windows) e ls (MacOs) é um comando usado em sistemas Unix-like, como o macOS, para listar o conteúdo de um diretório de maneira detalhada. Exemplo:
+
+ls -la
+- - - - - - - - - - - - - - - - -
+rm -rf .git 😮
+
+Quando você usa 'ls -la', pode listar todo o conteúdo detalhado e você pode ver (se estiver no repositório onde usou 'git init') que aparecerá o arquivo '.git'. Isso indica o local onde seu diretório será commitado. Mas o que fazer se você usar 'git init' de maneira incorreta?
+
+	1- Identifique onde está o seu '.git'. Geralmente está no mesmo local onde você usou 'git init'. Para ajudar, use: ls -la
+	2- Use: rm -rf .git 
+
+Depois de excluir o seu .git, agora escolha a maneira correta de usar 'git init.'  
+- - - - - - - - - - - - - - - - -
 Git cat 😳
 
 Mostra o conteúdo do arquivo
