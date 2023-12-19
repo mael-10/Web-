@@ -1,0 +1,16 @@
+Why is Git Branches? 
+
+Git Branches is used if you will building new aplications that may break your code or they are not finished yet and you dont't want save
+them to the main or master Branche.  But if you finished the new aplications and have certain, can merge with the main branche. 
+
+    1- git branch (The currently branch and where the star meaning you are currently on that branch)  
+    To get out use: Q
+    2- git checkout -b name_of_the_branch 
+    3- git checkout name_of_the_branch (switch between branche)
+    4- Modifie the file 
+    5- git add 
+    6- git diff name_of_the_branch (To see what was modify) 
+    6- Git commit 
+    7- git push -u origin name_of_the_branch (for set up branch) 
+
+    If you want you can do a pull request to merge 
