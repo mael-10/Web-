@@ -1,0 +1,13 @@
+O uso de branches no Git é útil ao desenvolver novas aplicações que podem quebrar o código existente ou que ainda não estão finalizadas, e você não deseja salvá-las na branch principal (main ou master). No entanto, quando a nova aplicação estiver concluída e for considerada estável, é possível mesclá-la à branch principal.
+
+1- git branch (A branch atual e onde a estrela indica que você está atualmente nessa branch)
+Para sair, use: Q
+2- git checkout -b nome_da_branch
+3- git checkout nome_da_branch (Alternar entre branches)
+4- Modificar o arquivo
+5- git add
+6- git diff nome_da_branch (Para ver o que foi modificado)
+6- git commit
+7- git push -u origin nome_da_branch (Configurar a branch)
+
+Se desejar, você pode criar uma solicitação de pull para mesclar.
