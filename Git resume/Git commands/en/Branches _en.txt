@@ -14,3 +14,23 @@ them to the main or master Branche.  But if you finished the new aplications and
     7- git push -u origin name_of_the_branch (for set up branch) 
 
     If you want you can do a pull request to merge 
+
+    8- After a pull request you can delete if dont use anymore: 
+
+    git checkout -d name_of_the_branch 
+
+    - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+    Git conflicts in Git: 
+
+
+    Lets take a look in real life situation: There's something called merging conflicts in git where basically you're building
+    your own branch and maybe other people are writting code on their branches. And master/main is getting updateded from different 
+    places. So its possible for multiple people to change same files. And sometimes git doesn't understand know which code you want 
+    to keep, or which code is redudant, or which code you want to get rid of.  To solve this: Manually 
+
+    Lets try that ou: 
+
+    1- Create a new branch 
+
+
