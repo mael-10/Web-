@@ -29,7 +29,7 @@ them to the main or master Branche.  But if you finished the new aplications and
     places. So its possible for multiple people to change same files. And sometimes git doesn't understand know which code you want 
     to keep, or which code is redudant, or which code you want to get rid of.  To solve this: Manually 
 
-    Lets try that ou: 
+    Lets try that out: 
 
     1- Create a new branch 
 
