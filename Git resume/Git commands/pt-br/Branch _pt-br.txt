@@ -1,4 +1,6 @@
-O uso de branches no Git é útil ao desenvolver novas aplicações que podem quebrar o código existente ou que ainda não estão finalizadas, e você não deseja salvá-las na branch principal (main ou master). No entanto, quando a nova aplicação estiver concluída e for considerada estável, é possível mesclá-la à branch principal.
+O uso de branches no Git é útil ao desenvolver novas aplicações que podem quebrar o código existente ou que ainda não estão finalizadas, 
+e você não deseja salvá-las na branch principal (main ou master). 
+No entanto, quando a nova aplicação estiver concluída e for considerada estável, é possível mesclá-la à branch principal.
 
 1- git branch (A branch atual e onde a estrela indica que você está atualmente nessa branch)
 Para sair, use: Q
