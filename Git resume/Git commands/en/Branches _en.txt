@@ -1,7 +1,7 @@
 Why is Git Branches? 
 
 Git Branches is used if you will building new aplications that may break your code or they are not finished yet and you dont't want save
-them to the main or master Branche.  But if you finished the new aplications and have certain, can merge with the main branche. 
+them to the main Branche.  But if you finished the new aplications and have certain, can merge with the main branche. 
 
     1- git branch (The currently branch and where the star meaning you are currently on that branch)  
     To get out use: Q
@@ -21,7 +21,7 @@ them to the main or master Branche.  But if you finished the new aplications and
 
     - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-    Git conflicts in Git: 
+    Git conflicts in locally: 
 
 
     Lets take a look in real life situation: There's something called merging conflicts in git where basically you're building
@@ -32,5 +32,25 @@ them to the main or master Branche.  But if you finished the new aplications and
     Lets try that out: 
 
     1- Create a new branch 
+    2- Add something in branch that you created
+    3- git commit -am (Will commit and add at same time)
+    *Just used for modifie files 
+    4- Change the branche and modifie the same line (main/master)
+    5- If you try change the branch after the same line, will apper a massage: 
 
+        error: Your local changes to the following files would be overwritten by checkout:
+            README.md
+        Please commit your changes or stash them before you switch branches.
+        Aborting 
+    
+    The git dont letting me change branches because i have local changes that line to added in main and its says it's going to be overwritten if i change branches.
+    So its asking me to commit before i change, so that way line two will be save in get in main branch and wont be lost when i change branches
 
+    To solve it: add and commit 
+
+    6- Select the branch you had created and use: 
+    git merge 'main' or 'master' 
+
+    With that main or master branch will gets updated from the feature brach 
+
+    7- Save your main or master branch and the feature branch. So select the main brach and push 
