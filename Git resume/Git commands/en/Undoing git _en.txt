@@ -1,0 +1,29 @@
+So if we make a mistake? What if we accidentally add or 
+or commit something wrong? 
+
+- - - - - - - - - - - - - - - - - - - - - - - - 
+Add: 
+
+1- Git reset file_name (When you are undoing your add)
+Or just use reset.
+
+The reset will undo previous files 
+- - - - - - - - - - - - - - - - - - - - - - - -
+
+Commit
+
+git reset HEAD~1
+
+That command tells git insteading do point to previous commit, point one commit futher
+meaning it will completely undo the commit that i just made
+
+But if you have many differents commits: 
+
+1- git log 
+2- Copy the hash 
+3- Git reset hash_code
+
+git reset --hard hash_code
+meaning i want of the changes to not just be unstaged
+but completely removed s
+
