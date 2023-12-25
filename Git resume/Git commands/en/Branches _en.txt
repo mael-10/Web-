@@ -17,7 +17,7 @@ them to the main Branche.  But if you finished the new aplications and have cert
 
     8- After a pull request you can delete if dont use anymore: 
 
-    git checkout -d name_of_the_branch 
+    git branch -d branch_name
 
     - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
@@ -33,8 +33,7 @@ them to the main Branche.  But if you finished the new aplications and have cert
 
     1- Create a new branch 
     2- Add something in branch that you created
-    3- git commit -am (Will commit and add at same time)
-    *Just used for modifie files 
+    3- git commit -am (Will commit and add at same time. However is used to modify a file dont to create one)
     4- Change the branche and modifie the same line (main/master)
     5- If you try change the branch after the same line, will apper a massage: 
 
@@ -43,14 +42,22 @@ them to the main Branche.  But if you finished the new aplications and have cert
         Please commit your changes or stash them before you switch branches.
         Aborting 
     
-    The git dont letting me change branches because i have local changes that line to added in main and its says it's going to be overwritten if i change branches.
+    The git dont letting me change branches because i have local changes that line added in main and its says it's going to be overwritten if i change branches.
     So its asking me to commit before i change, so that way line two will be save in get in main branch and wont be lost when i change branches
 
-    To solve it: add and commit 
+    To solve it: add and commit.  
 
-    6- Select the branch you had created and use: 
-    git merge 'main' or 'master' 
+    6- Select the branch you would like to merge: 
+    git merge branch_name  
 
     With that main or master branch will gets updated from the feature brach 
 
-    7- Save your main or master branch and the feature branch. So select the main brach and push 
+    7- Save your main or master branch and the feature branch. So select the main brach and push. 
+    - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+    Useful commands: 
+
+    git merge (will merge your branch) 
+    git push origin --delete branch_name (To delete your branch in remote)
+    git branch -d (delete branch you merged in local)
+    git branch -D (The capital 'D' offer you gets delete in a forced way when '-d' doesnt work in local).
