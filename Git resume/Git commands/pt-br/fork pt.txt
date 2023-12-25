@@ -8,8 +8,8 @@ Encontre o Botão "Fork":
 
 3- No canto superior direito da página do repositório, você encontrará o botão "Fork". Clique nele.
 Escolha o Local do Fork:
-Uma janela pop-up será exibida, solicitando que você escolha para onde deseja fazer o fork. Selecione sua própria conta (ou a organização à qual deseja associar o fork) como destino.
-Aguarde o Processo de Fork:
+    Uma janela pop-up será exibida, solicitando que você escolha para onde deseja fazer o fork. Selecione sua própria conta (ou a organização à qual deseja associar o fork) como destino.
+    Aguarde o Processo de Fork:
 
 O GitHub agora criará uma cópia do repositório na sua conta. Isso pode levar alguns momentos, dependendo do tamanho do repositório.
 Clone o Repositório Forkado (Opcional):
