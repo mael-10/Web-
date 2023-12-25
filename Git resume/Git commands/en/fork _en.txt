@@ -1,0 +1,51 @@
+Forking a Repository on GitHub:
+
+1- Navigate to the Repository:
+
+2- Go to the repository you want to fork on GitHub by accessing it through the browser.
+Find the "Fork" Button:
+
+3- In the upper right corner of the repository page, you will find the "Fork" button. Click on it.
+Choose the Fork Destination:
+
+4- A pop-up window will appear, asking you to choose where to fork. Select your own account (or the organization you want to associate the fork with) as the destination.
+Wait for the Fork Process:
+
+GitHub will now create a copy of the repository in your account. This may take some time depending on the size of the repository.
+Clone the Forked Repository (Optional):
+
+5- After forking, you can clone the repository to your local computer using the git clone command in the terminal. This will allow you to make changes to the code.
+
+
+    git clone https://github.com/your-username/your-fork.git
+
+Now you have a copy of the repository in your GitHub account and, if desired, on your local computer. You can make changes, experiment, and when ready,
+you can submit a pull request to the original repository for your changes to be considered by the project maintainer.
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+Sending Changes from Your Fork Back to the Original Project:
+
+Submitting changes from your fork back to the original project is done through a "pull request". 
+Here is a step-by-step guide on how to do this:
+
+1- Make Changes in Your Fork: Modify and commit.
+
+2- Go to the page of your fork on GitHub and click on the "New pull request" button.
+and select Branches 
+
+3- Choose the branch from your fork that contains the modifications on the left side and the branch from the original project on the right side.
+Review the Modifications:
+
+4- Make sure to review the modifications you are requesting to ensure everything is correct.
+Create the Pull Request:
+
+5- Click on the button to create the pull request. You can add a description explaining your changes.
+Wait for the Review:
+
+Now, the maintainers of the original project will have the opportunity to review your changes.
+They can approve, request additional changes, or discuss the modifications with you.
+
+
+
+
+
+

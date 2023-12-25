@@ -1,0 +1,43 @@
+
+Fazer um fork no GitHub é um processo bastante simples. Aqui estão os passos básicos:
+
+1- Navegue até o Repositório:
+
+2- Vá para o repositório que você deseja forkar no GitHub, acessando-o através do navegador.
+Encontre o Botão "Fork":
+
+3- No canto superior direito da página do repositório, você encontrará o botão "Fork". Clique nele.
+Escolha o Local do Fork:
+Uma janela pop-up será exibida, solicitando que você escolha para onde deseja fazer o fork. Selecione sua própria conta (ou a organização à qual deseja associar o fork) como destino.
+Aguarde o Processo de Fork:
+
+O GitHub agora criará uma cópia do repositório na sua conta. Isso pode levar alguns momentos, dependendo do tamanho do repositório.
+Clone o Repositório Forkado (Opcional):
+
+4- Após o fork, você pode clonar o repositório para o seu computador local usando o comando git clone no terminal. Isso permitirá que você faça alterações no código.
+
+    git clone https://github.com/seu-usuario/seu-fork.git 
+
+Agora você tem uma cópia do repositório na sua conta do GitHub e, se desejar, também no seu computador local. Você pode fazer alterações, experimentar, e quando estiver pronto, 
+pode enviar um pull request para o repositório original para que suas alterações sejam consideradas pelo mantenedor do projeto.
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+Enviar as modificações do seu fork de volta para o projeto original é feito por meio de um "pull request". 
+Aqui está um guia passo a passo de como fazer isso:
+
+1- Faça Alterações no Seu Fork: Modifique e commit 
+
+2- Vá para a página do seu fork no GitHub e clique no botão "New pull request".
+Selecione as Branches:
+
+3- Escolha a branch do seu fork que contém as modificações no lado esquerdo e a branch do projeto original no lado direito.
+Revise as Modificações:
+
+4- Certifique-se de revisar as modificações que você está solicitando para garantir que tudo esteja correto.
+Crie o Pull Request:
+
+5- Clique no botão para criar o pull request. Você pode adicionar uma descrição explicando suas alterações.
+Aguarde a Revisão:
+
+Agora, os mantenedores do projeto original terão a oportunidade de revisar suas alterações. 
+Eles podem aprovar, solicitar alterações adicionais ou discutir as modificações com você.
