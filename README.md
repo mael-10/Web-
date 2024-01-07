@@ -1,4 +1,4 @@
-# HTML, CSS and JS  😎
+# Web Development  😎
 
 Here I'll follow my study journey in web dev. 
 Futhermore, don't be awkward to reporte issues. 
