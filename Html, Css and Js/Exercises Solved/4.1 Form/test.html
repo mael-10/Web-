@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forms Tag</title>
+</head>
+<body>
+    <form action="index.php" method="post"> 
+        <!--method specify if is a "post" request or a "Get" request. Post is used for confidential(sensive)information such as a username and a password. Get is for insensitive data base-->
+        <label for="username">Username</label>
+        <input type="text" id="username" placeholder="name" maxlength="12" required /> <br /> 
+        <!--Use id for css and js easy indetify such css style or js functions-->
+        
+        <label for="password">password</label>
+        <input type="password" id="password" placeholder="password" maxlength="15" required /> <br />
+
+        <label for="email">email</label>
+        <input type="email" id="email" placeholder="email@gmail" required /> <br /> 
+
+        <label for="phone">phone</label>
+        <input type="tel" id="phone" placeholder="99 9999-9999" maxlength="15" required /> <br /> 
+
+        <label for="bday">Birthday</label>
+        <input type="date" id="bday" placeholder="yyyy/mmm/dd" required /> <br />
+        
+        <label for="quantity">Quantity</label>
+        <input type="number" id="quantity" placeholder="quantity" min="0" max="200" /> <br />
+
+        <label for="SexoM">M</label>
+        <input type="radio" id="SexoF" value="SexoF" name="title">
+        <label for="SexoF">F</label>
+        <input type="radio" id="SexoM" value="SexoM" name="title"> <br /> 
+
+        <label for="UF">UF</label>
+        <select>
+            <option value="MG">MG</option>
+            <option value="RJ">RJ</option>
+            <option value="ES">ES</option>
+            <option value="SP">SP</option> <br /> 
+        </select>    
+        
+        <label for="subscription">subscribe</label>
+        <input type="checkbox" id="subscribe"> <br />
+
+        <label for="comment">Textarea</label> 
+        <textarea id="comment"></textarea> <br /> 
+
+        <label for="file">File</label>
+        <input type="file" id="file" accept="video/*" /> <br /> <!--Dando erro e não sei pq--> 
+        
+        <input type="reset" />
+        <input type="submit" /> 
+
+    </form>
+
+</body>
+</html>
+

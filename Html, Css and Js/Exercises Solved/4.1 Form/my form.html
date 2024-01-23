@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="Author" content="Subject">
+    <meta name="Ismael Henrique" content="Um formulário básico">
+    <title>My formulário</title>
+</head>
+<body>
+    <h1>Cadastro de Cliente</h1>
+    <p>Answer the form correctly</p>
+    <hr />
+
+    <form action="index.js" method="post">
+        <label for="username">usename</label>
+        <input type="text" id="username" placeholder="username" required /> <br /> 
+
+        <label for="Email">email</label>
+        <input type="email" id="email" placeholder="email" required /> <br /> 
+
+        <label for="CPF">CPF</label>
+        <input type="text" id="CPF" placeholder="CPF" required /> <br /> 
+
+        <label for="Phone">phone</label>
+        <input type="tel" id="phone" placeholder="phone" required />   <br /> 
+
+        <label for="Sexo">M</label> 
+        <input type="radio" id="sexo" value="sexo" name="title" />
+        <label for="Sexo">F</label> 
+        <input type="radio" id="sexo" value="sexo" name="title" /> <br />
+
+        <label  for="UF">UF</label> 
+        <select>
+            <option value="MG">MG</option>
+            <option value="SP">SP</option>
+            <option value="RJ">RJ</option>
+            <option value="ES">ES</option> 
+            <option value="RS">RS</option> 
+            <option value="PE">PE</option> 
+        </select> <br /> 
+
+        <label for="dcompra">data compra</label>
+        <input type="datetime" id="dcompra" placeholder="date time" required /> <br /> 
+
+        <label for="qte">quantity</label>
+        <input type="number" id="quantity" placeholder="quantity" required /> <br /> 
+
+        <label for="comment">Comment here</label> 
+        <textarea id="comment"></textarea> <br /> 
+
+        <label for="file">File</label>
+        <input type="file" id="file" accept="img/*">  <br /> 
+
+        <label type="subscribe">Do you accept service notifications</label> 
+        <input type="checkbox" id="subscribe" /> <br /> 
+
+        <input type="submit">
+        <input type="reset">
+    </form>
+</body>
+</html>
