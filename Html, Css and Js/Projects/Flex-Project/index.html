@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <title>Flex-Box</title>
+    <style>
+
+        body {
+            background-color: #1d1e1f;
+            margin: 0%;
+            height: 100vh;
+        }
+
+        header {
+            background-color: #212121;  
+            color: #fbf9fa;
+            height: 8vh;
+            margin-top: 0;
+            padding: 10px; 
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        p {
+            font-size: xx-large;
+            font-family: "PT Sans", sans-serif;
+            font-weight: 700;
+            font-style: normal; 
+           
+        }
+
+        @media (max-width: 650px) {
+            a {
+                display: none;
+            }
+        }
+
+        a {
+            color: rgb(209, 75, 209);
+            font-family: "PT Sans", sans-serif; 
+            font-weight: bold;
+        }
+
+        a:link {
+            text-decoration: none; 
+        }
+        
+        a:hover {
+            cursor: pointer;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <header>
+            <a href="#">Shop</a>
+            <a href="#">Faster</a>
+            <p>Bolo da Vovó</p> 
+            <a href="#">Run</a>
+            <a href="#">Suporte</a>
+    </header>
+</div>
+</body>
+</html>

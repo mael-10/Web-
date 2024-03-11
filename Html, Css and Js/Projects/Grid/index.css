@@ -1,0 +1,31 @@
+.container {
+    background-color: #333;
+    border: 3px solid red;
+    padding: 15px;
+    display: grid;
+    grid-template-columns: auto auto 30%;
+    grid-template-rows: 100px 300px;
+    gap: 5px;
+    height: 70vh;
+}
+
+.container div {
+    background-color: #CCC;
+    padding: 20px;
+    border: 1px solid blue;
+   
+}
+
+#footer {
+    grid-column: span 3;
+    display: flex;
+    justify-content: center;
+}
+
+#header {
+    grid-column: span 3;
+}
+
+#conteudo {
+    grid-column: span 2;
+}
