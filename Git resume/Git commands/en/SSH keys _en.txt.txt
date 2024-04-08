@@ -10,7 +10,7 @@ What's SSH Key?
 
         More or less real example: 
 
-        SSH -keygen -t rsa -b 4096 -C your_email@gmail.com 
+        SSH-keygen -t rsa -b 4096 -C your_email@gmail.com 
     
         The encryption is a variable, but here the communs values: 
 
