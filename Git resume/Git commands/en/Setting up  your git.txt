@@ -1,0 +1,13 @@
+For setting up your github with git u have to do is using the right commands bellow. Don't worry, it's a simple process: 
+
+1 - git config --global user.name "pu t here your user_name"
+
+2- git config --global user.email "put the same email who is in your github"
+
+Did it go to next file "SSH keys" to continues your settings 
+
+Addiction----------------------------------------------------
+
+There are some situations on the process of git config that we do wrong such as: typing your user name or email don't correctly
+
+For undoing it you do that process to cutting out your failures
