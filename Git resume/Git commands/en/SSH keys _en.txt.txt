@@ -6,7 +6,7 @@ What's SSH Key?
     To Generate a SSH Key type it in CLI: 
  
     1- Generate a SSH Key and Specify the type of encryption: 
-        SSH -keygen -t rsa -b encryption_value -C email 
+        SSH-keygen -t rsa -b encryption_value -C email 
 
         More or less real example: 
 
