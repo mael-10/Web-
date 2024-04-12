@@ -70,7 +70,3 @@ ssh-add
     Type yes and enter: 
 
     Hi username! You've successfully authenticated, but GitHub does not provide shell access.
-
-       
-          
-        
