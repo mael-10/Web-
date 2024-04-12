@@ -38,16 +38,39 @@ What's SSH Key?
 
     4 - Copy public key 
 
-        Use command cat to show what's inside the file where is the public key and copy 
+        Use command cat to show what's inside the file where is the public key and copy and put it on github 
 
-        If you have doubt about 'cat', you should see Basics in 'commands.txt' 
-
-    5 - At the moment adding a key in GitHub 
+        If you have doubt about 'cat', you should see Basics in 'commands.txt'. 
 
         When you add a key will apper two options: 
         1- Authentication key - Whith this option you allow access and authenticate your identify in GitHub as: Clone, push, or pull 
         2- Signing key - When has select this option you add a extra layer of authentication to informate that commits has made from you (literilly a sign)
 
         In that case use: Authentication Key 
+
+    5 - Start ssh-agent 
+
+    Put it on GitBash: eval `ssh-agent -s`
+ssh-add
+
+        SSH needs two things in order to use ssh-agent: an ssh-agent instance running in the background, and an environment variable set that tells SSH which socket it should use to                connect to the agent (SSH_AUTH_SOCK IIRC).
+
+    6- Add ssh to your local Machine 
+
+    Put it on Gitbash: ssh-add ~/.ssh/id_rsa
+
+    7- Test your SSH-key 
+
+    Use ssh -T git@github.com and you gonna see: 
+
+    The authenticity of host 'github.com (207.97.227.239)' can't be established.
+
+    RSA key fingerprint is 16:27:ac:a5:76:28:2d:36:63:1b:56:4d:eb:df:a6:48.
+    Are you sure you want to continue connecting (yes/no)?
+    Type yes and enter: 
+
+    Hi username! You've successfully authenticated, but GitHub does not provide shell access.
+
+       
           
         
