@@ -4,7 +4,7 @@ Created a directory before repository? Use this steps:
 2- git remote add origin "repository_link" 
 3- To check out yours repository_link 
 git remote -v (to see where git will push your repository)
-4- git push origin -u origin main or master 
+4- git push -u origin main or master 
 
 -u: Just use "git push" for next time 
 
