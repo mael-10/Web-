@@ -10,4 +10,4 @@ Addiction----------------------------------------------------
 
 There are some situations on the process of git config that we do wrong such as: typing your user name or email don't correctly
 
-For undoing it you do that process to cutting out your failures
+For undoing it you do that process to cutting out your failures:
