@@ -1,0 +1,1 @@
+document.querySelector("h1").innerHTML = "You gonna have awesome experince with stuff";
