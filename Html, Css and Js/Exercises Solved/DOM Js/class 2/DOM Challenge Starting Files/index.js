@@ -21,3 +21,12 @@ for (var i = 0; i < colorSelector.length; i++) { //Put the array on Loop where i
         colorSelector[i].style.color = "purple"; 
     }
 }
+
+document.getElementsByClassName("btn")[0].style.color = "blue";
+
+const butto = document.getElementById("butte"); 
+const box = document.getElementById("textbox"); 
+
+butto.addEventListener("click", function() {
+    box.click(); 
+})
