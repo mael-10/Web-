@@ -1,27 +1,26 @@
-var outPut = []; 
-var count = 1; 
+var bottle99 = 99; 
+var bottle98 = 98; 
+var count = 99; 
+var value; 
 
-var l = prompt("Type the repetition number"); 
+function bottle(b99, b98) {
 
-
-function fizBuzz() {
-    
-    if (count % 3 === 0 || count % 5 === 0) {
-        outPut.push("FizBuzz"); 
+    if (b99 >= 2) {
+         return (b99 + " bottles of beer on the wall, " + b99 + " bottles of beer. Take one down and pass it around, " + b98 +" bottles of beer on the wall.")
         
-    } else if (count % 3 === 0) {
-        outPut.push("Fiz"); 
+    } else if (b99 === 1) {
+        return (b99 + " bottles of beer on the wall, " + b99 + " bottles of beer. Take one down and pass it around, no more bottles of beer on the wall.") 
         
-    } else if (count % 5 === 0) {
-        outPut.push("fizBuzz"); 
+    } else if (b99 === 0) {
+         return ("No more bottles of beer on the wall, no more bottles of beer. Go to the store and buy some more, 99 bottles of beer on the wall.") 
         
-    } else {
-        outPut.push(count)
     }
-    
-    count++;
-    console.log(outPut);
 }
-for (var i = 0; i < l; i++) {
-    fizBuzz();     
-} 
+
+while (count >= 0) {
+    value = bottle(bottle99, bottle98); 
+    count--; 
+    bottle99--;
+    bottle98--;
+    console.log(value); 
+}

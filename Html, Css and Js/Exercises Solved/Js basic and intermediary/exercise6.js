@@ -1,23 +1,27 @@
-function isLeap(year) {
+var outPut = []; 
+var count = 1; 
+
+var l = prompt("Type the repetition number"); 
+
+
+function fizBuzz() {
     
-    /**************Don't change the code above****************/    
+    if (count % 3 === 0 || count % 5 === 0) {
+        outPut.push("FizBuzz"); 
         
-        //Write your code here. 
+    } else if (count % 3 === 0) {
+        outPut.push("Fiz"); 
         
+    } else if (count % 5 === 0) {
+        outPut.push("fizBuzz"); 
         
-        if (year % 400 === 0 || year % 4 === 0 && year % 100 !== 0)  {
-            
-           return "Leap year.";
-           
-        } else {
-            
-            return "Not leap year."; 
-        }
-    
-        
-    
-    /**************Don't change the code below****************/    
-    
+    } else {
+        outPut.push(count)
     }
     
-    isLeap(1900);  
+    count++;
+    console.log(outPut);
+}
+for (var i = 0; i < l; i++) {
+    fizBuzz();     
+} 
