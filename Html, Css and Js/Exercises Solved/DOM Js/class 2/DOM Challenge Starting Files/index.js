@@ -11,7 +11,6 @@ list.innerHTML = "Ismael";
 
 var colorSelector = document.getElementsByTagName("li"); //Tree variables, because are three items (It's an Array variable)
 
-
 for (var i = 0; i < colorSelector.length; i++) { //Put the array on Loop where is lower than your length
     
     if (i === 2) { //If is equal 2 is gonna change color to red and gonna apper a pop-up 
@@ -23,6 +22,7 @@ for (var i = 0; i < colorSelector.length; i++) { //Put the array on Loop where i
 }
 
 document.getElementsByClassName("btn")[0].style.color = "blue";
+
 
 const butto = document.getElementById("butte"); 
 const box = document.getElementById("textbox"); 
