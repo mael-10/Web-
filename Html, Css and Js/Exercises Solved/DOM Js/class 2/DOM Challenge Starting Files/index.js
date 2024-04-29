@@ -27,6 +27,6 @@ document.getElementsByClassName("btn")[0].style.color = "blue";
 const butto = document.getElementById("butte"); 
 const box = document.getElementById("textbox"); 
 
-butto.addEventListener("click", function() {
+butto.addEventListener("click", function() { //iIf I click on button, the check-box will click too 
     box.click(); 
 })
