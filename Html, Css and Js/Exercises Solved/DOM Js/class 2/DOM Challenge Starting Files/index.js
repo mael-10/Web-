@@ -25,14 +25,14 @@ for (var i = 0; i < colorSelector.length; i++) { //Put the array on Loop where i
 
 document.getElementsByClassName("btn")[0].style.color = "blue";
 
+
 const butto = document.getElementById("butte"); 
 const box = document.getElementById("textbox"); 
 
 butto.addEventListener("click", function() { //iIf I click on button, the check-box will click too 
-    box.click();
-    document.body.backgroundColor = "red"; 
+    box.click(); 
 })
 
-var listItem = document.querySelectorAll("#list > .item"); // Select all elements  (It's an Array)
+var listItem = document.querySelector("#list > .item"); // Select all elements  (It's an Array)
 
-document.querySelector("button").style.backgroundColor = "yellow"; // Change the background color of button yellow  
+document.querySelector("button").style.backgroundColor = "yellow";
