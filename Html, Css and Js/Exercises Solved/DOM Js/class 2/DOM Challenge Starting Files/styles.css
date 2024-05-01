@@ -1,3 +1,20 @@
 h1 {
   color: red;
 }
+
+.huge {
+  font-size: 10rem;
+  background-color: yellow;
+  display: flex;
+  justify-content: center;
+}
+
+::selection {
+  background-color: rebeccapurple;
+  color: black;
+}
+
+::-moz-selection { /*For firefox*/
+  background-color: rebeccapurple;
+  color: black;
+}

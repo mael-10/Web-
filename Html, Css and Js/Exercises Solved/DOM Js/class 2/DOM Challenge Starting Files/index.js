@@ -3,7 +3,7 @@ var list = document.querySelector("ul").lastElementChild;
 
 
 // 'querySelector' select a sepecify tags using css syntax
-list.innerHTML = "Ismael"; 
+list.innerHTML = "<em>Ismael</em>";  //Inner html gives you the html and the tags inside it. With it, u can write a tag inside the html
 
 // Query selector selects only once element 
 
@@ -16,23 +16,25 @@ for (var i = 0; i < colorSelector.length; i++) { //Put the array on Loop where i
     if (i === 0) { //If is equal 2 is gonna change color (a) to red and gonna apper a pop-up
 
         document.querySelector(".list > a").style.color = "red"; //Tag a is red
-        alert(colorSelector[i].textContent);
+        alert(colorSelector[i].textContent); //Text content to write the variables 
     } else {
 
         colorSelector[i].style.color = "purple"; 
     }
 }
 
-document.getElementsByClassName("btn")[0].style.color = "blue";
+document.getElementsByClassName("btn")[0].style.color = "blue"; //Change the text color of button blue 
 
 
 const butto = document.getElementById("butte"); 
 const box = document.getElementById("textbox"); 
 
-butto.addEventListener("click", function() { //iIf I click on button, the check-box will click too 
+butto.addEventListener("click", function() { //if I click on button, the check-box gonna click too 
     box.click(); 
 })
 
-var listItem = document.querySelector("#list > .item"); // Select all elements  (It's an Array)
+var listItem = document.querySelectorAll("#list > .item"); // Select all elements  (It's an Array)
 
 document.querySelector("button").style.backgroundColor = "yellow";
+
+document.querySelector("h1").classList.add("huge"); // Add a class using Js
