@@ -37,4 +37,13 @@ var listItem = document.querySelectorAll("#list > .item"); // Select all element
 
 document.querySelector("button").style.backgroundColor = "yellow";
 
-document.querySelector("h1").classList.add("huge"); // Add a class using Js
+
+document.querySelector("h1").classList.add("huge"); // Add a class using Js. (remove and toggle)
+
+
+//At bellow u can change the attributs like href, scr and so on
+
+var attributte = document.querySelector("a").getAttribute("href"); //It's important to especify the attributs in which case it's "href"
+// Inside variable we have the value of atrribut. 
+
+document.querySelector("a").setAttribute("href", "https://mael-10.github.io/Portifolio/"); //Set a new atrributs 
