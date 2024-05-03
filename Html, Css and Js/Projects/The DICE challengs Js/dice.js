@@ -1,15 +1,15 @@
-var ramdomNumber1 = Math.floor((Math.random() * 6) + 1); // Gera o primeiro número 
-var ramdomNumber2 = Math.floor((Math.random() * 6) + 1); 
+var ramdomNumber1 = Math.floor((Math.random() * 6) + 1); // Gera o primeiro número do dado  
+var ramdomNumber2 = Math.floor((Math.random() * 6) + 1); // Gera o sgundo número do dado 
 var winDice = document.querySelector("h1");
 
-var ArrayOfDice = [
+var ArrayOfDice = [ // Array para selecionar os valores da imagem 1 e a imagem 2
     document.querySelector(".img1"),
     document.querySelector(".img2")
 ]; 
 
 function Dice2() {
 
-    if (ramdomNumber2 === 1) {
+    if (ramdomNumber2 === 1) { // Nessa função gera as imagens do segundo dado de acordo com o número 
         ArrayOfDice[1].setAttribute("src", "images/dice1.png"); 
     } else if (ramdomNumber2 === 2) {
         ArrayOfDice[1].setAttribute("src", "images/dice2.png");  
@@ -24,7 +24,7 @@ function Dice2() {
     }
 }
 
-function Dice1() {
+function Dice1() { // Nessa função gera as imagens do primeiro dado de acordo com o número 
 
     if (ramdomNumber1 === 1) {
         ArrayOfDice[0].setAttribute("src", "images/dice1.png"); 
@@ -41,10 +41,10 @@ function Dice1() {
     }
 }
 
-Dice1(); 
-Dice2(); 
+Dice1(); // Chamada da Função do dado 1 
+Dice2(); // Chamada da Função do dado 2
 
-if (ramdomNumber1 > ramdomNumber2) {
+if (ramdomNumber1 > ramdomNumber2) { // Se o dado 1 for maior que o dois, então ele ganha 
     winDice.innerHTML = "Dice 1 Won 😎"; 
 } else if (ramdomNumber1 < ramdomNumber2) {
     winDice.innerHTML = "Dice 2 Won 🥇"; 
@@ -56,5 +56,4 @@ if (ramdomNumber1 > ramdomNumber2) {
     setTimeout(timeTest, 1500); // Espera 1.5s para aparecer (chamar a função)
 
     winDice.innerHTML = "Draw!";  
-
 }
