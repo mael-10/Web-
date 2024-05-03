@@ -32,8 +32,18 @@ img {
   width: 80%;
 }
 
+.button-div {
+  margin-top: 40px;
+}
+
+.btn {
+  background-color: blue;
+  color: white; 
+  height: 50px;
+}
+
 footer {
-  margin-top: 5%;
+  margin-top: 4%;
   color: #EEEEEE;
   text-align: center;
   font-family: 'Indie Flower', cursive;
