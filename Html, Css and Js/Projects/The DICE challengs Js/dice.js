@@ -12,6 +12,7 @@ var images2 = document.querySelector(".img2");
 
 images1.setAttribute("src", randomDiceImage[0]); 
 images2.setAttribute("src", randomDiceImage[1]); 
+
 if (ramdomNumber1 > ramdomNumber2) {
     winDice.innerHTML = "Dice 1 Won 😎"; 
 } else if (ramdomNumber1 < ramdomNumber2) {
