@@ -22,7 +22,7 @@ if (ramdomNumber1 > ramdomNumber2) {
         winDice.innerHTML = "Refresh me!";  
     }
 
-    setTimeout(timeTest, 2000); 
+    setTimeout(timeTest, 1500); 
 
     winDice.innerHTML = "Draw!";  
 }
