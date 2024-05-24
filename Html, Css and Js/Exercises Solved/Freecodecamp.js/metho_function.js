@@ -11,5 +11,5 @@ var boneco = {
     }
 }
 
-boneco.andar(); //boneco (object) 
+boneco.andar(); //boneco (object) node metho_function.js
 boneco.falar(" está falando"); 
