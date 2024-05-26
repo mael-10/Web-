@@ -1,1 +1,2 @@
 .push add a varible on the array on final 
+.pop remove the final value of array and store it
