@@ -2,8 +2,10 @@ let count = 9;
 row = ['']; 
 
 for (let i = 0; i < count; i++) {
-    row[i+1] = row[i] + "#";
+    row[i+1] = row[i] + "#"; // Sempre adiciona o sucessor! assim o array vai ter 10 posições, uma vazia e o resto com os 9 números incrementados 
 }
+
+//Tem que ser o sucessor, pois os valores no array não podem ser nulos
 
 console.log(row); 
 console.log("\n \n"); 

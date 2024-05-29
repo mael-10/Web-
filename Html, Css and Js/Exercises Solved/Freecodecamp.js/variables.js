@@ -15,7 +15,7 @@ let fruts = ['apple', 'banana', 'cherry'];
 
 for (const value of fruts) { //Irá "value irá receber o valor cada vez que passa no loop"
   console.log(value);
-  storeFruit = storeFruit += "," + value;
+  storeFruit = storeFruit += value + ",";
 }
 
 // '+=' só vai incrementar quando houver um valor existente. 
