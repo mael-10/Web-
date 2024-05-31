@@ -16,7 +16,11 @@ for (const rowsElement of row) {
 
 //node pyramid_generator.js
 
-//Pyramid generator resolved of freecodecamp
+
+
+
+
+//Pyramid generator resolved of freecodecamp!!!
 
 console.log("\n \n"); 
 
@@ -24,8 +28,14 @@ const character = '#';
 const counter = 8; 
 const rows = []; 
 
+function padRow(name) { //Os parâmetros servem para mudar o resultado do retorno da função de maneira dinâmica e de forma sutilmente
+    return name; 
+}
+
+const call = padRow("Hello World"); //Argumento é o valor que vai ser passado para a variável 
+
 for (let i = 0; i < counter; i++) {
-    rows.push(character.repeat(i+1)); //Vai repetir a quantidade de caracteres de acordo com a variáel i. Adiciona 1, pois vai começar com o valor de zero 
+    rows.push(character.repeat(i+1)); //Vai repetir a quantidade de caracteres de acordo com a variáel i. Adiciona 1, pois vai começar com o valor 1 e não zero
 }
 
 let result = ""; //Adiciona valor vazio, pois não pode concatenar variáveis com valores vazio
@@ -35,5 +45,3 @@ for (const linhas of rows) { //A variável linha recebe a sequência das posiç�
 }
 
 console.log(result); 
-
-
