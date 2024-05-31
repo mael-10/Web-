@@ -40,7 +40,7 @@ for (let i = 0; i < counter; i++) {
 
 let result = ""; //Adiciona valor vazio, pois não pode concatenar variáveis com valores vazio
 
-for (const linhas of rows) { //A variável linha recebe a sequência das posições do array (uma por vez)
+for (const linhas of rows) { //A variável linha recebe a sequência das posições do array (uma por vez) a cada vez que o loop roda
     result = result + "\n" + linhas;
 }
 
