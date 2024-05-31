@@ -1,8 +1,14 @@
-let count = 9;
-row = ['']; 
+function cleanScreen() {
+    setTimeout(() => {
+        console.clear(); 
+    }, 2000);
+}
+
+let count = 9; 
+row = ['']; //Iniciar com um valor vazio para evitar erros 
 
 for (let i = 0; i < count; i++) {
-    row[i+1] = row[i] + "#";
+    row[i+1] = row[i] + "#"; //Concatena com a posição anterior, para adicionar de maneira sequêncial
 }
 
 console.log(row); 
@@ -34,3 +40,5 @@ for (const rowsElement of row) {
 // for (const rows of row) {
 //     console.log(rows); 
 // }
+
+cleanScreen();
