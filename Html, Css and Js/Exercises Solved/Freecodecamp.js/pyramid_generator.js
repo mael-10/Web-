@@ -1,11 +1,5 @@
-function cleanScreen() {
-    setTimeout(() => {
-        console.clear(); 
-    }, 2000);
-}
-
 let count = 9; 
-row = ['']; //Iniciar com um valor vazio para evitar erros 
+let row = ['']; //Iniciar com um valor vazio para evitar erros 
 
 for (let i = 0; i < count; i++) {
     row[i+1] = row[i] + "#"; //Concatena com a posição anterior, para adicionar de maneira sequêncial
@@ -22,25 +16,24 @@ for (const rowsElement of row) {
 
 //node pyramid_generator.js
 
-// ou 
+//Pyramid generator resolved of freecodecamp
 
-// let count = 9;
-// let row = ['']; 
+console.log("\n \n"); 
 
-// for (let i = 0; i < count; i++) {
-//     // Inicializa a próxima posição se não estiver definida
-//     if (row[i+1] === undefined) {
-//         row[i+1] = ''; 
-//     }
-//     // Adiciona "#" ao valor da linha atual e armazena na próxima posição
-//     row[i+1] = row[i] + "#";
-// }
+const character = '#'; 
+const counter = 8; 
+const rows = []; 
 
-// console.log(row); 
-// console.log("\n \n"); 
+for (let i = 0; i < counter; i++) {
+    rows.push(character.repeat(i+1)); //Vai repetir a quantidade de caracteres de acordo com a variáel i. Adiciona 1, pois vai começar com o valor de zero 
+}
 
-// for (const rows of row) {
-//     console.log(rows); 
-// }
+let result = ""; //Adiciona valor vazio, pois não pode concatenar variáveis com valores vazio
 
-cleanScreen();
+for (const linhas of rows) { //A variável linha recebe a sequência das posições do array (uma por vez)
+    result = result + "\n" + linhas;
+}
+
+console.log(result); 
+
+
