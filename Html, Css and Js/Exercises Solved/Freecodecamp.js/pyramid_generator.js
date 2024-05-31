@@ -11,6 +11,8 @@ for (let i = 0; i < count; i++) {
     row[i+1] = row[i] + "#"; //Concatena com a posição anterior, para adicionar de maneira sequêncial
 }
 
+//Tem que ser o sucessor, pois os valores no array não podem ser nulos
+
 console.log(row); 
 console.log("\n \n"); 
 
