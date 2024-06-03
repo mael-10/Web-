@@ -18,8 +18,6 @@ for (const rowsElement of row) {
 
 
 
-
-
 //Pyramid generator resolved of freecodecamp!!!
 
 console.log("\n \n"); 
@@ -28,14 +26,15 @@ const character = '#';
 const counter = 8; 
 const rows = []; 
 
-function padRow(name) { //Os parâmetros servem para mudar o resultado do retorno da função de maneira dinâmica e de forma sutilmente
-    return name; 
+function padRow(rowNumber, rowCount) { //Os parâmetros servem para mudar o resultado do retorno da função de maneira dinâmica e de forma sutilmente
+    const spaceCount = rowCount -  rowNumber;
+    let space = " ";
+
+    return space.repeat(spaceCount) + character.repeat(rowNumber) + space.repeat(spaceCount);
 }
 
-const call = padRow("Hello World"); //Argumento é o valor que vai ser passado para a variável 
-
 for (let i = 0; i < counter; i++) {
-    rows.push(character.repeat(i+1)); //Vai repetir a quantidade de caracteres de acordo com a variáel i. Adiciona 1, pois vai começar com o valor 1 e não zero
+    rows.push(padRow(i+1, count)); //Vai repetir a quantidade de caracteres de acordo com a variáel i. Adiciona 1, pois vai começar com o valor 1 e não zero
 }
 
 let result = ""; //Adiciona valor vazio, pois não pode concatenar variáveis com valores vazio
