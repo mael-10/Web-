@@ -10,8 +10,8 @@ function padRow(rowNumber, rowCount) { //Os parâmetros servem para mudar o resu
     return " ".repeat(rowCount - rowNumber) + character.repeat(2 * rowNumber - 1) + " ".repeat(rowCount - rowNumber);
 }
 
-for (let i = 0; i < counter; i++) {
-    rows.push(padRow(i+1, counter)); //Vai repetir a quantidade de caracteres de acordo com a variáel i. Adiciona 1, pois vai começar com o valor 1 e não zero
+for (let i = 1; i <= counter; i++) {
+    rows.push(padRow(i, counter)); //Vai começar com o valor de 1 e vai até o 8. (O valor do i++ somente é incrementado quando o loop termina)
 }
 
 let result = ""; //Adiciona valor vazio, pois não pode concatenar variáveis com valores vazio
