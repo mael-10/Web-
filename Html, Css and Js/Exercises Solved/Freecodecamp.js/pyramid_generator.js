@@ -3,7 +3,8 @@
 
 const character = '#'; 
 const counter = 8; 
-const rows = []; 
+const rows = [];
+const newRows = []; 
 
 function padRow(rowNumber, rowCount) { //Os parâmetros servem para mudar o resultado do retorno da função de maneira dinâmica e de forma sutilmente
 
@@ -22,3 +23,20 @@ for (const linhas of rows) { //A variável linha recebe a sequência das posiç�
 
 console.log(rows);
 console.log(result); 
+
+
+
+//Inverted Pyramid 
+ 
+let result2 = ""; 
+
+for(let i = counter; i > 0; i--) {
+    newRows.push(padRow(i, counter));
+}
+
+for (const linhas of newRows) { 
+    result2 = result2 + "\n" + linhas;
+}
+
+console.log(newRows); 
+console.log(result2); 
