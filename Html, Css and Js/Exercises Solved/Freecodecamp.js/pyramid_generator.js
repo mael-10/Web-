@@ -1,4 +1,4 @@
-//node pyramid_generator.js
+//'node pyramid_generator.js'
 //Pyramid generator resolved of freecodecamp!!!
 
 const character = '#'; 
@@ -30,8 +30,20 @@ console.log(result);
  
 let result2 = ""; 
 
-for(let i = counter; i > 0; i--) { //The first time that a number come up in loop, the value is unchanged in the first time 
-    newRows.push(padRow(i, counter));
+// for(let i = counter; i > 0; i--) { //The first time that a number come up in loop, the value is unchanged in the first time 
+//     newRows.push(padRow(i, counter));
+// }
+
+// for (const linhas of newRows) { 
+//     result2 = result2 + "\n" + linhas;
+// }
+
+// console.log(newRows); 
+// console.log(result2); 
+
+
+for (let i = 1; i <= counter; i++){
+    newRows.unshift(padRow(i, counter)); 
 }
 
 for (const linhas of newRows) { 
@@ -42,5 +54,5 @@ console.log(newRows);
 console.log(result2); 
 
 
-//1- pop, 2- push --> 1 - Retirar um elemento do array da última posição. 2 - Colocar um elemento do array na última posição 
-//1- Shift, 2- Unshifted --> Colocar o array 
+//1- pop, 2- push --> 1 - Retirar um elemento do array da última posição. 2 - Colocar um elemento do array na última posição.
+//1- Shift, 2- Unshifted --> 1 - Retirar um elemento do array na primeira prosição array. 2 - Color um elemento do array na primeira prosição array.
