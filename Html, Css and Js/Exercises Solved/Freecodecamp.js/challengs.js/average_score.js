@@ -29,7 +29,7 @@ function getGrade(score) {
     } else if(score <= 69 && score >= 60) {
         resultGrade = "D"; 
     } else {
-        resultGrade = ("F"); 
+        resultGrade = "F"; 
     }
 
     return resultGrade; 
@@ -38,3 +38,14 @@ function getGrade(score) {
 console.log(getGrade(96));
 console.log(getGrade(82));
 console.log(getGrade(56));
+
+console.log("\n \n"); 
+
+
+function hasPassingGrade(score) {
+    return getGrade(score) !== "F"; // Irá retornar um valor booleano para verificar se tudo aquilo for diferente de f vai retornar verdadeiro
+}
+
+console.log(hasPassingGrade(100)); 
+console.log(hasPassingGrade(53));
+console.log(hasPassingGrade(87));
