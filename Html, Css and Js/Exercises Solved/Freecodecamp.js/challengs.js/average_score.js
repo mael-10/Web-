@@ -49,3 +49,27 @@ function hasPassingGrade(score) {
 console.log(hasPassingGrade(100)); 
 console.log(hasPassingGrade(53));
 console.log(hasPassingGrade(87));
+
+console.log("\n \n"); 
+
+function studentMsg(totalScores, studentScore){
+    
+    let studentAverage = getAverage(totalScores); 
+    let gradeStudent =  getGrade(studentScore);
+    let passingGrade = getGrade(gradeStudent);
+
+    let studentPassingGrade = ""; 
+    
+    if (passingGrade === false) {
+        studentPassingGrade = "You passed the course.";
+    } else {
+        studentPassingGrade = "You failed the course."; 
+    }
+
+    return "Class average: " + studentAverage  + ". " + " Your grade: " +  gradeStudent + ". " + studentPassingGrade;
+
+}
+
+console.log(studentMsg([92, 88, 12, 77, 57, 100, 67, 38, 97, 89], 37));
+
+//"Class average: 71.7. Your grade: F. You failed the course."
