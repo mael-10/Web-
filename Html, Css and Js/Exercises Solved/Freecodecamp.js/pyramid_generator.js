@@ -42,5 +42,5 @@ console.log(newRows);
 console.log(result2); 
 
 
-//1- pop, 2- push --> 1 - Retirar um elemento do array da última posição. 2 - Colocar um elemento do array na última posição 
-//1- Shift, 2- Unshifted --> Colocar o array 
+//1- pop, 2- push --> 1 - Retirar um elemento no array da última posição. 2 - Colocar um elemento do array na última posição. 
+//1- Shift, 2- Unshifted --> Retirar um elemento no array na primeira posição. 2 - Colocar um elemento do array na primeira posição.

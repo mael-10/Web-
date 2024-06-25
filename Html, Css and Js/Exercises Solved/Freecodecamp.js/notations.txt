@@ -1,2 +1,13 @@
 .push add a varible on the array on final 
 .pop remove the final value of array and store it
+
+
+Iterar é o processo de percorrer uma lista ou array. 
+
+Incialização de Variáveis
+
+let count = 0; // Para contadores ou somas
+let name = ""; // Para strings
+let items = []; // Para arrays
+let isActive = false; // Para valores booleanos
+let options = {}; // Objeto vazio
