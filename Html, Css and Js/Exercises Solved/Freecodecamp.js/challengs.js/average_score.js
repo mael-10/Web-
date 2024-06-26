@@ -54,22 +54,19 @@ console.log("\n \n");
 
 function studentMsg(totalScores, studentScore){
     
-    let studentAverage = getAverage(totalScores); 
-    let gradeStudent =  getGrade(studentScore);
-    let passingGrade = getGrade(gradeStudent);
-
-    let studentPassingGrade = ""; 
-    
-    if (passingGrade === false) {
-        studentPassingGrade = "You passed the course.";
+    if (hasPassingGrade(studentScore)) { //Colocando a função e verá se irá retornar um valor verdadeiro ou falso de uma só vez
+        return "Class average: " + getAverage(totalScores) + ". Your grade: " + getGrade(studentScore) + ". You passed the course.";
     } else {
-        studentPassingGrade = "You failed the course."; 
+        return "Class average: " + getAverage(totalScores) + ". Your grade: " + getGrade(studentScore) + ". You failed the course.";
     }
 
-    return "Class average: " + studentAverage  + ". " + " Your grade: " +  gradeStudent + ". " + studentPassingGrade;
+    // return JSON.stringify("Class average: " + studentAverage  + ". " + " Your grade: " +  gradeStudent + ". " + studentPassingGrade);
 
 }
 
+//JSON.stringify return a double quotes string 
+
 console.log(studentMsg([92, 88, 12, 77, 57, 100, 67, 38, 97, 89], 37));
+console.log(studentMsg([56, 23, 89, 42, 75, 11, 68, 34, 91, 19], 100));
 
 //"Class average: 71.7. Your grade: F. You failed the course."
