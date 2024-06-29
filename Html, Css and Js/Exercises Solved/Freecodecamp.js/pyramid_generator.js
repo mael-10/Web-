@@ -25,7 +25,6 @@ console.log(rows);
 console.log(result); 
 
 
-
 //Inverted Pyramid 
  
 let result2 = ""; 
@@ -54,10 +53,5 @@ console.log(newRows);
 console.log(result2); 
 
 
-<<<<<<< HEAD
-//1- pop, 2- push --> 1 - Retirar um elemento no array da última posição. 2 - Colocar um elemento do array na última posição. 
-//1- Shift, 2- Unshifted --> Retirar um elemento no array na primeira posição. 2 - Colocar um elemento do array na primeira posição.
-=======
 //1- pop, 2- push --> 1 - Retirar um elemento do array da última posição. 2 - Colocar um elemento do array na última posição.
 //1- Shift, 2- Unshifted --> 1 - Retirar um elemento do array na primeira prosição array. 2 - Color um elemento do array na primeira prosição array.
->>>>>>> e1df869115f394139bb778cb5f11474567f1b099
