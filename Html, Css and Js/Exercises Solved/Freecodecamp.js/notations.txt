@@ -9,5 +9,12 @@ Incialização de Variáveis
 let count = 0; // Para contadores ou somas
 let name = ""; // Para strings
 let items = []; // Para arrays
-let isActive = false; // Para valores booleanos
+let isActive = false; // Para valores booleanos  
 let options = {}; // Objeto vazio
+
+let cachorro = ''; 
+ 
+cachorro = 3; 
+cachorro += 6; 
+
+output 36
