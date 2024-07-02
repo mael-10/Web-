@@ -26,3 +26,6 @@ DOM - Document Object Model
 document represents your entire html document. Ex: 
 
 document.querySelector("h2"); -- That represents you html and you are selecting your h2. Its inside your html document. 
+
+
+if a variable isnt be reassigned its a better practise use const. This will tell JavaScript to throw an error if you accidentally reassign it. 
