@@ -18,3 +18,11 @@ cachorro = 3;
 cachorro += 6; 
 
 output 36
+
+------------------------//----------------------------------------------
+
+DOM - Document Object Model 
+
+document represents your entire html document. Ex: 
+
+document.querySelector("h2"); -- That represents you html and you are selecting your h2. Its inside your html document. 
