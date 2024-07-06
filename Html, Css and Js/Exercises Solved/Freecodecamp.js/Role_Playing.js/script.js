@@ -31,9 +31,19 @@ button.onclick = goStore(); The functin will immediately called before you click
 It is called event handler and there are another properties besides button 
 */
 
+function buyHealth(){
+    button1.innerText = "oiii"; 
+}
+
 
 function goStore(){
-    console.log("Going to store.");
+
+    button1.innerText = "Buy 10 health (10 gold)";
+    button2.innerText = "Buy weapon (30 gold)";
+    button3.innerText = "Go to town square";
+    button1.onclick = buyHealth;
+    button2.onclick = buyWeapon;
+    button3.onclick = goTown;
 }
 
 function goCave(){
@@ -47,3 +57,5 @@ function fightDragon(){
 button1.onclick = goStore;
 button2.onclick = goCave; 
 button3.onclick = fightDragon; 
+
+//Inner html controls the text that appers in html element and you should modif whatever text you would like. 
