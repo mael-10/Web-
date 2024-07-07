@@ -17,6 +17,7 @@ const monsterStats = document.querySelector("#monsterStats");
 const monsterName = document.querySelector("#monsterName");
 const monsterHealthText = document.querySelector("monsterHealthText");
 const goldText = document.querySelector("#goldText"); 
+const locations = [];
 
 //Initialize button
 
@@ -31,10 +32,19 @@ button.onclick = goStore(); The functin will immediately called before you click
 It is called event handler and there are another properties besides button 
 */
 
-function buyHealth(){
-    button1.innerText = "oiii"; 
+function update(location){
+
 }
 
+function goTown(){
+    button1.innerText = "Go to store";
+    button2.innerText = "Go to cave";
+    button3.innerText = "Fight dragon";
+    button1.onclick = goStore;
+    button2.onclick = goCave;
+    button3.onclick = fightDragon;
+    text.innerText = "You are in the town square. You see a sign that says \"Store\"."; //With that backslash you can put a double quotes inside strings. It's called "Escape String"
+}
 
 function goStore(){
 
@@ -44,6 +54,7 @@ function goStore(){
     button1.onclick = buyHealth;
     button2.onclick = buyWeapon;
     button3.onclick = goTown;
+    text.innerText = "You enter the store.";
 }
 
 function goCave(){
@@ -52,6 +63,14 @@ function goCave(){
 
 function fightDragon(){
     console.log("Fighting dragon."); 
+}
+
+function buyHealth() {
+
+}
+
+function buyWeapon() {
+
 }
 
 button1.onclick = goStore;
