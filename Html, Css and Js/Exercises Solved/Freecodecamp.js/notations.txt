@@ -27,5 +27,24 @@ document represents your entire html document. Ex:
 
 document.querySelector("h2"); -- That represents you html and you are selecting your h2. Its inside your html document. 
 
+OBJECTS JS: 
 
-if a variable isnt be reassigned its a better practise use const. This will tell JavaScript to throw an error if you accidentally reassign it. 
+- if a variable isnt be reassigned its a better practise use const. This will tell JavaScript to throw an error if you accidentally reassign it. 
+
+- Objects are similar to arrays, except because arrays use index to access a value. At point in Objects we use properties to access value on it. 
+- properties consist in key and value: key is the name o properties and value is the data stored in property. 
+
+const cat = {
+  name: "Whiskers"
+}
+
+if the key name has a space between words, use double quotes: Just looks like that:
+
+const spaceObj = {
+  "Space Name": "Kirk",
+};
+
+How to access an Object 
+
+cat.name = Use dot for access an object when it doesnt have any space 
+cat["Space Name"] = Use brackets when properties has space 
