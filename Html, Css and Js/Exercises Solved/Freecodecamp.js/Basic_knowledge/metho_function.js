@@ -13,3 +13,4 @@ let boneco = {
 
 boneco.andar(); //boneco (object) node metho_function.js //tirar as credenciais do pc
 boneco.falar(" está falando na cor ");
+console.log(boneco); 
