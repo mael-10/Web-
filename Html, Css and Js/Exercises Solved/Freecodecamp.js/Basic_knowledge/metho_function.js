@@ -1,4 +1,4 @@
-var boneco = {
+let boneco = {
     nome: "Robozinho", 
     cor: "Azul", 
 
