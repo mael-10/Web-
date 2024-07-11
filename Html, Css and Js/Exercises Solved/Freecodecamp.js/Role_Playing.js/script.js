@@ -17,6 +17,22 @@ const monsterStats = document.querySelector("#monsterStats");
 const monsterName = document.querySelector("#monsterName");
 const monsterHealthText = document.querySelector("monsterHealthText");
 const goldText = document.querySelector("#goldText"); 
+const weapons = [
+    {
+        name: "stick",
+        power: 5
+    }, 
+
+    {
+        name: "Claw hammer", 
+        power: 50
+    },
+
+    {
+        name: "Sword", 
+        power: 100
+    }
+];
 const locations = [
     {
         name: "town square",
@@ -30,6 +46,14 @@ const locations = [
         "button text": ["Buy 10 health (10 gold)", "Buy weapon (30 gold)", "Go to town square"],
         "button functions": [buyHealth, buyWeapon, goTown], 
         text: "You enter the store."
+    },
+
+    {
+        name: "cave", 
+        "button text": ["Fight slime", "Fight fanged beast", "Go to town square"],
+        "button functions": [fightSlime, fightBeast, goTown], 
+        text: "You enter the cave. You see some monsters."
+
     }
 ];
 
@@ -46,6 +70,10 @@ button.onclick = goStore(); The functin will immediately called before you click
 It is called event handler and there are another properties besides button 
 */
 
+button1.onclick = goStore;
+button2.onclick = goCave; 
+button3.onclick = fightDragon; 
+
 function update(location){ //object identificator is the location cuz 'location = (all objects)'
     button1.innerText = location["button text"][0];
     button2.innerText = location["button text"][1];
@@ -57,31 +85,43 @@ function update(location){ //object identificator is the location cuz 'location 
 }
 
 function goTown(){
-   update(locations[0]); //At that case it access all first elements within first object. Whether it access specify elements of object at first time, it will inicialization the function variable with the value of sepecify object. In that case it doesnst work to save up other values inside variables buttons cuz it is passing a parameter
+    update(locations[0]); //At that case it access all first elements within first object. Whether it access specify elements of object at first time, it will inicialization the function variable with the value of sepecify object. In that case it doesnst work to save up other values inside variables buttons cuz it is passing a parameter
 }
 
 function goStore(){
-   
+    update(locations[1]); 
 }
 
 function goCave(){
-    console.log("Going to cave.");
+    update(locations[2]);
 }
 
 function fightDragon(){
     console.log("Fighting dragon."); 
 }
 
-function buyHealth() {
+function buyHealth(){
+    if (gold >= 10) {
+
+        gold -= 10; 
+        health += 10;
+        goldText.innerText = gold;
+        healthText.innerText = health;
+    } else {
+        text.innerText = "You do not have enough gold to buy health.";   
+    }
+}
+
+function buyWeapon(){
 
 }
 
-function buyWeapon() {
+function fightSlime(){
 
 }
 
-button1.onclick = goStore;
-button2.onclick = goCave; 
-button3.onclick = fightDragon; 
+function fightBeast(){
+
+}
 
 //Inner html controls the text that appers in html element and you should modif whatever text you would like. 
