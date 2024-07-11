@@ -48,3 +48,5 @@ How to access an Object
 
 cat.name = Use dot for access an object when it doesnt have any space 
 cat["Space Name"] = Use brackets when properties has space 
+
+'bracket notation' its know as passing an index to access arrays

@@ -23,6 +23,13 @@ const locations = [
         "button text": ["Go to store", "Go to cave", "Fight dragon"],
         "button functions": [goStore, goCave, fightDragon],
         text: "You are in the town square. You see a sign that says \"Store\"." 
+    }, 
+
+    {
+        name: "store", 
+        "button text": ["Buy 10 health (10 gold)", "Buy weapon (30 gold)", "Go to town square"],
+        "button functions": [buyHealth, buyWeapon, goTown], 
+        text: "You enter the store."
     }
 ];
 
@@ -39,28 +46,22 @@ button.onclick = goStore(); The functin will immediately called before you click
 It is called event handler and there are another properties besides button 
 */
 
-function update(location){
-
+function update(location){ //object identificator is the location cuz 'location = (all objects)'
+    button1.innerText = location["button text"][0];
+    button2.innerText = location["button text"][1];
+    button3.innerText = location["button text"][2];
+    button1.onclick = location["button functions"][0];
+    button2.onclick = location["button functions"][1];
+    button3.onclick = location["button functions"][2];
+    text.innerText = location.text; //With that backslash you can put a double quotes inside strings. It's called "Escape String"
 }
 
 function goTown(){
-    button1.innerText = "Go to store";
-    button2.innerText = "Go to cave";
-    button3.innerText = "Fight dragon";
-    button1.onclick = goStore;
-    button2.onclick = goCave;
-    button3.onclick = fightDragon;
-    text.innerText = "You are in the town square. You see a sign that says \"Store\"."; //With that backslash you can put a double quotes inside strings. It's called "Escape String"
+   update(locations[0]); //At that case it access all first elements within first object. Whether it access specify elements of object at first time, it will inicialization the function variable with the value of sepecify object. In that case it doesnst work to save up other values inside variables buttons cuz it is passing a parameter
 }
 
 function goStore(){
-    button1.innerText = "Buy 10 health (10 gold)";
-    button2.innerText = "Buy weapon (30 gold)";
-    button3.innerText = "Go to town square";
-    button1.onclick = buyHealth;
-    button2.onclick = buyWeapon;
-    button3.onclick = goTown;
-    text.innerText = "You enter the store.";
+   
 }
 
 function goCave(){
