@@ -1,10 +1,10 @@
 let xp = 0;
 let health = 100;
-let gold = 50;
+let gold = 200;
 let currentWeaponIndex = 0;
 let fighting;
 let monsterHealth;
-let inventory = ["stick"];
+let inventory = [];
 
 const button1 = document.querySelector("#button1");
 const button2 = document.querySelector("#button2");
@@ -24,12 +24,18 @@ const weapons = [
     }, 
 
     {
-        name: "Claw hammer", 
+        name: "dagger",
+        power: 30 
+    },
+
+
+    {
+        name: "claw hammer", 
         power: 50
     },
 
     {
-        name: "Sword", 
+        name: "sword", 
         power: 100
     }
 ];
@@ -113,7 +119,22 @@ function buyHealth(){
 }
 
 function buyWeapon(){
-
+    if(currentWeaponIndex <= weapons.length - 1){ 
+        if (gold >= 30){
+            gold -= 30; 
+            currentWeaponIndex++; 
+            goldText.innerText = gold;
+            let newWeapon = weapons[currentWeaponIndex - 1].name;
+            text.innerText = "You bought a " + newWeapon;
+            inventory.push(newWeapon);
+            text.innerText += " In your inventory you have: " + inventory;
+    
+        } else{
+            text.innerText = "You do not have enough gold to buy a weapon."; 
+        }
+    } else {
+        text.innerText = "You already have the most powerful weapon!"; 
+    }
 }
 
 function fightSlime(){
