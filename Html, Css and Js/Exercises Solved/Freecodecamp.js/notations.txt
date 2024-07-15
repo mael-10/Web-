@@ -1,6 +1,9 @@
 .push add a varible on the array on final 
 .pop remove the final value of array and store it
 
+.shift - remove first element of array 
+.unshifted - add first element of array
+
 
 Iterar é o processo de percorrer uma lista ou array. 
 
