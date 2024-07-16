@@ -18,9 +18,9 @@ const monsterName = document.querySelector("#monsterName");
 const monsterHealthText = document.querySelector("#monsterHealth");
 const goldText = document.querySelector("#goldText"); 
 const weapons = [ 
-    { name: 'stick', power: 5 },
-    { name: 'dagger', power: 30 },
-    { name: 'claw hammer', power: 50 },
+    { name: 'stick', power: 5},
+    { name: 'dagger', power: 30},
+    { name: 'claw hammer', power: 50},
     { name: 'sword', power: 100 }
 ];
 const monsters = [
@@ -65,6 +65,19 @@ const locations = [
         "button functions": [restart, restart, restart],
         text: "You die. &#x2620;" //emoticon code
 
+    },
+    {
+        name: "win",
+        "button text": ["REPLAY?", "REPLAY?", "REPLAY?"],
+        "button functions": [restart, restart, restart],
+        text: "You defeat the dragon! YOU WIN THE GAME! &#x1F389;" //emoticon code
+
+    }, 
+    {
+        name: "easter egg",
+        "button text": ["2", "8", "Go to town square?"],
+        "button functions": [pickTwo, pickEight, goTown],
+        text: "You find a secret game. Pick a number above. Ten numbers will be randomly chosen between 0 and 10. If the number you choose matches one of the random numbers, you win!"
     }
 ];
 
@@ -92,7 +105,7 @@ function update(location){ //object identificator is the location cuz 'location 
     button1.onclick = location["button functions"][0];
     button2.onclick = location["button functions"][1];
     button3.onclick = location["button functions"][2];
-    text.innerText = location.text; //With that backslash you can put a double quotes inside strings. It's called "Escape String"
+    text.innerHTML = location.text; //With that backslash you can put a double quotes inside strings. It's called "Escape String"
 }
 
 function goTown(){
@@ -177,7 +190,7 @@ function goFight(){ //Function to show up senttings to fight agains the sepecify
     monsterHealth = monsters[fighting].health;
     const monsterStats = document.querySelector('#monsterStats');
     monsterStats.style.display = 'block';
-    monsterName.innerText = monsters[fighting].name
+    monsterName.innerText = monsters[fighting].name;
     monsterHealthText.innerText = monsterHealth;
 
 }   
@@ -185,21 +198,37 @@ function goFight(){ //Function to show up senttings to fight agains the sepecify
 function attack(){ //Call function attack
     text.innerText = "The " +  monsters[fighting].name + " attacks.";
     text.innerText += " You attack it with your " + weapons[currentWeaponIndex].name + ".";
-    health -= monsters[fighting].level;
-    monsterHealth -= weapons[currentWeaponIndex].power + Math.floor((Math.random() * xp) + 1);
+    health -= getMonsterAttackValue(monsters[fighting].level);
+    if(isMonsterHit()){
+        monsterHealth -= weapons[currentWeaponIndex].power + Math.floor(Math.random() * xp) + 1;
+    } else{
+        text.innerText += " You miss.";
+    }
     healthText.innerText = health; //Update your health
     monsterHealthText.innerText = monsterHealth; //Update him health
     if(health <= 0){ //If your life goes out you die
         lose();
-    } else if (monsterHealth <= 0){ //But if you is alive u hurt the monster
-        defeatMonster();  //Call function to hurt him
-
-        if (){
-
+    } else if (monsterHealth <= 0){ //But if you is alive u hurt the monster (All monsters)
+        if (fighting === 2){ //Verify if monster has live equal to 0
+            winGame();
         } else {
-            
+            defeatMonster();  //Call function to for you defeted the boss
         }
     }
+
+    if(Math.random() <= .1 && inventory.length !== 1){
+        text.innerText += " Your " + inventory.pop() + " breaks."; //Remove and Return on String
+        currentWeaponIndex--;
+    }
+}
+
+function getMonsterAttackValue(level){
+    const hit = (level * 5) - (Math.floor(Math.random() * xp));
+    return hit > 0 ? hit : 0;
+}
+
+function isMonsterHit(){
+    return Math.random() > .2 || health < 20; //Math.random is generating a value between 0 and 1 (always less than 1). If math.random generate greater than 0.2 the value return value will be true or health is less than 20
 }
 
 function dodge(){
@@ -218,16 +247,43 @@ function lose(){
     update(locations[5]);
 }
 
+function winGame(){
+    update(locations[6]);
+}
+
 function restart(){
     xp = 0; 
     health = 100; 
     gold = 50;
     currentWeaponIndex = 0;
-    inventory = [] 
+    inventory = [];
     goldText.innerText = gold;
     healthText.innerText = 100;
     xpText.innerText = xp;
     goTown();
 }
+
+function easterEgg(){
+    update(locations[7]);
+}
+
+function pickTwo(){
+    pick(2);
+}
+
+function pickEight(){
+    pick(8);
+}
+
+function pick(guess){
+    const numbers = [];
+
+    while(numbers.length < 10){
+       numbers.push(Math.floor(Math.random() * 11));
+    }
+
+    text.innerText = "You picked " + guess + ". Here are the random numbers:\n";
+    text.innerText += numbers;
+} 
 
 //Inner html controls the text that appers in html element and you should modif whatever text you would like. 
