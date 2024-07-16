@@ -1,12 +1,12 @@
 let xp = 0;
 let health = 100;
 let gold = 50;
-let currentWeaponIndex = 1;
+let currentWeaponIndex = 0;
 let fighting;
 let monsterHealth;
 let inventory = [];
 
-const button1 = document.querySelector("#button1");
+const button1 = document.querySelector("#button1"); //Buttons selected from html
 const button2 = document.querySelector("#button2");
 const button3 = document.querySelector("#button3");
 
@@ -17,7 +17,7 @@ const monsterStats = document.querySelector("#monsterStats");
 const monsterName = document.querySelector("#monsterName");
 const monsterHealthText = document.querySelector("#monsterHealth");
 const goldText = document.querySelector("#goldText"); 
-const weapons = [
+const weapons = [ 
     { name: 'stick', power: 5 },
     { name: 'dagger', power: 30 },
     { name: 'claw hammer', power: 50 },
@@ -52,6 +52,19 @@ const locations = [
         "button text": ["Attack", "Dodge", "Run"], 
         "button functions": [attack, dodge, goTown],
         text: "You are fighting a monster."
+    }, 
+    {
+        name: "kill monster", 
+        "button text": ["Go to town square", "Go to town square", "Go to town square"],
+        "button functions": [goTown, goTown, goTown],
+        text: 'The monster screams "Arg!" as it dies. You gain experience points and find gold.'
+    }, 
+    {
+        name: "lose",
+        "button text": ["REPLAY?", "REPLAY?", "REPLAY?"],
+        "button functions": [restart, restart, restart],
+        text: "You die. &#x2620;" //emoticon code
+
     }
 ];
 
@@ -84,9 +97,10 @@ function update(location){ //object identificator is the location cuz 'location 
 
 function goTown(){
     update(locations[0]); //At that case it access all first elements within first object. Whether it access specify elements of object at first time, it will inicialization the function variable with the value of sepecify object. In that case it doesnst work to save up other values inside variables buttons cuz it is passing a parameter
+    document.querySelector('#monsterStats').style.display = 'none';
 }
 
-function goStore(){
+function goStore(){ //It gonna call the array locations and select the position of proper object
     update(locations[1]); 
 }
 
@@ -107,15 +121,15 @@ function buyHealth(){
 }
 
 function buyWeapon(){
-    if(currentWeaponIndex <= weapons.length - 1){ 
-        if (gold >= 30){
+    if(currentWeaponIndex <= weapons.length - 1){ //It verify wether bought all weapons. Wether do that it doesnt cotinue the operation
+        if (gold >= 30){ //Verify if you have got enouth money
             gold -= 30; 
             goldText.innerText = gold;
             let newWeapon = weapons[currentWeaponIndex].name;
             text.innerText = "You bought a " + newWeapon;
             inventory.push(newWeapon);
             text.innerText += " In your inventory you have: " + inventory;
-            currentWeaponIndex++; 
+            currentWeaponIndex++; //weapon selector (index) array weapons
     
         } else{
             text.innerText = "You do not have enough gold to buy a weapon."; 
@@ -128,8 +142,8 @@ function buyWeapon(){
     button2.onclick = sellWeapon;
 }
 
-function sellWeapon(){
-    if(inventory.length > 1){
+function sellWeapon(){ //Funtion to sell weapons
+    if(inventory.length > 1){ //If in your inventory has more than one weapon, you can sell weapons from inventory until greater than one
         gold += 15; 
         goldText.innerText = gold; //Convert number in text
         let currentWeapon = inventory.shift(); 
@@ -141,8 +155,10 @@ function sellWeapon(){
 
 }
 
-function fightSlime(){
-    fighting = 0;
+//functions for each monster
+
+function fightSlime(){ 
+    fighting = 0; //index counter of monsters array for select the correct monster
     goFight();
 }
 
@@ -156,8 +172,8 @@ function fightDragon(){
     goFight();
 }
 
-function goFight(){
-    update(locations[3]);
+function goFight(){ //Function to show up senttings to fight agains the sepecify monster acordding 'fighting'var number
+    update(locations[3]);// Show option to fight against monster
     monsterHealth = monsters[fighting].health;
     const monsterStats = document.querySelector('#monsterStats');
     monsterStats.style.display = 'block';
@@ -166,17 +182,23 @@ function goFight(){
 
 }   
 
-function attack(){
+function attack(){ //Call function attack
     text.innerText = "The " +  monsters[fighting].name + " attacks.";
     text.innerText += " You attack it with your " + weapons[currentWeaponIndex].name + ".";
     health -= monsters[fighting].level;
     monsterHealth -= weapons[currentWeaponIndex].power + Math.floor((Math.random() * xp) + 1);
-    healthText.innerText = health;
-    monsterHealthText.innerText = monsterHealth;
-    if(health <= 0){
+    healthText.innerText = health; //Update your health
+    monsterHealthText.innerText = monsterHealth; //Update him health
+    if(health <= 0){ //If your life goes out you die
         lose();
-    } else if (monsterHealth <= 0){
-        defeatMonster();
+    } else if (monsterHealth <= 0){ //But if you is alive u hurt the monster
+        defeatMonster();  //Call function to hurt him
+
+        if (){
+
+        } else {
+            
+        }
     }
 }
 
@@ -184,13 +206,28 @@ function dodge(){
     text.innerText = "You dodge the attack from the " + monsters[fighting].name;
 }
 
-function defeatMonster(){
+function defeatMonster(){ 
     gold += Math.floor(6.7 * monsters[fighting].level);
     xp += monsters[fighting].level;
+    goldText.innerText = gold;
+    xpText.innerText = xp;
+    update(locations[4]);
 }
 
 function lose(){
+    update(locations[5]);
+}
 
+function restart(){
+    xp = 0; 
+    health = 100; 
+    gold = 50;
+    currentWeaponIndex = 0;
+    inventory = [] 
+    goldText.innerText = gold;
+    healthText.innerText = 100;
+    xpText.innerText = xp;
+    goTown();
 }
 
 //Inner html controls the text that appers in html element and you should modif whatever text you would like. 
