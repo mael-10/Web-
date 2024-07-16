@@ -99,6 +99,7 @@ button2.onclick = goCave;
 button3.onclick = fightDragon; 
 
 function update(location){ //object identificator is the location cuz 'location = (all objects)'
+    document.querySelector('#monsterStats').style.display = 'none';
     button1.innerText = location["button text"][0];
     button2.innerText = location["button text"][1];
     button3.innerText = location["button text"][2];
@@ -110,7 +111,7 @@ function update(location){ //object identificator is the location cuz 'location 
 
 function goTown(){
     update(locations[0]); //At that case it access all first elements within first object. Whether it access specify elements of object at first time, it will inicialization the function variable with the value of sepecify object. In that case it doesnst work to save up other values inside variables buttons cuz it is passing a parameter
-    document.querySelector('#monsterStats').style.display = 'none';
+    
 }
 
 function goStore(){ //It gonna call the array locations and select the position of proper object
