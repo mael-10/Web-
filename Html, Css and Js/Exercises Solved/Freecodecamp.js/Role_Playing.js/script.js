@@ -56,7 +56,7 @@ const locations = [
     {
         name: "kill monster", 
         "button text": ["Go to town square", "Go to town square", "Go to town square"],
-        "button functions": [goTown, goTown, goTown],
+        "button functions": [goTown, goTown, easterEgg],
         text: 'The monster screams "Arg!" as it dies. You gain experience points and find gold.'
     }, 
     {
@@ -208,6 +208,8 @@ function attack(){ //Call function attack
     healthText.innerText = health; //Update your health
     monsterHealthText.innerText = monsterHealth; //Update him health
     if(health <= 0){ //If your life goes out you die
+        health = 0;
+        healthText.innerText = health;
         lose();
     } else if (monsterHealth <= 0){ //But if you is alive u hurt the monster (All monsters)
         if (fighting === 2){ //Verify if monster has live equal to 0
@@ -225,7 +227,7 @@ function attack(){ //Call function attack
 
 function getMonsterAttackValue(level){
     const hit = (level * 5) - (Math.floor(Math.random() * xp));
-    return hit > 0 ? hit : 0;
+    return hit > 0 ? hit : 0; //Like a if else statment
 }
 
 function isMonsterHit(){
@@ -284,7 +286,24 @@ function pick(guess){
     }
 
     text.innerText = "You picked " + guess + ". Here are the random numbers:\n";
-    text.innerText += numbers;
+
+    for(const number of numbers){ //Will pass each element for number
+        text.innerText += number + "\n";
+    }
+
+    if(numbers.includes(guess)){// Verify if it includes inside array
+        text.innerText += "Right! You win 20 gold!";
+        gold += 20;
+        goldText.innerText = gold;
+    } else{
+        text.innerText += "Wrong! You lose 10 health!";
+        health -= 10;
+        healthText.innerText = health;
+
+        if(health <= 0){
+            lose();
+        } 
+    }
 } 
 
 //Inner html controls the text that appers in html element and you should modif whatever text you would like. 

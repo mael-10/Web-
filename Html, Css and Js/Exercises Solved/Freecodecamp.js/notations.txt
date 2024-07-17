@@ -4,6 +4,10 @@
 .shift - remove first element of array 
 .unshifted - add first element of array
 
+.includes() determine if a element is inside an array
+
+Math.random() > .2 //New things
+hit > 0 ? hit : 0; //New things
 
 Iterar é o processo de percorrer uma lista ou array. 
 
@@ -17,7 +21,7 @@ let options = {}; // Objeto vazio
 
 let cachorro = ''; 
  
-cachorro = 3; 
+cachorro = 3;
 cachorro += 6; 
 
 output 36
