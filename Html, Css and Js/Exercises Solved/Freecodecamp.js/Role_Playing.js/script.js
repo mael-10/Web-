@@ -1,10 +1,10 @@
 let xp = 0;
 let health = 100;
-let gold = 50;
+let gold = 500;
 let currentWeaponIndex = 0;
 let fighting;
 let monsterHealth;
-let inventory = [];
+let inventory = ["stick"];
 
 const button1 = document.querySelector("#button1"); //Buttons selected from html
 const button2 = document.querySelector("#button2");
@@ -137,14 +137,14 @@ function buyHealth(){
 function buyWeapon(){
     if(currentWeaponIndex <= weapons.length - 1){ //It verify wether bought all weapons. Wether do that it doesnt cotinue the operation
         if (gold >= 30){ //Verify if you have got enouth money
-            gold -= 30; 
+            gold -= 30;
+            currentWeaponIndex++; //weapon selector (index) array weapons
             goldText.innerText = gold;
             let newWeapon = weapons[currentWeaponIndex].name;
             text.innerText = "You bought a " + newWeapon;
             inventory.push(newWeapon);
             text.innerText += " In your inventory you have: " + inventory;
-            currentWeaponIndex++; //weapon selector (index) array weapons
-    
+            
         } else{
             text.innerText = "You do not have enough gold to buy a weapon."; 
         }
