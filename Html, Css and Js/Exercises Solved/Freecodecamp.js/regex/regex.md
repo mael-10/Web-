@@ -88,12 +88,12 @@ abcdefghijklmnopqrstuvwxyz
 
 #### Curly Braces '{}'
 
-##### **<ins>It is used to indicate to express a certain number of occurences of a character at the end we write curly braces {n}<ins>**
+##### **<ins>In regular expressions, curly braces specify the number of repetitions of the preceding character or group.<ins>**
 
 
 *ber -->* /be{2}/ --> *null*
 
-*beer -->* /be{2}/ --> *beer*
+*beer -->* /be{2}/ --> *beer*z
 
 ##### **<ins>It indicates at least a certain number of character<ins>**
 
@@ -102,3 +102,26 @@ abcdefghijklmnopqrstuvwxyz
 *beer -->* /be{2,}/ --> *beer*
 
 *beer -->* /be{3,}/ --> *beer*
+
+##### **<ins>To express the occurrence of a character in a certain number range, we write curly braces {x,y} for the inclusive interval<ins>**
+
+*ber -->* /be{1,2}r/ --> *ber*
+
+*beer -->* /be{1,2}r/ --> *beer*
+
+*beer -->* /be{1,2}r/ --> *null*
+
+---
+
+#### Parentheses (): Grouping 
+
+##### **<ins>We can group an expression and use these groups to reference or enforce some rules<ins>**
+
+*ha, ha, haaa-haaa -->* /(haaa)/ --> *haaa*
+
+#### Referencing a Group
+
+##### **<ins>Using backslashes in regular expressions allows you to reference and reuse the captured groups. Each backreference, represented by \1, \2, etc., corresponds to a specific capturing group<ins>**
+
+*ha, ha, haaa-haaa -->* /(ha)-\1(haaa)-\2/ --> *First group: ha ha, Second Group: haha haha*
+
