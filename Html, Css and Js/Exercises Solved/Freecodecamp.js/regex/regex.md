@@ -119,7 +119,7 @@ abcdefghijklmnopqrstuvwxyz
 
 ---
 
-#### Parentheses (): Grouping 
+### Parentheses (): Grouping 
 
 ##### **<ins>We can group an expression and use these groups to reference or enforce some rules<ins>**
 
@@ -131,7 +131,9 @@ abcdefghijklmnopqrstuvwxyz
 
 *ha, ha, haaa-haaa -->* /(ha)-\1(haaa)-\2/ --> *First group: ha ha, Second Group: haha haha*
 
-#### Metacharacters 
+---
+
+### Metacharacters 
 
 *-\d* --> match any digit character (same as [0-9])
 
@@ -139,7 +141,7 @@ abcdefghijklmnopqrstuvwxyz
 
 *-\s* --> match a whitespace character (spaces, tabs)
 
-*-t* --> --> match a tab character only
+*-\t* --> --> match a tab character only
 
 **Notes:**
 
@@ -147,8 +149,24 @@ d --> matches the literal character , 'd'
 
 \d matches any digit character
 
+---
 
+### Special Character 
 
+'+' The one-or-more quantifier 
 
+'\' The escape character
+
+'[]' Character set 
+
+'[^]' Negate Symbol in a character set 
+
+'?' The zero-or-one quantifier (makes a preceding char opcional)
+
+'.' Any character whatsoever (expept the newline charater)
+
+'*' The 0-or-more quantifier (a bit like +)
+
+### Start and End pattern
 
 
