@@ -1,0 +1,37 @@
+body{
+    height: 100vh;
+    background-color: #1C1C1C;
+}
+
+.general-div{
+    background-color: moccasin;
+    height: 200px;
+    max-width: 300px;
+    margin: auto;
+}
+
+.form-div{
+   padding: 10px 0 0 0; 
+}
+
+.general-div .title{
+    text-align: center;
+}
+
+input[type=text]{
+    height: 30px;
+}
+
+.block{
+    display: block;
+}
+
+.left-p{
+    padding: 0 0 0 20%;
+}
+
+.invalid-camp{
+    padding: 5px;
+    color: red;
+    display: none;
+}

@@ -1,3 +1,9 @@
+g --> global: Will search all matchs.
+
+i--> insensitive: Disable case-sensitve.
+
+None--> Will only search the first match cuz it doesnt matter if has more
+
 ## Basic  Matchers
 
 #### **<ins>/ / -- find the word inside the text. It verify if word match:<ins>**
@@ -124,4 +130,25 @@ abcdefghijklmnopqrstuvwxyz
 ##### **<ins>Using backslashes in regular expressions allows you to reference and reuse the captured groups. Each backreference, represented by \1, \2, etc., corresponds to a specific capturing group<ins>**
 
 *ha, ha, haaa-haaa -->* /(ha)-\1(haaa)-\2/ --> *First group: ha ha, Second Group: haha haha*
+
+#### Metacharacters 
+
+*-\d* --> match any digit character (same as [0-9])
+
+*-\w* --> match any word character (a-z, A-Z, 0-9 and _'S)
+
+*-\s* --> match a whitespace character (spaces, tabs)
+
+*-t* --> --> match a tab character only
+
+**Notes:**
+
+d --> matches the literal character , 'd'
+
+\d matches any digit character
+
+
+
+
+
 
