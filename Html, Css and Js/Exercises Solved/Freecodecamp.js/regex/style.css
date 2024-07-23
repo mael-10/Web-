@@ -3,15 +3,22 @@ body{
     background-color: #1C1C1C;
 }
 
+.total{
+    display: flex;
+    height: 500px;
+    align-items: center;
+}
+
 .general-div{
     background-color: moccasin;
-    height: 200px;
-    max-width: 300px;
+    height: 300px;
+    width: 300px;
     margin: auto;
 }
 
 .form-div{
    padding: 10px 0 0 0; 
+   display: flex;
 }
 
 .general-div .title{
