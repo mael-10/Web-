@@ -1,31 +1,30 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>Teste Regex File</title>
-</head>
-<body>
-    <div class="total">
-    <div class="general-div">
-        <div class="title">
-            <p>Preencha o formulário</p>
-        </div>
-        <div class="form-div">
-            <form>
-                <div class="left-p">
-                    <label class="block" for="">Nome</label>
-                    <input type="text" name="" id="text-name">
-                    <div class="invalid-camp">
-                        <p>O campo nome está incorreto</p>
-                    </div>
-                </div>
-                <button class="btn" type="submit">Enviar</button>
-            </form>
-        </div>
-    </div>
-</div>
-    <script src="regex.js"></script>
-</body>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>RegEx Form</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <h1>New User Signup</h1>
+        <form>
+
+            <input type="text" name="username" placeholder="username">
+            <p>Username must be  and contain 5 - 12 characters</p>
+
+            <input type="text" name="email" placeholder="email">
+            <p>Email must be a valid address, e.g. me@mydomain.com</p>
+
+            <input type="password" name="password" placeholder="password">
+            <p>Password must alphanumeric (@, _ and - are also allowed) and be 8 - 20 characters</p>
+
+            <input type="text" name="telephone" placeholder="telephone">
+            <p>Telephone must be a valid UK telephone number (11 digits)</p>
+
+            <input type="text" name="slug" placeholder="profile slug">
+            <p>Slug must contain only lowercase letters, numbers and hyphens and be 8 - 20 characters</p>
+
+        </form>
+        <script type="text/javascript" src="regex.js"></script>
+    </body>
 </html>
