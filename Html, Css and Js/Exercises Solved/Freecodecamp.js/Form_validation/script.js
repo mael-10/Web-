@@ -38,5 +38,8 @@ function isInvalidInput(str){
 
 function addEntry(){
     const targetId = "#" + entryDropdown.value; // To access the values of options
-    const targetInputContainer = document.querySelector(`#${entryDropdown.value} .input-container`);
+    const targetInputContainer = document.querySelector(`#${entryDropdown.value} .input-container`); //The value of a input
+    /*
+
+    */
 }
