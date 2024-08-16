@@ -36,10 +36,24 @@ function isInvalidInput(str){
 
 }
 
-function addEntry(){
-    const targetId = "#" + entryDropdown.value; // To access the values of options
-    const targetInputContainer = document.querySelector(`#${entryDropdown.value} .input-container`); //The value of a input
-    /*
 
+function addEntry(){
+    const targetInputContainer = document.querySelector(`#${entryDropdown.value} .input-container`); //The value of a input
+    console.log(targetInputContainer);
+    /*
+        Templates literals is a dynamic format to use string more clear. It help us to concatenate vars and strings more easy in one single row. Ex:
+        `Hello. I wanna share something (I somewhat it is) good choice just for u. Is here:
+        ${product}`;
+
+        Normal Way: 
+        "Hello. I wanna share something (I somewhat it is) good choice just for u. Is here: \n" + product;
+        
     */
+
+    const entryNumber = targetInputContainer.querySelectorAll('input[type="text"]').length;
+    //Query selector will return create a node list of all elements that match the selector
+    //Node list is an "array-like object" in which it has other type of values. 
+    //You can access it's elements using bracket notation
+    const HTMLString = `<label for="${entryDropdown.value}-${entryNumber}-name">Entry ${entryNumber} Name</label>`;
+   
 }
