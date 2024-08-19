@@ -50,7 +50,7 @@ function addEntry(){
         
     */
 
-    const entryNumber = targetInputContainer.querySelectorAll('input[type="text"]').length;
+    const entryNumber = targetInputContainer.querySelectorAll('input[type="text"]').length+1;
     //Query selector will return create a node list of all elements that match the selector
     //Node list is an "array-like object" in which it has other type of values. 
     //You can access it's elements using bracket notation
@@ -61,9 +61,26 @@ function addEntry(){
         <input id="${entryDropdown.value}-${entryNumber}-calories" type="number" min="0" placeholder="Calories"/>
     `;
 
-    targetInputContainer.innerHTML += HTMLString;
+    targetInputContainer.insertAdjacentHTML("beforeend", HTMLString); //Search more about atrribuits
 
 
-    //The advenListner executes many functions when you click. If you has 
+    //The advenListner executes many functions when you click. If you has two separated addventListner adding an event to the same thing all of two will execute
    
 }
+
+function getCaloriesFromInputs(list){
+    
+    let calories = 0;
+
+    for (const item of list) {
+        const currVal = cleanInputString(item.value);
+        const invalidInputMatch = isInvalidInput(currVal);
+    }
+
+    if(invalidInputMatch){
+        alert(`Invalid Input: ${invalidInputMatch[0]}`);
+    }
+}
+
+addEntryButton.addEventListener('click', addEntry);
+
