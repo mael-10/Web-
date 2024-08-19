@@ -54,6 +54,16 @@ function addEntry(){
     //Query selector will return create a node list of all elements that match the selector
     //Node list is an "array-like object" in which it has other type of values. 
     //You can access it's elements using bracket notation
-    const HTMLString = `<label for="${entryDropdown.value}-${entryNumber}-name">Entry ${entryNumber} Name</label>`;
+    const HTMLString = `
+        <label for="${entryDropdown.value}-${entryNumber}-name">Entry ${entryNumber} Name</label>
+        <input id="${entryDropdown.value}-${entryNumber}-name" type="text" placeholder="Name"/>
+        <label for="${entryDropdown.value}-${entryNumber}-calories">Entry ${entryNumber} Calories</label>
+        <input id="${entryDropdown.value}-${entryNumber}-calories" type="number" min="0" placeholder="Calories"/>
+    `;
+
+    targetInputContainer.innerHTML += HTMLString;
+
+
+    //The advenListner executes many functions when you click. If you has 
    
 }
