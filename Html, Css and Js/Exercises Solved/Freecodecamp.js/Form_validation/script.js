@@ -19,7 +19,7 @@ function cleanInputString(str){
 
 function isInvalidInput(str){
     const regex = /\d+e\d+/i;
-    return str.match(regex);
+    return str.match(regex); //Match return an array even if it is null or not
 
     /*
         console.log(isInvalidInput("1e3")); (If it doesnt return it'll return null) 
@@ -36,10 +36,8 @@ function isInvalidInput(str){
 
 }
 
-
 function addEntry(){
-    const targetInputContainer = document.querySelector(`#${entryDropdown.value} .input-container`); //The value of a input
-    console.log(targetInputContainer);
+    const targetInputContainer = document.querySelector(`#${entryDropdown.value} .input-container`); //It verify the actual value selected by user
     /*
         Templates literals is a dynamic format to use string more clear. It help us to concatenate vars and strings more easy in one single row. Ex:
         `Hello. I wanna share something (I somewhat it is) good choice just for u. Is here:
@@ -52,7 +50,7 @@ function addEntry(){
 
     const entryNumber = targetInputContainer.querySelectorAll('input[type="text"]').length+1;
     //Query selector will return create a node list of all elements that match the selector
-    //Node list is an "array-like object" in which it has other type of values. 
+    //Node list is an "array-like object". NodeList is a colection of DOM elements inside an array 
     //You can access it's elements using bracket notation
     const HTMLString = `
         <label for="${entryDropdown.value}-${entryNumber}-name">Entry ${entryNumber} Name</label>
@@ -62,25 +60,25 @@ function addEntry(){
     `;
 
     targetInputContainer.insertAdjacentHTML("beforeend", HTMLString); //Search more about atrribuits
-
+    //insertAjacentHTML...
 
     //The advenListner executes many functions when you click. If you has two separated addventListner adding an event to the same thing all of two will execute
    
 }
 
-function getCaloriesFromInputs(list){
+function getCaloriesFromInputs(list){ //List will be the result of a query selector, which will return a nodeList. The value of 'list' will consit of inputs elements
     
     let calories = 0;
 
     for (const item of list) {
-        const currVal = cleanInputString(item.value);
-        const invalidInputMatch = isInvalidInput(currVal);
+        const currVal = cleanInputString(item.value); //To check to clean up the input
+        const invalidInputMatch = isInvalidInput(currVal);  //To check if it is a valid number
+
+        if(invalidInputMatch){ //Verify if it hasnt the values: 'undifined', '0', 'NaN', 'false', '""' or "null"
+            //But if it has a 'truly' value it is a mandatory true even inside array has a false value
+            alert(`Invalid Input: ${invalidInputMatch[0]}`);
+        }
     }
+}   
 
-    if(invalidInputMatch){
-        alert(`Invalid Input: ${invalidInputMatch[0]}`);
-    }
-}
-
-addEntryButton.addEventListener('click', addEntry);
-
+addEntryButton.addEventListener('click', addEntry); 
