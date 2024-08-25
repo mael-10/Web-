@@ -86,8 +86,14 @@ function calculateCalories(e){
     const budgetCalories = getCaloriesFromInputs([budgetNumberInput]); //We use array cuz getCaloriesFromInputs only work with an array
 
     if(isError){
-        return null
+        return 
     }
+
+    const consumedCalories = breakfastCalories + lunchCalories + dinnerCalories + snacksCalories; //calculate the consumed calories
+    const remainingCalories = budgetCalories - consumedCalories + exerciseCalories;
+    const surplusOrDeficit = remainingCalories < 0 ? "Surplus" : "Deficit";
+
+    output.innerHTML = `<span class="${surplusOrDeficit.toLowerCase()}">${remainingCalories} Calorie ${surplusOrDeficit}</span>`;
 
 }
 
