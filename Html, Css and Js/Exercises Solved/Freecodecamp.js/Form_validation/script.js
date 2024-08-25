@@ -14,6 +14,7 @@ function cleanInputString(str){
     const regex = /[+-\s]/g; //Regex is used to form a pattern search for: Searching, Replace and Valided String
     return str.replace(regex, ''); //Replace the regex value
     // console.log("hello".replace(/l/g, "1")); //The second argument is the string that replaces the matched sequence
+    // replace return the string value
 
 }
 
@@ -38,6 +39,7 @@ function isInvalidInput(str){
 
 function addEntry(){
     const targetInputContainer = document.querySelector(`#${entryDropdown.value} .input-container`); //It verify the actual value selected by user
+    //In general .value gets the value of a options and inputs
     /*
         Templates literals is a dynamic format to use string more clear. It help us to concatenate vars and strings more easy in one single row. Ex:
         `Hello. I wanna share something (I somewhat it is) good choice just for u. Is here:
@@ -59,11 +61,34 @@ function addEntry(){
         <input id="${entryDropdown.value}-${entryNumber}-calories" type="number" min="0" placeholder="Calories"/>
     `;
 
-    targetInputContainer.insertAdjacentHTML("beforeend", HTMLString); //Search more about atrribuits
-    //insertAjacentHTML...
+    targetInputContainer.insertAdjacentHTML("beforeend", HTMLString);
+    //insertAjacentHTML is more security and it doesnt refresh all the part like innerHTML
+    //In inner innerHTML if i want to insert more html values like, <p> and other elements the inner HTML use the atribuite +=
+    //When the '+=' is used, value inside variable is refreshed to increment to add new value.
 
     //The advenListner executes many functions when you click. If you has two separated addventListner adding an event to the same thing all of two will execute
-   
+}
+
+function calculateCalories(e){
+    e.preventDefault(); //preventDefault doesnt allow refresh the page
+    isError = false;
+    const breakfastNumberInputs = document.querySelectorAll('#breakfast input[type=number]');
+    const lunchNumberInputs = document.querySelectorAll('#lunch input[type=number]');
+    const dinnerNumberInputs = document.querySelectorAll('#dinner input[type=number]');
+    const snacksNumberInputs = document.querySelectorAll('#snacks input[type=number]');
+    const exerciseNumberInputs = document.querySelectorAll('#exercise input[type=number]');
+
+    const breakfastCalories = getCaloriesFromInputs(breakfastNumberInputs);
+    const lunchCalories = getCaloriesFromInputs(lunchNumberInputs);
+    const dinnerCalories = getCaloriesFromInputs(dinnerNumberInputs);
+    const snacksCalories = getCaloriesFromInputs(snacksNumberInputs);
+    const exerciseCalories = getCaloriesFromInputs(exerciseNumberInputs);
+    const budgetCalories = getCaloriesFromInputs([budgetNumberInput]); //We use array cuz getCaloriesFromInputs only work with an array
+
+    if(isError){
+        return null
+    }
+
 }
 
 function getCaloriesFromInputs(list){ //List will be the result of a query selector, which will return a nodeList. The value of 'list' will consit of inputs elements
@@ -71,14 +96,17 @@ function getCaloriesFromInputs(list){ //List will be the result of a query selec
     let calories = 0;
 
     for (const item of list) {
-        const currVal = cleanInputString(item.value); //To check to clean up the input
+        const currVal = cleanInputString(item.value); //To check to clean up the input (the .value in that case get the value of input)
         const invalidInputMatch = isInvalidInput(currVal);  //To check if it is a valid number
 
         if(invalidInputMatch){ //Verify if it hasnt the values: 'undifined', '0', 'NaN', 'false', '""' or "null"
-            //But if it has a 'truly' value it is a mandatory true even inside array has a false value
-            alert(`Invalid Input: ${invalidInputMatch[0]}`);
-        }
-    }
-}   
 
-addEntryButton.addEventListener('click', addEntry); 
+            alert(`Invalid Input: ${invalidInputMatch[0]}`);
+            isError = true;
+            return null; //return ends a excutions of function
+        }
+        return calories += Number(currVal); //Number is a function that convert a string into a number cuz the value inside form is a string
+    }
+}  
+
+addEntryButton.addEventListener('click', addEntry);
