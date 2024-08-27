@@ -93,8 +93,21 @@ function calculateCalories(e){
     const remainingCalories = budgetCalories - consumedCalories + exerciseCalories;
     const surplusOrDeficit = remainingCalories < 0 ? "Surplus" : "Deficit";
 
-    output.innerHTML = `<span class="${surplusOrDeficit.toLowerCase()}">${remainingCalories} Calorie ${surplusOrDeficit}</span>`;
-
+    output.innerHTML = 
+    //Math abs you have the absolute value
+    `
+        <span class="${surplusOrDeficit.toLowerCase()}">${Math.abs(remainingCalories)} Calorie ${surplusOrDeficit}</span> 
+        <hr>
+        <p>${budgetCalories} Calories Budgeted</p>
+        <p>${consumedCalories} Calories Consumed</p>
+        <p>${exerciseCalories} Calories Burned</p>
+    `;
+    
+    output.classList.remove('hide');
+    /*
+        The classList JavaScript is a read-only property that is used to return CSS classes in the form of an array. 
+        The classList JavaScript allows us to add, remove, replace, toggle or check whether the specified CSS class is present or not
+    */ 
 }
 
 function getCaloriesFromInputs(list){ //List will be the result of a query selector, which will return a nodeList. The value of 'list' will consit of inputs elements
@@ -115,4 +128,10 @@ function getCaloriesFromInputs(list){ //List will be the result of a query selec
     }
 }  
 
+function clearForm(){
+    const inputContainers = Array.from(document.querySelectorAll('.input-container')); //We use an 'Array.from' for Tranform an array-like object to real array
+    // The real array acceps more array methods. Array-like is limited compared to another one.
+}
+
 addEntryButton.addEventListener('click', addEntry);
+calorieCounter.addEventListener('submit', calculateCalories);
