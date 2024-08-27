@@ -7,81 +7,81 @@
     --light-pink: #ffadad;
     --dark-red: #850000;
     --light-green: #acd157;
-}
+  }
   
-body {
+  body {
     font-family: "Lato", Helvetica, Arial, sans-serif;
     font-size: 18px;
     background-color: var(--fcc-blue);
     color: var(--light-grey);
-}
+  }
   
-h1 {
- text-align: center;
-}
+  h1 {
+    text-align: center;
+  }
   
-.container {
+  .container {
     width: 90%;
     max-width: 680px;
-}
+  }
   
-h1,
+  h1,
   .container,
   .output {
     margin: 20px auto;
-}
+  }
   
-label,
-legend {
+  label,
+  legend {
     font-weight: bold;
-}
+  }
   
-.input-container {
+  .input-container {
     display: flex;
     flex-direction: column;
-}
+  }
   
-button {
+  button {
     cursor: pointer;
     text-decoration: none;
     background-color: var(--light-yellow);
     border: 2px solid var(--dark-yellow);
-}
+  }
   
-button,
-input,
+  button,
+  input,
   select {
     min-height: 24px;
     color: var(--dark-blue);
-}
+  }
   
-fieldset,
-label,
-button,
-input,
-select {
+  fieldset,
+  label,
+  button,
+  input,
+  select {
     margin-bottom: 10px;
-}
+  }
   
-.output {
+  .output {
     border: 2px solid var(--light-grey);
     padding: 10px;
     text-align: center;
-}
+  }
   
-.hide {
+  .hide {
     display: none;
-}
+  }
   
   .output span {
     font-weight: bold;
     font-size: 1.2em;
-}
+  }
   
-.surplus {
+  .surplus {
     color: var(--light-pink);
-}
+  }
   
-.deficit {
+  .deficit {
     color: var(--light-green);
-}
+  }

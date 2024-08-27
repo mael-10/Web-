@@ -50,7 +50,7 @@ function addEntry(){
         
     */
 
-    const entryNumber = targetInputContainer.querySelectorAll('input[type="text"]').length+1;
+    const entryNumber = targetInputContainer.querySelectorAll('input[type="text"]').length + 1;
     //Query selector will return create a node list of all elements that match the selector
     //Node list is an "array-like object". NodeList is a colection of DOM elements inside an array 
     //You can access it's elements using bracket notation
@@ -72,6 +72,7 @@ function addEntry(){
 function calculateCalories(e){
     e.preventDefault(); //preventDefault doesnt allow refresh the page
     isError = false;
+    
     const breakfastNumberInputs = document.querySelectorAll('#breakfast input[type=number]');
     const lunchNumberInputs = document.querySelectorAll('#lunch input[type=number]');
     const dinnerNumberInputs = document.querySelectorAll('#dinner input[type=number]');
@@ -84,6 +85,7 @@ function calculateCalories(e){
     const snacksCalories = getCaloriesFromInputs(snacksNumberInputs);
     const exerciseCalories = getCaloriesFromInputs(exerciseNumberInputs);
     const budgetCalories = getCaloriesFromInputs([budgetNumberInput]); //We use array cuz getCaloriesFromInputs only work with an array
+    
 
     if(isError){
         return 
@@ -91,7 +93,11 @@ function calculateCalories(e){
 
     const consumedCalories = breakfastCalories + lunchCalories + dinnerCalories + snacksCalories; //calculate the consumed calories
     const remainingCalories = budgetCalories - consumedCalories + exerciseCalories;
-    const surplusOrDeficit = remainingCalories < 0 ? "Surplus" : "Deficit";
+    const surplusOrDeficit = remainingCalories < 0 ? 'Surplus' : 'Deficit';
+
+    console.log(consumedCalories);
+    console.log(remainingCalories);
+    console.log(surplusOrDeficit);
 
     output.innerHTML = 
     //Math abs you have the absolute value
@@ -102,12 +108,13 @@ function calculateCalories(e){
         <p>${consumedCalories} Calories Consumed</p>
         <p>${exerciseCalories} Calories Burned</p>
     `;
-    
-    output.classList.remove('hide');
+
+    output.classList.remove('hide'); 
     /*
         The classList JavaScript is a read-only property that is used to return CSS classes in the form of an array. 
         The classList JavaScript allows us to add, remove, replace, toggle or check whether the specified CSS class is present or not
     */ 
+
 }
 
 function getCaloriesFromInputs(list){ //List will be the result of a query selector, which will return a nodeList. The value of 'list' will consit of inputs elements
@@ -124,14 +131,28 @@ function getCaloriesFromInputs(list){ //List will be the result of a query selec
             isError = true;
             return null; //return ends a excutions of function
         }
-        return calories += Number(currVal); //Number is a function that convert a string into a number cuz the value inside form is a string
     }
+
+    return calories += Number(currVal); //Number is a function that convert a string into a number cuz the value inside form is a string
 }  
 
 function clearForm(){
     const inputContainers = Array.from(document.querySelectorAll('.input-container')); //We use an 'Array.from' for Tranform an array-like object to real array
     // The real array acceps more array methods. Array-like is limited compared to another one.
+
+    for(const container of inputContainers){
+        container.innerHTML = '';
+    }
+
+    budgetNumberInput.value = '';
+
+    output.innerText = ''; //Will remove the text not text. Cuz we need the element to avoid constraint
+    output.classList.add('hide');
 }
 
+clearButton.addEventListener('click', clearForm);
 addEntryButton.addEventListener('click', addEntry);
 calorieCounter.addEventListener('submit', calculateCalories);
+
+//error return inside for loop
+//fogot the type in one of the button
