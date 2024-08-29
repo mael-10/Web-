@@ -6,6 +6,7 @@ const entryDropdown = document.getElementById('entry-dropdown');
 const addEntryButton = document.getElementById('add-entry');
 const clearButton = document.getElementById('clear');
 const output = document.getElementById('output');
+const removeEntryButton = document.getElementById('remove-entry');
 let isError = false;
 
 
@@ -95,10 +96,6 @@ function calculateCalories(e){
     const remainingCalories = budgetCalories - consumedCalories + exerciseCalories;
     const surplusOrDeficit = remainingCalories < 0 ? 'Surplus' : 'Deficit';
 
-    console.log(consumedCalories);
-    console.log(remainingCalories);
-    console.log(surplusOrDeficit);
-
     output.innerHTML = 
     //Math abs you have the absolute value
     `
@@ -141,7 +138,7 @@ function clearForm(){
     // The real array acceps more array methods. Array-like is limited compared to another one.
 
     for(const container of inputContainers){
-        container.innerHTML = '';
+        container.innerHTML = ''; //All elements inside input-container will be "''".
     }
 
     budgetNumberInput.value = '';
@@ -150,9 +147,45 @@ function clearForm(){
     output.classList.add('hide');
 }
 
+function removeEntry(){
+    const targetInputContainerLabel = document.querySelectorAll(`#${entryDropdown.value} .input-container label`);
+    const targetInputContainerInput = document.querySelectorAll(`#${entryDropdown.value} .input-container input`);
+    let counter = 0;
+    let lengthInputs = targetInputContainerLabel.length - 1;
+
+    while(counter < 2){
+        targetInputContainerLabel[lengthInputs].remove();
+        targetInputContainerInput[lengthInputs].remove();
+
+        console.log("Oiiii");
+
+        lengthInputs--;
+        counter++;
+    }
+
+;
+
+    /*
+        for(let i = lengthInputs; i > i - 2; i--){
+        targetInputContainerLabel[lengthInputs].remove();
+        targetInputContainerInput[lengthInputs].remove();
+
+        console.log("Oi")
+        console.log(lengthInputs)
+
+        lengthInputs--;
+        
+    }
+    */
+}
+
 clearButton.addEventListener('click', clearForm);
 addEntryButton.addEventListener('click', addEntry);
 calorieCounter.addEventListener('submit', calculateCalories);
+removeEntryButton.addEventListener('click', removeEntry);
 
 //error return inside for loop
-//fogot the type in one of the button
+//fogot the type in one of the button in html
+
+//remove() vs innerText vs InnerHTML vs addAdjacentHTML()
+
