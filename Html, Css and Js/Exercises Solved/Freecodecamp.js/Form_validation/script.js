@@ -153,15 +153,19 @@ function removeEntry(){
     let counter = 0;
     let lengthInputs = targetInputContainerLabel.length - 1;
 
-    while(counter < 2){
-        targetInputContainerLabel[lengthInputs].remove();
-        targetInputContainerInput[lengthInputs].remove();
-
-        console.log("Oiiii");
-
-        lengthInputs--;
-        counter++;
+    if(lengthInputs >= 0){ //It 'if' verify lenght of array is correct
+        while(counter < 2){
+            targetInputContainerLabel[lengthInputs].remove();
+            targetInputContainerInput[lengthInputs].remove();
+    
+            console.log("Oiiii");
+    
+            lengthInputs--;
+            counter++;
+        }
     }
+
+    
 
 ;
 
