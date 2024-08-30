@@ -71,7 +71,6 @@ function addEntry(){
 }
 
 function calculateCalories(e){
-    console.log("Oiii como vc estaá");
     e.preventDefault(); //preventDefault doesnt allow refresh the page
     isError = false;
     
@@ -162,7 +161,6 @@ function removeEntry(){
             targetInputContainerLabel[lengthInputs].remove();
             targetInputContainerInput[lengthInputs].remove();
     
-            console.log("Oiiii");
     
             lengthInputs--;
             counter++;
