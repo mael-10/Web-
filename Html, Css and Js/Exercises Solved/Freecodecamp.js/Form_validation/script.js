@@ -71,6 +71,7 @@ function addEntry(){
 }
 
 function calculateCalories(e){
+    console.log("Oiii como vc estaá");
     e.preventDefault(); //preventDefault doesnt allow refresh the page
     isError = false;
     
@@ -119,6 +120,7 @@ function getCaloriesFromInputs(list){ //List will be the result of a query selec
     let calories = 0;
 
     for (const item of list) {
+
         const currVal = cleanInputString(item.value); //To check to clean up the input (the .value in that case get the value of input)
         const invalidInputMatch = isInvalidInput(currVal);  //To check if it is a valid number
 
@@ -127,10 +129,12 @@ function getCaloriesFromInputs(list){ //List will be the result of a query selec
             alert(`Invalid Input: ${invalidInputMatch[0]}`);
             isError = true;
             return null; //return ends a excutions of function
+
         }
+
+        return calories += Number(currVal); //Number is a function that convert a string into a number cuz the value inside form is a string
     }
 
-    return calories += Number(currVal); //Number is a function that convert a string into a number cuz the value inside form is a string
 }  
 
 function clearForm(){
@@ -165,22 +169,6 @@ function removeEntry(){
         }
     }
 
-    
-
-;
-
-    /*
-        for(let i = lengthInputs; i > i - 2; i--){
-        targetInputContainerLabel[lengthInputs].remove();
-        targetInputContainerInput[lengthInputs].remove();
-
-        console.log("Oi")
-        console.log(lengthInputs)
-
-        lengthInputs--;
-        
-    }
-    */
 }
 
 clearButton.addEventListener('click', clearForm);
@@ -192,4 +180,3 @@ removeEntryButton.addEventListener('click', removeEntry);
 //fogot the type in one of the button in html
 
 //remove() vs innerText vs InnerHTML vs addAdjacentHTML()
-
