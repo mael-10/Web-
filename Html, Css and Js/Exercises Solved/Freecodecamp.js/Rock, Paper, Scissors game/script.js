@@ -1,39 +1,57 @@
 
+let playerScore = 0;
+let computerScore = 0;
+
 function getRandomComputerResult(){
+
     const options = ["Rock","Paper","Scissors"];
     const randomNumber = Math.floor(Math.random() * options.length);
 
     return options[randomNumber];
-
 }
 
-function hasPlayerWonTheRound(player, computer){
+function hasPlayerWonTheRound(player, computer) {
 
-    if(player === "Rock" && computer === "Scissors"){
-        return true;
-
-    } else if(player === "Scissors" && computer === "Paper"){
-        return true;
-
-    } else if(player === "Paper" && computer === "Rock"){
-        return  true;
-
-    } else{
-        return false;
-    }
-
-}
+    return (
+        (player === "Rock" && computer === "Scissors") || 
+        (player === "Scissors" && computer === "Paper") ||
+        (player === "Paper" && computer === "Rock")
+    );
+  }
 
 function getRoundResults(userOption){
+
     const computerResult = getRandomComputerResult();
     const playerResult = hasPlayerWonTheRound(userOption, computerResult);
 
     if(playerResult === true){
-        document.getElementById('player-score').innerText = 1;
-    } else{
-        document.getElementById('computer-score').innerText = 1;
+        playerScore++;
+        return `Player wins! ${userOption} beats ${computerResult}`;
+
+    } else if(playerResult === false){
+        computerScore++;
+        return `Computer wins! ${computerResult} beats ${userOption}`;
+
+    } else if(userOption === computerResult){
+        return `It's a tie! Both chose ${userOption}`;
+
     }
 }
 
-console.log(getRoundResults("Rock"));
-console.log("Player Score: ", playerScore, "Computer Score: ", computerScore);
+function showResults(userOption) {
+    const roundResultsMsg = document.getElementById('results-msg');
+    const playerScoreSpanElement = document.getElementById('player-score');
+    const computerScoreSpanElement = document.getElementById('computer-score');
+
+    playerScoreSpanElement.innerText = playerScore;
+    computerScoreSpanElement.innerText = computerScore;
+    roundResultsMsg.innerText = getRoundResults(userOption);
+    
+
+}; 
+
+
+
+
+
+showResults("Rock");
