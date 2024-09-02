@@ -43,15 +43,13 @@ function showResults(userOption) {
     const playerScoreSpanElement = document.getElementById('player-score');
     const computerScoreSpanElement = document.getElementById('computer-score');
 
+    roundResultsMsg.innerText = getRoundResults(userOption);
     playerScoreSpanElement.innerText = playerScore;
     computerScoreSpanElement.innerText = computerScore;
-    roundResultsMsg.innerText = getRoundResults(userOption);
+    
     
 
 }; 
-
-
-
 
 
 showResults("Rock");
