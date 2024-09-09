@@ -62,4 +62,4 @@ cat["Space Name"] = Use brackets when properties has space
 
 //Anonymous function is ideal for unique case. It is most used in callback function
 //It is called spread. With spread you copy all elements of array to another.
-//.map() is used to creat a new arrat with a old array manipuleted
+//The map() method is used to iterate through an array and return a new array. It's helpful when you want to create a new array based on the values of an existing.
