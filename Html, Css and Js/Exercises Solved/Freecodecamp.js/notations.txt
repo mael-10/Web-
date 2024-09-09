@@ -56,4 +56,10 @@ How to access an Object
 cat.name = Use dot for access an object when it doesnt have any space 
 cat["Space Name"] = Use brackets when properties has space 
 
-'bracket notation' its know as passing an index to access arrays
+'bracket notation' its know as passing an index to access arrays.
+
+-------------------------------//---------------------------------------------------------------
+
+//Anonymous function is ideal for unique case. It is most used in callback function
+//It is called spread. With spread you copy all elements of array to another.
+//.map() is used to creat a new arrat with a old array manipuleted

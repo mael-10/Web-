@@ -75,15 +75,19 @@ const allSongs = [
     artist: "Quincy Larson",
     duration: "2:43",
     src: "https://cdn.freecodecamp.org/curriculum/js-music-player/chasing-that-feeling.mp3",
-  },
+  }
 ];
 
 const audio = new Audio(); //Web Audio API to play the songs
 let userData = {//Storage the current song and time
-  songs: [...allSongs], //allows you to copy all elements from one array into another
+  songs: [...allSongs], //allows you to copy all elements from one array into another. It is called spread. With spread you copy all elements of array to another 
   currentSong: null,
   songCurrentTime: 0
 };
+const renderSongs = (array) => { //to display songs to UI
+  const songsHTML = array.map(); //Is used to iterate through an array and return a new array. To use .map it uses a 'callback function'which is a function that is passed to another function as an argument
+}
+/*
 const printGreeting = () => { //arrow function a short way to use a function
   console.log('Hello there!'); 
 }
@@ -91,4 +95,7 @@ const printMessage = org => {
   console.log(`${org} is awesome!`);
 }
 
-printMessage("freecodecamp");
+const addTwoNumbers = (num1, num2) => num1 * num2;
+*/
+
+//anonymous function is ideal for unique case
