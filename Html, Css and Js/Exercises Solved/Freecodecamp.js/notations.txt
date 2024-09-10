@@ -63,3 +63,40 @@ cat["Space Name"] = Use brackets when properties has space
 //Anonymous function is ideal for unique case. It is most used in callback function
 //It is called spread. With spread you copy all elements of array to another.
 //The map() method is used to iterate through an array and return a new array. It's helpful when you want to create a new array based on the values of an existing.
+
+---------------------------------------------//-----------------------
+
+As optional chaining serve para verficar se um valor é uma forma segura de acessar "propiedades aninhadas".
+
+PROPIEDADES ANINHADAS é usado quando temos um objeto dentro de um objeto. É um maneira de organizer dados de maneira mais organizadas. Ex:
+
+const usurio {
+  nome: Joao, 
+  endereco {
+    rua: "Avenida do Cabuloso",
+    numero: 100,
+    cidade: São Paulo. 
+    CEP: 05999
+  }, 
+  idade: 18
+}
+
+Neste exemplo "endereco" é uma propriedade aninhada de usuario. Para acessar alguma propiedade: 
+
+console.log(usuario.endereco.rua); //Avenida do Cabuloso
+
+Optional chaining permite verficar se aquela propiedade aninhada existe. Se não existir, o código não gera erro e sim um "undefined"
+
+console.log(usuario.endereco?.rua);
+
+
+-------------------------------------//------------------------------
+
+const array1 = [1, 4, 9, 16];
+
+// Pass a function to map
+const map1 = array1.map((x) => x * 2);
+
+console.log(map1); // [2, 4, 9, 16]
+
+Ele intera sobre cada elemento, assim fazendo uma manipulação no seus elementos
