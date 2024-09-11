@@ -34,6 +34,8 @@ document represents your entire html document. Ex:
 
 document.querySelector("h2"); -- That represents you html and you are selecting your h2. Its inside your html document. 
 
+--------------------------//--------------------------------------------
+
 OBJECTS JS: 
 
 - if a variable isnt be reassigned its a better practise use const. This will tell JavaScript to throw an error if you accidentally reassign it. 
@@ -63,6 +65,58 @@ cat["Space Name"] = Use brackets when properties has space
 //Anonymous function is ideal for unique case. It is most used in callback function
 //It is called spread. With spread you copy all elements of array to another.
 //The map() method is used to iterate through an array and return a new array. It's helpful when you want to create a new array based on the values of an existing.
+
+------------------------------//--------------------------------------------------------
+
+A função anonima é uma função sem nome, onde seu uso é indicado quando precisar usa-lá somente uma vez.
+
+Função anonima: 
+
+const ola = function(){
+  console.log("Olá mundo");
+}
+
+ola(); //Olá mundo
+
+
+A callback function é uma função passada como outro argumento para uma função. As callbacks podem ser usadas em métodos como o .map() e o .sort()
+As callback podem usar tanto funções declaradas como anônimas.
+
+
+callback com função anonima: 
+
+function love(you){
+  console.log("I love.. ");
+  you(); //Chamamos o parâmetro como função pois o parametro é nesse contexto uma função.
+}
+
+love(function(){
+  console.log("you");
+});
+
+Callback com função nomeada
+
+function you(){
+  console.log("you");
+}
+
+function love(voce){
+  console.log("I love... ");
+  voce();
+}
+
+love(you);
+
+Arrow function
+
+Arrow function é uma maneria simplificada da função anonima
+
+const anonima = () => {
+  //a função aqui
+}
+
+
+Da mesma forma pode ser usada em .map e .sort, que é o seu uso mais comum
 
 ---------------------------------------------//-----------------------
 
@@ -99,4 +153,44 @@ const map1 = array1.map((x) => x * 2);
 
 console.log(map1); // [2, 4, 9, 16]
 
-Ele intera sobre cada elemento, assim fazendo uma manipulação no seus elementos
+Ele itera sobre cada elemento, assim fazendo uma manipulação no seus elementos
+
+--------------------------------------//--------------------------------------
+
+o .sort() coloca todos os elmentos de um array em orden alfabética
+
+name =  [Thiago, Matheus, Ana];
+
+name.short() //[Ana, Matheus, Thiago]
+
+Para colocar um object em ordem, tenho que transformar esse objeto em array.
+Para ordernar é preciso também que tenha uma string no array. Caso contrario é necessário ter uma estrutura de comparação caso deseje ordernar objetos.
+O método .short ele aceita callbacks function para fazer comparaçãoes lógicas.
+
+const fruits = [
+  { name: "Apples", price: 0.99 },
+  { name: "Blueberries", price: 1.49 },
+  { name: "Grapes", price: 2.99 },
+];
+
+fruits.sort((a, b) => {
+  if (a.name < b.name) {
+    return -1;
+  }
+
+  if (a.name > b.name) {
+    return 1;
+  }
+
+  return 0;
+});
+
+O .short() em suas comparações lógicas, precisa de um valor de retorno.
+Quando se compara uma string com outra, o .short compara letra por letra para verficar qual é a quem te precedencia maior para a ordem alfabética.
+
+
+"Apples" é menor do que  "Bananas" porque "A" vem antes de "B" no alfabeto. Então retornamos -1, caso contrario retornamos 1.
+E sim for igual, então retorna 0 e termina a função para iterar o próximo objeto.
+Com o valor de retorno onde vai permitir o metodo saber à organizar os objetos.
+
+Assim como o map, o short itera sobre todas as posições do array para verificar qual é a ordem alfabética.

@@ -114,5 +114,19 @@ const renderSongs = (array) => {
   playlistSongs.innerHTML = songsHTML;
 };
 
+//Irá mostrar os Sons em ordem alfabética
+const sortSongs = () => {
+  userData?.songs.sort((a, b) => {
+    if (a.title < b.title) {
+      return -1;
+    }
+
+    if(a.title > b.title){
+      return 1;
+    }
+  });
+}
+
 // Chama a função renderSongs para exibir as músicas na interface do usuário
-renderSongs(userData?.songs);
+renderSongs(userData?.songs); //Tem um objeto dentro de um objeto
+sortSongs();
