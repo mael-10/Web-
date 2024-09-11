@@ -124,9 +124,18 @@ const sortSongs = () => {
     if(a.title > b.title){
       return 1;
     }
+
+    return 0;
   });
+
+  return userData?.songs;
+
 }
 
 // Chama a função renderSongs para exibir as músicas na interface do usuário
-renderSongs(userData?.songs); //Tem um objeto dentro de um objeto
-sortSongs();
+//renderSongs(userData?.songs); //Tem um objeto dentro de um objeto
+renderSongs(sortSongs()); //Vai passar todos os objetos na ordem alfabetica.
+
+const playlist = document.querySelectorAll('li');
+
+console.log(playlist);
