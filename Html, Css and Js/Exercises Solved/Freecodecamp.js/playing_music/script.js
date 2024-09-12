@@ -14,21 +14,21 @@ const allSongs = [
     title: "Numb",
     artist: "Link Park",
     duration: "3:07",
-    src: "<audio controls> <source src='my-musics/Numb (Official Music Video) [4K UPGRADE] – Linkin Park.mp3' type='audio/mpeg'></audio>"
+    src: "my-musics/Numb (Official Music Video) [4K UPGRADE] – Linkin Park.mp3'>"
   }, 
   {
     id: 1,
     title: "Jigsaw Falling Into Place",
     artist: "Quincy Larson",
     duration: "4:18",
-    src: "<audio controls> <source src='my-musics/Radiohead - Jigsaw Falling Into Place.mp3' type='audio/mpeg'></audio>",
+    src: "my-musics/Radiohead - Jigsaw Falling Into Place.mp3'>",
   }, 
   {
     id: 2,
     title: "Savior",
     artist: "Rise Against",
     duration: "4:01",
-    src: "<audio controls> <source src='my-musics/Rise Against - Savior (Official Music Video).mp3' type='audio/mpeg'></audio>",
+    src: "my-musics/Rise Against - Savior (Official Music Video).mp3'>",
   },
   {
     id: 3,
@@ -92,10 +92,17 @@ let userData = {
 };
 
 const playSong = (id) => {
-  const song = userData?.songs.find((song) => song.id === id); //--> [0].id === id (está iterando sobre o parâmetro) (song é a posição)
+  const song = userData?.songs.find((song) => song.id === id); //--> [0].id === id (está iterando sobre o parâmetro) (song é a posição). (find retorna a posição do array)
   audio.src = song.src; //Isso fala para o áudio on achalo no som selecionado
   audio.title = song.title;
+
+  if(userData?.currentSong === null || userData?.currentSong.id !== song.id){
+    audio.currentTime = 0;
+  } else {
+    audio.currentTime = userData?.songCurrentTime;
+  }
   
+  userData.currentSong  = song;
 }
 
 // Função que renderiza a lista de músicas na interface do usuário

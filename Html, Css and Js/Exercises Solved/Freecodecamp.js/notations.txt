@@ -204,3 +204,15 @@ const numbers = [10, 20, 30, 40, 50];
 // Find the first number greater than 25
 const foundNumber = numbers.find((number) => number > 25);
 console.log(foundNumber); // Output: 30
+
+----------------------//--------------------------------------
+
+Método Audio
+
+audio.play(): Inicia a reprodução do áudio.
+audio.pause(): Pausa a reprodução do áudio.
+audio.load(): Carrega o arquivo de áudio especificado em src.
+audio.addEventListener(): Adiciona um ouvinte de evento para eventos específicos, como play, pause, ended, etc.
+audio.title: Pode dar o título para o áudio
+audio.src: Diz onde está o caminho para a música
+audio.currentime: Fala o tempo atual da música
