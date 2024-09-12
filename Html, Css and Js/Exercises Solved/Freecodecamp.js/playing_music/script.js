@@ -91,6 +91,13 @@ let userData = {
   songCurrentTime: 0 // O tempo atual da música é 0
 };
 
+const playSong = (id) => {
+  const song = userData?.songs.find((song) => song.id === id); //--> [0].id === id (está iterando sobre o parâmetro) (song é a posição)
+  audio.src = song.src; //Isso fala para o áudio on achalo no som selecionado
+  audio.title = song.title;
+  
+}
+
 // Função que renderiza a lista de músicas na interface do usuário
 const renderSongs = (array) => {
   // Usa o método map para criar uma lista HTML das músicas
@@ -135,7 +142,3 @@ const sortSongs = () => {
 // Chama a função renderSongs para exibir as músicas na interface do usuário
 //renderSongs(userData?.songs); //Tem um objeto dentro de um objeto
 renderSongs(sortSongs()); //Vai passar todos os objetos na ordem alfabetica.
-
-const playlist = document.querySelectorAll('li');
-
-console.log(playlist);

@@ -194,3 +194,13 @@ E sim for igual, então retorna 0 e termina a função para iterar o próximo ob
 Com o valor de retorno onde vai permitir o metodo saber à organizar os objetos.
 
 Assim como o map, o short itera sobre todas as posições do array para verificar qual é a ordem alfabética.
+
+-----------------------//------------------------------
+
+O método .find() ele encontra o elemento do array que setizfaz a condição usando as funções callbacks. Ex:
+
+const numbers = [10, 20, 30, 40, 50];
+
+// Find the first number greater than 25
+const foundNumber = numbers.find((number) => number > 25);
+console.log(foundNumber); // Output: 30
