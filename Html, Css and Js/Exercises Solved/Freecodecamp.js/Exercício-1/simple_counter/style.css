@@ -1,0 +1,33 @@
+body{
+    background-color: rgb(58, 58, 58);
+    color: white;
+}
+
+.coitainer-counter{
+    margin: auto;
+    position: absolute;
+    top: 30%; bottom: 50%;
+    left: 0; right: 0;
+    width: 200px;
+}
+
+.sub-counter{
+    width: auto;
+    display: flex;
+    justify-content: center;
+}
+
+.sub-counter p{
+    font-size: xx-large;
+}
+
+.button{
+    width: auto;
+    display: flex;
+    justify-content: center;
+}
+
+button{
+    height: 30px;
+    margin-left: 10px;
+}

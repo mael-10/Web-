@@ -60,12 +60,21 @@ cat["Space Name"] = Use brackets when properties has space
 
 'bracket notation' its know as passing an index to access arrays.
 
+--------------------------------//-------------------------------------
+
+document.getElementById("meuBotao").addEventListener("click", function(e) {
+    console.log(e); // Exibe informações sobre o evento de clique
+    console.log(e.target); // Mostra o elemento que foi clicado
+});
+
+Quando colocamos o parametro evento, nos podemos acessar todas as propiedades (objetos do addEventListener).
+Com isso, podemos usar o e.target onde ele vai acessar o elemento que foi clicado. Oque permite acessar os objetos addEventListener
+
 -------------------------------//---------------------------------------------------------------
 
 //Anonymous function is ideal for unique case. It is most used in callback function
 //It is called spread. With spread you copy all elements of array to another.
 //The map() method is used to iterate through an array and return a new array. It's helpful when you want to create a new array based on the values of an existing.
-
 ------------------------------//--------------------------------------------------------
 
 A função anonima é uma função sem nome, onde seu uso é indicado quando precisar usa-lá somente uma vez.
