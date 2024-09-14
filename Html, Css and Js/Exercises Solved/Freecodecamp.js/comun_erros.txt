@@ -2,6 +2,8 @@
 
 let valueNumber = number.innerText;
 
+.value só se usa em inputs
+
 2- Não é necesário colocar um return em uma função ao menos que queira retornar valores e ou fazer interrupção prematura
 
 3- Para eu usar o addEventListner passando um paramêtro, é preciso usar uma função anônima para não ser chamada no mesmo instante, mas somente ao clicar. Ex:
@@ -14,4 +16,10 @@ for(let i = 0; i <= 9; i++){
 
 4- Iterar mais elementos que o array tem pode resultar em 'cannot read property of undifined erros'
 
-5- Tem que ficar atento com .length, pois ele conta a partir de 1 um e não de 0
+5- Tem que ficar atento com .length, pois ele conta a partir de 1 um e não de 0.
+
+6- Quando estiver tendo problemas de renderização quando o JS, para desbugar vc pode usar o 
+
+document.addEventListener('DOMContentLoaded', () => {})
+
+Isso vai dizer que só vai executar o código js quando todo o html e css estiver lido (isso pode ajudar quando tiver problemas de renderização)
