@@ -225,3 +225,5 @@ audio.addEventListener(): Adiciona um ouvinte de evento para eventos específico
 audio.title: Pode dar o título para o áudio
 audio.src: Diz onde está o caminho para a música
 audio.currentime: Fala o tempo atual da música
+
+----------------------//------------------------

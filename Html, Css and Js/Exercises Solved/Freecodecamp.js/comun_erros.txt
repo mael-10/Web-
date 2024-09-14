@@ -3,3 +3,4 @@
 let valueNumber = number.innerText;
 
 2- Não é necesário colocar um return em uma função ao menos que queira retornar valores e ou fazer interrupção prematura
+
