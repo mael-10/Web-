@@ -4,3 +4,14 @@ let valueNumber = number.innerText;
 
 2- Não é necesário colocar um return em uma função ao menos que queira retornar valores e ou fazer interrupção prematura
 
+3- Para eu usar o addEventListner passando um paramêtro, é preciso usar uma função anônima para não ser chamada no mesmo instante, mas somente ao clicar. Ex:
+
+for(let i = 0; i <= 9; i++){
+    allNumbers[i].addEventListener('click', function() {
+        getIdNumber(allNumbers[i]);
+    });
+}
+
+4- Iterar mais elementos que o array tem pode resultar em 'cannot read property of undifined erros'
+
+5- Tem que ficar atento com .length, pois ele conta a partir de 1 um e não de 0
