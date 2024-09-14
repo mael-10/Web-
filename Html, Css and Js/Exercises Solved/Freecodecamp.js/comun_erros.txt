@@ -1,3 +1,5 @@
 1 - Quando tentamos utilizar .value em elementos que não é input é retornado .value. Se quer pegar o valor de um elemento que não seja input tem que user innerText ou .textContent. Ex: 
 
 let valueNumber = number.innerText;
+
+2- Não é necesário colocar um return em uma função ao menos que queira retornar valores e ou fazer interrupção prematura
