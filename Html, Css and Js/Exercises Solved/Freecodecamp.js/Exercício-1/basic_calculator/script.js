@@ -15,6 +15,7 @@ function finalResult(operationString){
     console.log(result)
     Math.abs(Number.isInteger(result)) || result === 0 || result.toFixed(1) || result.toFixed(2) ? displayScreen.value = result : displayScreen.value = result.toFixed(3);
 
+    result = 0;
 }
 
 function validatorInput(validation){
@@ -38,8 +39,10 @@ function display(numberOperations){
 
     } else if(numberOperations === '/'){
         inputOperation += '÷';
+
     } else{
         inputOperation += numberOperations;
+
     }
 
     displayScreen.value += inputOperation;  // Atualiza o valor do display concatenando o novo valor
@@ -64,6 +67,11 @@ const iterateNumbers = () => {
 equal.addEventListener('click', function(){
     finalResult(displayInput);
 });
+
+cleanDisplay.addEventListener('click', function(){
+    displayScreen.value = '';
+    displayInput = '';
+})
 
 iterateNumbers();
 basicOperations();
