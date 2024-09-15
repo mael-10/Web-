@@ -5,25 +5,44 @@ const point = document.getElementById('point');
 const allNumbers = document.querySelectorAll('.number');
 const allSignals = document.querySelectorAll('.signal');
 const displayScreen = document.getElementById('display');
+let displayInput = '';
 
+function finalResult(operationString){ 
 
-function finalResult(operationString){
+    validatorInput(displayScreen.value); 
 
-    const result = eval(operationString);
-    displayScreen.value = result;
-    
+    let result = eval(operationString);
+    console.log(result)
+    Math.abs(Number.isInteger(result)) || result === 0 || result.toFixed(1) || result.toFixed(2) ? displayScreen.value = result : displayScreen.value = result.toFixed(3);
+
 }
+
+function validatorInput(validation){
+
+    for (let i = 0; i < allSignals.length; i++) {
+        if(validation[0] === allSignals[i].innerText){
+            alert(`Apenas números no começo!`);
+            displayScreen.value = '';
+        }    
+    }
+};
 
 function display(numberOperations){
 
-    console.log(numberOperations);
-    displayScreen.value += numberOperations;  // Atualiza o valor do display concatenando o novo valor
-    console.log(displayScreen.value);  // Exibe o valor atual do display
+    let inputOperation = '';
+    displayInput += numberOperations; 
 
- 
-    equal.addEventListener('click', function(){
-        finalResult(displayScreen.value);
-    });
+    //Irá fazer a substituição do * para × e do ÷ para '/' no input
+    if(numberOperations === '*'){
+        inputOperation += '×';
+
+    } else if(numberOperations === '/'){
+        inputOperation += '÷';
+    } else{
+        inputOperation += numberOperations;
+    }
+
+    displayScreen.value += inputOperation;  // Atualiza o valor do display concatenando o novo valor
 }
 
 const basicOperations = () => {
@@ -41,6 +60,10 @@ const iterateNumbers = () => {
         });
     }
 }
+
+equal.addEventListener('click', function(){
+    finalResult(displayInput);
+});
 
 iterateNumbers();
 basicOperations();
