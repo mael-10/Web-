@@ -23,3 +23,8 @@ for(let i = 0; i <= 9; i++){
 document.addEventListener('DOMContentLoaded', () => {})
 
 Isso vai dizer que só vai executar o código js quando todo o html e css estiver lido (isso pode ajudar quando tiver problemas de renderização)
+
+7- O eval() tem que ser tomado cuidado ao seu uso, pois pode ter vunerabilidades especialmente usando com entrada de usuário. 
+Nesse contexto ele pode ser usado para transformar uma string matemática em um resultado de uma operação:
+
+eval("21+41") //62

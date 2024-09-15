@@ -5,11 +5,13 @@ const point = document.getElementById('point');
 const allNumbers = document.querySelectorAll('.number');
 const allSignals = document.querySelectorAll('.signal');
 const displayScreen = document.getElementById('display');
-let result = 0;
 
-function getOperation(validador){
+
+function finalResult(operationString){
+
+    const result = eval(operationString);
+    displayScreen.value = result;
     
-
 }
 
 function display(numberOperations){
@@ -18,14 +20,10 @@ function display(numberOperations){
     displayScreen.value += numberOperations;  // Atualiza o valor do display concatenando o novo valor
     console.log(displayScreen.value);  // Exibe o valor atual do display
 
-    if(numberOperations === '+' || numberOperations === '-' || numberOperations === '*' || numberOperations === '/'){
-        result += `${numberOperations}`;
-        console.log(result)
-    } else{
-        result += numberOperations;
-    }
  
-    
+    equal.addEventListener('click', function(){
+        finalResult(displayScreen.value);
+    });
 }
 
 const basicOperations = () => {
@@ -39,7 +37,7 @@ const basicOperations = () => {
 const iterateNumbers = () => {
     for(let i = 0; i < allNumbers.length; i++){
         allNumbers[i].addEventListener('click', function(){
-            display(Number(allNumbers[i].innerText));
+            display(allNumbers[i].innerText);
         });
     }
 }
