@@ -36,3 +36,31 @@ eval("21+41") //62
 equal.addEventListener('click', function() {
     finalResult(displayInput);
 }, { once: true });
+
+10 - Se eu quiser verificar um paramtro basta juntar include com o array:
+
+const padaria = ['pao', 'macarrao', 'arroz'].
+
+padaria.include('pao') //true.
+
+É diferente, para verificar se o array tem múltiplos elementos, tem que iterar cada elemento do array: 
+
+    const padaria = ['pao', 'macarrao', 'arroz'];
+    const verificar = ['pao', 'macarrao'];
+
+    const itemItens = verificar.some(item => padaria(item));
+    console.log(temItens);  // true
+
+O some() ele vai verificar se pelos menos existe um elemento que da "match" com verificar.
+
+Já o every() ele verifica se todos batem com verificar
+
+    const padaria = ['pao', 'macarrao', 'arroz'];
+    const verificar = ['pao', 'macarrao'];
+
+    const itemItens = verificar.every(item => padaria(item));
+    console.log(temItens);  // true.
+
+11 - 
+
+    

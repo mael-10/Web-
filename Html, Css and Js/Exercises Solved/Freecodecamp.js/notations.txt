@@ -230,3 +230,5 @@ audio.currentime: Fala o tempo atual da música
 
 Number.isInteger() retorna verdadeiro se um número é inteiro. Ex
 
+
+
