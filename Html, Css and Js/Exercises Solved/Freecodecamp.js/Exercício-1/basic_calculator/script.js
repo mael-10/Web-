@@ -6,94 +6,77 @@ const allNumbers = document.querySelectorAll('.number');
 const allSignals = document.querySelectorAll('.signal');
 const displayScreen = document.getElementById('display');
 let displayInput = '';
-console.log(allSignals)
 
-function finalResult(operationString){ 
-
-    if(validatorInput(displayScreen.value)){
-        let result = eval(operationString);
-        console.log(result)
-        Math.abs(Number.isInteger(result)) || result === 0 ? displayScreen.value = result : displayScreen.value = result.toFixed(3);
-
-        result = 0;
+function finalResult() { 
+    if (validatorInput(displayScreen.value)) {
+        // Substitui os sinais para o eval funcionar corretamente
+        let sanitizedString = displayInput.replace(/×/g, '*').replace(/÷/g, '/');
+        let result = eval(sanitizedString); // Use eval aqui
+        displayScreen.value = Number.isInteger(result) ? result : result.toFixed(3);
+        displayInput = ''; // Limpa a entrada após o cálculo
     }
 }
 
-function validatorInput(validation){
+function validatorInput(validation) {
+    let repeatSignals = Array.from(validation);
 
-    let repeatSignals = [];
-
-    //Transforma todos os elementos do array individual em string
-    for(const iterate of Array.from(validation)){ 
-        repeatSignals.push(iterate.toString());
+    // Verifica se o primeiro caractere é um sinal
+    if (['+', '-', '÷', '×'].includes(validation[0])) {
+        alert(`Apenas números no começo!`);
+        displayScreen.value = '';
+        return false; // Retorna falso para indicar erro
     }
 
-    //Verifica se há um sinal no começo da string
-    for (let i = 0; i < allSignals.length; i++) {
-        if(validation[0] === allSignals[i].innerText){
-            alert(`Apenas números no começo!`);
-            displayScreen.value = '';
-            return null;
-        }    
-    }
-    
-    for (let i = 1; i < repeatSignals.length - 1; i++){
-        if(['+', '-', '÷', '×'].includes(repeatSignals[i]) && ['+', '-', '÷', '×'].includes(repeatSignals[i + 1])){
+    // Verifica se sinais estão repetidos
+    for (let i = 1; i < repeatSignals.length - 1; i++) {
+        if (['+', '-', '÷', '×'].includes(repeatSignals[i]) && ['+', '-', '÷', '×'].includes(repeatSignals[i + 1])) {
             alert(`Não pode os sinais +, -, ÷, × repetidos`);
             displayScreen.value = '';
-            validation = '';
-            repeatSignals = [];
             displayInput = '';
-            return null
+            return false; // Retorna falso para indicar erro
         }
     }
-    
-};
+    return true; // Retorna verdadeiro se tudo estiver certo
+}
 
-function display(numberOperations){
+function display(numberOperations) {
+    displayInput += numberOperations; // Irá concatenar tudo em uma só string para depois ser realizado o cálculo
+    let inputOperation = numberOperations;
 
-    let inputOperation = '';
-    displayInput += numberOperations; //Irá concatenar tudo em uma só string para depois ser realizado o cáculo
-
-    //Irá fazer a substituição do * para × e do ÷ para '/' no input
-    if(numberOperations === '*'){
-        inputOperation += '×';
-
-    } else if(numberOperations === '/'){
-        inputOperation += '÷';
-
-    } else{
-        inputOperation += numberOperations;
-
+    // Substituição de sinais visuais
+    if (numberOperations === '*') {
+        inputOperation = '×';
+    } else if (numberOperations === '/') {
+        inputOperation = '÷';
     }
 
-    displayScreen.value += inputOperation; //inputOperation é apenas uma variável para atualizar o valor do input displayScreen
+    displayScreen.value += inputOperation; // Atualiza o valor do input displayScreen
 }
 
 const basicOperations = () => {
-    for(let i = 0; i < allSignals.length; i++){
-        allSignals[i].addEventListener('click', function(){
+    for (let i = 0; i < allSignals.length; i++) {
+        allSignals[i].addEventListener('click', function() {
             display(allSignals[i].value);
         });
     }
 }
 
 const iterateNumbers = () => {
-    for(let i = 0; i < allNumbers.length; i++){
-        allNumbers[i].addEventListener('click', function(){
+    for (let i = 0; i < allNumbers.length; i++) {
+        allNumbers[i].addEventListener('click', function() {
             display(allNumbers[i].innerText);
         });
     }
 }
 
-equal.addEventListener('click', function(){
-    finalResult(displayInput);
+equal.addEventListener('click', function() {
+    finalResult();
 });
 
-cleanDisplay.addEventListener('click', function(){
+cleanDisplay.addEventListener('click', function() {
     displayScreen.value = '';
     displayInput = '';
 })
 
-iterateNumbers(); //chama a função para iterar sobre os sinais
-basicOperations(); //chama a função para iterar sobre os números
+iterateNumbers(); // Chama a função para iterar sobre os números
+basicOperations(); // Chama a função para iterar sobre os sinais
