@@ -17,15 +17,18 @@ function cancelEntry(arrayInput, arrayDisplayInput){
 
 function finalResult() { 
     if (validatorInput(displayScreen.value)) {
+
         // Substitui os sinais para o eval funcionar corretamente
         let sanitizedString = displayInput.replace(/×/g, '*').replace(/÷/g, '/');
         let result = eval(sanitizedString); // Use eval aqui
-        let finalResult = result;
-        displayScreen.value = Number.isInteger(result) ? result : result.toFixed(2); //Verifica se um número é interio
 
+        displayInput = result;
+      
+        displayScreen.value = Number.isInteger(result) ? result : result.toFixed(2); //Verifica se um número é inteiro
 
         console.log(sanitizedString);
         console.log(result);
+        console.log(displayInput)  
 
     }
 }
