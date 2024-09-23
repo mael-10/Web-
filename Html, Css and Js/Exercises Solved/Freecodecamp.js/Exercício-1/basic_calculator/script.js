@@ -12,7 +12,7 @@ function finalResult() {
         // Substitui os sinais para o eval funcionar corretamente
         let sanitizedString = displayInput.replace(/×/g, '*').replace(/÷/g, '/');
         let result = eval(sanitizedString); // Use eval aqui
-        displayScreen.value = Number.isInteger(result) ? result : result.toFixed(3);
+        displayScreen.value = Number.isInteger(result) ? result : result.toFixed(2); //Verifica se um número é interio
         displayInput = ''; // Limpa a entrada após o cálculo
     }
 }
@@ -24,6 +24,7 @@ function validatorInput(validation) {
     if (['+', '-', '÷', '×'].includes(validation[0])) {
         alert(`Apenas números no começo!`);
         displayScreen.value = '';
+        displayInput = '';
         return false; // Retorna falso para indicar erro
     }
 
@@ -41,14 +42,8 @@ function validatorInput(validation) {
 
 function display(numberOperations) {
     displayInput += numberOperations; // Irá concatenar tudo em uma só string para depois ser realizado o cálculo
-    let inputOperation = numberOperations;
+    let inputOperation = numberOperations.replace(/\*/g, '×').replace(/\//g, '÷'); //substituição dos sinais vizuais
 
-    // Substituição de sinais visuais
-    if (numberOperations === '*') {
-        inputOperation = '×';
-    } else if (numberOperations === '/') {
-        inputOperation = '÷';
-    }
 
     displayScreen.value += inputOperation; // Atualiza o valor do input displayScreen
 }
