@@ -7,13 +7,26 @@ const allSignals = document.querySelectorAll('.signal');
 const displayScreen = document.getElementById('display');
 let displayInput = '';
 
+function cancelEntry(arrayInput, arrayDisplayInput){
+    arrayInput.pop();
+    arrayDisplayInput.pop();
+
+    displayInput = arrayInput.join('');
+    displayScreen.value = arrayDisplayInput.join('');
+}
+
 function finalResult() { 
     if (validatorInput(displayScreen.value)) {
         // Substitui os sinais para o eval funcionar corretamente
         let sanitizedString = displayInput.replace(/×/g, '*').replace(/÷/g, '/');
         let result = eval(sanitizedString); // Use eval aqui
+        let finalResult = result;
         displayScreen.value = Number.isInteger(result) ? result : result.toFixed(2); //Verifica se um número é interio
-        displayInput = ''; // Limpa a entrada após o cálculo
+
+
+        console.log(sanitizedString);
+        console.log(result);
+
     }
 }
 
@@ -21,8 +34,8 @@ function validatorInput(validation) {
     let repeatSignals = Array.from(validation);
 
     // Verifica se o primeiro caractere é um sinal
-    if (['+', '-', '÷', '×'].includes(validation[0])) {
-        alert(`Apenas números no começo!`);
+    if (['÷', '×'].includes(validation[0])) {
+        alert(`Apenas números e/ou +, - no começo!`);
         displayScreen.value = '';
         displayInput = '';
         return false; // Retorna falso para indicar erro
@@ -43,7 +56,6 @@ function validatorInput(validation) {
 function display(numberOperations) {
     displayInput += numberOperations; // Irá concatenar tudo em uma só string para depois ser realizado o cálculo
     let inputOperation = numberOperations.replace(/\*/g, '×').replace(/\//g, '÷'); //substituição dos sinais vizuais
-
 
     displayScreen.value += inputOperation; // Atualiza o valor do input displayScreen
 }
@@ -73,5 +85,13 @@ cleanDisplay.addEventListener('click', function() {
     displayInput = '';
 })
 
+deleteDigit.addEventListener('click', function(){
+    cancelEntry(Array.from(displayInput), Array.from(displayScreen.value));
+})
+
 iterateNumbers(); // Chama a função para iterar sobre os números
 basicOperations(); // Chama a função para iterar sobre os sinais
+
+const a = 0.9 + 0.09;
+const b = 9
+console.log(a);

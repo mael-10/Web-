@@ -61,6 +61,6 @@ Já o every() ele verifica se todos batem com verificar
     const itemItens = verificar.every(item => padaria(item));
     console.log(temItens);  // true.
 
-11 - 
+11 - length é uma propiedade do array
 
     
