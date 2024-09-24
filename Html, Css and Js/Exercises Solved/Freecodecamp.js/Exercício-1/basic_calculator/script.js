@@ -21,8 +21,7 @@ function finalResult() {
         // Substitui os sinais para o eval funcionar corretamente
         let sanitizedString = displayInput.replace(/×/g, '*').replace(/÷/g, '/');
         let result = eval(sanitizedString); // Use eval aqui
-
-        displayInput = result;
+        displayInput = result; //Atribuindo o valor final para a não incossistência dos dados
       
         displayScreen.value = Number.isInteger(result) ? result : result.toFixed(2); //Verifica se um número é inteiro
 
@@ -94,7 +93,3 @@ deleteDigit.addEventListener('click', function(){
 
 iterateNumbers(); // Chama a função para iterar sobre os números
 basicOperations(); // Chama a função para iterar sobre os sinais
-
-const a = 0.9 + 0.09;
-const b = 9
-console.log(a);
