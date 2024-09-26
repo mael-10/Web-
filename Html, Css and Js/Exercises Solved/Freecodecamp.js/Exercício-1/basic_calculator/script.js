@@ -8,8 +8,10 @@ const displayScreen = document.getElementById('display');
 let displayInput = '';
 
 function cancelEntry(arrayInput, arrayDisplayInput){
-    arrayInput.pop();
+
     arrayDisplayInput.pop();
+    arrayInput = arrayDisplayInput; //Recebe o valor do display para ser realizado os cálculos
+
 
     displayInput = arrayInput.join('');
     displayScreen.value = arrayDisplayInput.join('');
@@ -25,9 +27,9 @@ function finalResult() {
       
         displayScreen.value = Number.isInteger(result) ? result : result.toFixed(2); //Verifica se um número é inteiro
 
-        console.log(sanitizedString);
-        console.log(result);
-        console.log(displayInput)  
+        // console.log(sanitizedString);
+        // console.log(result);
+        // console.log(displayInput);
 
     }
 }
