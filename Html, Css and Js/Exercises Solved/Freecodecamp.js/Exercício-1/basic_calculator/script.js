@@ -12,7 +12,6 @@ function cancelEntry(arrayInput, arrayDisplayInput){
     arrayDisplayInput.pop();
     arrayInput = arrayDisplayInput; //Recebe o valor do display para ser realizado os cálculos
 
-
     displayInput = arrayInput.join('');
     displayScreen.value = arrayDisplayInput.join('');
 }
