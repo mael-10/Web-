@@ -257,7 +257,7 @@ form button {
 
 .todo {
     margin: 1rem;
-    /* background: rgb(247, 226, 223); */
+    background: rgb(247, 226, 223);
     /* color: black; */
     font-size: 19px;
     display: flex;
@@ -266,6 +266,7 @@ form button {
     padding: 0.25em 0.5em;
     border-radius: 30px;
     transition: background-color 200ms ease-in-out;
+    padding: 10px;
 }
 
 /* Items themes */
@@ -321,6 +322,16 @@ form button {
     transition: 0.5s;
     transform: translateY(45rem) rotateZ(45deg);
     opacity: 0;
+}
+
+.center{
+    display: flex;
+    justify-content: center;
+}
+
+form input.darker-input {
+    background-color: #01394c;
+    color: white;
 }
 
 /* Responsive design */

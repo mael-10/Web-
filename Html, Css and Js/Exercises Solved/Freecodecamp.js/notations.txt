@@ -231,4 +231,50 @@ audio.currentime: Fala o tempo atual da música
 Number.isInteger() retorna verdadeiro se um número é inteiro. Ex
 
 
+------------------//--------------------------
 
+.INCLUES()
+
+Se eu quiser verificar um paramtro basta juntar include com o array:
+
+const padaria = ['pao', 'macarrao', 'arroz'].
+
+padaria.includes('pao') //true.
+
+É diferente, para verificar se o array tem múltiplos elementos, tem que iterar cada elemento do array: 
+
+  const padaria = ['pao', 'macarrao', 'arroz'];
+  const verificar = ['pao', 'macarrao'];
+
+  const itemItens = verificar.some(item => padaria(item));
+  console.log(temItens);  // true
+
+O some() ele vai verificar se pelos menos existe um elemento que da "match" com verificar.
+
+Já o every() ele verifica se todos batem com verificar
+
+  const padaria = ['pao', 'macarrao', 'arroz'];
+  const verificar = ['pao', 'macarrao'];
+
+  const itemItens = verificar.every(item => padaria(item));
+  console.log(temItens);  // true.
+
+
+Pode se usar um array diretamente para verificar se no array inclui o valor
+  ['÷', '×'].includes('÷'); 
+
+-----------------//---------------------------
+
+VALIDAÇÃO TERNÁRIA DENTRO DE UM ARRAY
+
+É possível fazer uma validação ternária dentro da posição do Array
+
+const a = 0;
+const array = [arroz, feijão, salada];
+const finalResult = array[a === 1 ? 1 : 0];
+
+É uma maneira de acessar os elementos específicos de maneira bem dinâmica
+
+---------------//------------------------------
+
+NUMBER() VS INT

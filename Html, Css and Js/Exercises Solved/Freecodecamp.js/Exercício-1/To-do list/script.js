@@ -1,35 +1,36 @@
 const dataText = document.getElementById('datetime'); 
 const buttonColor = document.querySelectorAll('.flexrow-container div');
 const body = document.querySelector('body');
-const title = document.getElementById('title');
-const datatime = document.getElementById('datetime');
 
 const zeroFill = n => {
-    return ('0' + n).slice(-2); //Adiciona 0 no começo do número e corta os dois digitos finais
+    return ('0' + n).slice(-2); //Adiciona 0 e paga somente os os dois últimos digitos
 }
 
 const interval = setInterval(() => { //Essa função recebe dois parametros
     const date = new Date();
-
-    const dataHora = `${zeroFill(date.getUTCDate())} / ${zeroFill(date.getMonth() + 1)} / ${date.getFullYear()}  ${zeroFill(date.getHours())} :  ${zeroFill(date.getMinutes())} : ${zeroFill(date.getSeconds())} `;
+    const dataHora = `${zeroFill(date.getUTCDate())} / ${zeroFill(date.getMonth() + 1)} / ${date.getFullYear()} - ${zeroFill(date.getHours())} :  ${zeroFill(date.getMinutes())} : ${zeroFill(date.getSeconds())} `;
 
     dataText.innerText = dataHora;
 
-}, 1000);
+}, 1000); 
 
-function backgroundColor(bgcolor){
-    console.log(bgcolor);
+function backgroundColor(index){
 
+    localStorage.setItem('bgIndex', index); //localStorage transoforma o valor armazenado em string
 
-    //ternary condition
-    bgcolor === 0 ? (body.style.backgroundImage = 'linear-gradient(100deg, #575656, #062e3f)', title.style.color = '#ffffff', datatime.style.color = '#ffffff') :
-    bgcolor === 1 ? (body.style.backgroundImage = 'linear-gradient(100deg, #d4f1ff, #ffffff)', title.style.color = '#000000', datatime.style.color = '#000000') :
-    (body.style.backgroundImage = 'linear-gradient(100deg, #001214, #001f29)', title.style.color = '#ffffff', datatime.style.color = '#ffffff');
+    console.log(index);
+    
+    index === 0 ? (body.classList.add('standard'), body.classList.remove('light', 'darker')) : 
+    index === 1 ? (body.classList.remove('standard', 'darker'), body.classList.add('light')) :
+    (body.classList.remove('standard', 'light'), body.classList.add('darker'));
+    
+}
 
-    window.onload = function(){
-        
-    }
+window.onload = function(){
 
+    const savedValue = localStorage.getItem('bgIndex'); //retorna uma string
+    console.log(savedValue);
+    backgroundColor(parseInt(savedValue)); //converte a string em número
 }
 
 for(let i = 0; i < buttonColor.length; i++){
