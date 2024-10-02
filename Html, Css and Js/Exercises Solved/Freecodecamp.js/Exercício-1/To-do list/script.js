@@ -29,19 +29,8 @@ function backgroundColor(index){
     
 }
 
-function addTask(bgIndex){
-    const textTodo = todoInput.value;
-    taskCounter++;
-    allTask.push(
-        {
-            id: taskCounter,
-            textInput: `${textTodo}`
-        }
-    );
-    
-    //Colocar em ordem alfabética os objetos
-
-    allTask.short((a, b) => {
+function alphabeticalOrder(){
+    allTask.sort((a, b) => {
         if(a.textInput < b.textInput){
             return -1;
         }
@@ -52,6 +41,43 @@ function addTask(bgIndex){
 
         return 0;
     });
+    
+}
+
+function verifyInput(verifyTextTodo){
+
+    console.log(verifyTextTodo);
+
+    if(verifyTextTodo === '' || /^[\*\+\-\{\}\`\´\]]/.test(verifyTextTodo)){
+        alert('Isnt possible special characters at bigining of a phrase');
+        return true;
+
+    } else {
+        return false;
+
+    }
+}
+
+function addTask(bgIndex){
+
+    const textTodo = todoInput.value;
+
+    if(verifyInput(textTodo)){
+        todoInput.value = '';
+        return 
+    } 
+
+    taskCounter++;
+    allTask.push(
+        {
+            id: taskCounter,
+            textInput: `${textTodo}`
+        }
+    );
+
+    todoInput.value = '';
+    alphabeticalOrder(allTask); //Colocar em ordem alfabética os objetos
+    console.log(allTask);
 
 }
 
