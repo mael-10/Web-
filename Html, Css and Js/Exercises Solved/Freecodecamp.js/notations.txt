@@ -184,11 +184,11 @@ const fruits = [
 
 fruits.sort((a, b) => {
   if (a.name < b.name) {
-    return -1;
+    return -1; //Vem antes
   }
 
   if (a.name > b.name) {
-    return 1;
+    return 1; //vem depois
   }
 
   return 0;
