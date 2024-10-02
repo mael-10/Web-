@@ -29,10 +29,21 @@ Nesse contexto ele pode ser usado para transformar uma string matemática em um 
 
 eval("21+41") //62
 
-8- Um dos maiores problemas ao fazer uma incrementação é confundir os sinais '+=' é o errado. Faça '=+'
+8- Um dos maiores problemas ao fazer uma incrementação é confundir os sinais '=+' é o errado. Faça '+='
 
 9- Os eventos no js são comulativos, ou seja se eu tenho um evento dentro da uma função e chamalas 3 vezes e depois eu chamar o evento, ele vai ser chamado tres vezes por ser cumulativo. Mas há uma maneira de fazer com que um evento seja excuta somente uma vez estando dentro de uma função. Ex: 
 
 equal.addEventListener('click', function() {
     finalResult(displayInput);
 }, { once: true });
+
+10 - Um erro foi fazer verificação se um caractere tem espaço em branco usando ''. Para realmente dar certo tem que usar ' '. Ex:
+    const a = ''; string vazia para iniciar um a variável
+    cosnt b = ' '; string com caractere com espaço em branco
+
+11- Quando se tenta usar o .test(), use nesse formato:
+
+const number = 1;
+/1/.teste(1); //true 
+
+Pro match() funciona o mesmo modelo.

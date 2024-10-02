@@ -44,12 +44,21 @@ function alphabeticalOrder(){
     
 }
 
+function UpperCase(TextTodoUpperCase){
+
+    const letterUper = TextTodoUpperCase.slice(0,1).toUpperCase();
+    const concatenation = letterUper + TextTodoUpperCase.slice(1,);
+
+    allTask[allTask.length - 1].textInput = concatenation;
+
+    console.log(concatenation);
+}
+
 function verifyInput(verifyTextTodo){
 
-    console.log(verifyTextTodo);
 
-    if(verifyTextTodo === '' || /^[\*\+\-\{\}\`\´\]]/.test(verifyTextTodo)){
-        alert('Isnt possible special characters at bigining of a phrase');
+    if(verifyTextTodo[0] === ' ' || /^[\*\+\-\{\}\`\´\(\)\=\_\[\]\º\°\ª\§\¨\;\:]/.test(verifyTextTodo)){ //Verifica se no primerio charactere é um espaço em branco ou tem carateres especiais
+        alert('Isnt possible special characters at biginning of a phrase');
         return true;
 
     } else {
@@ -75,10 +84,14 @@ function addTask(bgIndex){
         }
     );
 
+    
     todoInput.value = '';
-    alphabeticalOrder(allTask); //Colocar em ordem alfabética os objetos
-    console.log(allTask);
 
+    UpperCase(textTodo);
+    alphabeticalOrder(allTask); //Colocar em ordem alfabética os objeto
+
+
+    //be continues...
 }
 
 window.onload = function(){
