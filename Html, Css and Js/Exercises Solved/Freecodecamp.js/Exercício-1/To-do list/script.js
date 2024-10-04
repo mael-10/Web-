@@ -3,6 +3,8 @@ const buttonColor = document.querySelectorAll('.flexrow-container div');
 const body = document.querySelector('body');
 const todBtn = document.querySelector('.todo-btn');
 const todoInput = document.querySelector('.todo-input');
+const listTask = document.querySelector('.todo-list');
+let addCounter = 0;
 let taskCounter = 0;
 let allTask = [];
 
@@ -87,11 +89,26 @@ function addTask(bgIndex){
     
     todoInput.value = '';
 
-    UpperCase(textTodo);
+    UpperCase(textTodo); //Colocar o primeiro nome em letra maiúscula
     alphabeticalOrder(allTask); //Colocar em ordem alfabética os objeto
 
 
     //be continues...
+
+    for(addCounter; addCounter < allTask.length; addCounter++){
+        listTask.insertAdjacentHTML('beforeend', 
+            `<div class='todo darker-todo'>  
+                <li class='todo-item'>${allTask[addCounter].textInput}</li>
+                <button class='check-btn darker-button' type='submit'>
+                    <i class='fas fa-check'></i>
+                </button>
+                <button class='delete-btn darker-button' type='submit'>
+                    <i class='fas fa-trash'></i>
+                </button>
+            </div>`
+        );
+    }
+
 }
 
 window.onload = function(){
