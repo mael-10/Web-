@@ -4,7 +4,7 @@ const body = document.querySelector('body');
 const todBtn = document.querySelector('.todo-btn');
 const todoInput = document.querySelector('.todo-input');
 const listTask = document.querySelector('.todo-list');
-let addCounter = 0;
+let numberButton = 0;
 let taskCounter = 0;
 let allTask = [];
 
@@ -91,7 +91,7 @@ function addTask(bgIndex){
 
     UpperCase(textTodo); //Colocar o primeiro nome em letra maiúscula
     alphabeticalOrder(allTask); //Colocar em ordem alfabética os objeto
-
+    listTask.innerText = ''; //retira o antigo
 
     //be continues...
 
@@ -108,7 +108,6 @@ function addTask(bgIndex){
             </div>`
         );
     }
-
 }
 
 window.onload = function(){
