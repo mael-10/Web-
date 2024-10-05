@@ -95,10 +95,10 @@ function addTask(bgIndex){
 
     //be continues...
 
-    for(addCounter; addCounter < allTask.length; addCounter++){
+    for(let i = 0; i < allTask.length; i++){
         listTask.insertAdjacentHTML('beforeend', 
             `<div class='todo darker-todo'>  
-                <li class='todo-item'>${allTask[addCounter].textInput}</li>
+                <li class='todo-item'>${allTask[i].textInput}</li>
                 <button class='check-btn darker-button' type='submit'>
                     <i class='fas fa-check'></i>
                 </button>
