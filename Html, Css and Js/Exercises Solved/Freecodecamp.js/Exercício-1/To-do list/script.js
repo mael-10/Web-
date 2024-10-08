@@ -21,14 +21,18 @@ const interval = setInterval(() => { //Essa função recebe dois parametros
 }, 1000); 
 
 function backgroundColor(index){
+    const buttonTodo = document.querySelector('.todo');
     localStorage.setItem('bgIndex', index); //localStorage transoforma o valor armazenado em string
 
-    console.log(index);
-    
     index === 0 ? (body.classList.add('standard'), body.classList.remove('light', 'darker')) : 
     index === 1 ? (body.classList.remove('standard', 'darker'), body.classList.add('light')) :
-    (body.classList.remove('standard', 'light'), body.classList.add('darker'));
-    
+    (body.classList.add('darker'), body.classList.remove('standard', 'light'));
+
+    if(buttonTodo !== null && buttonTodo !== NaN){
+        index === 0 ? (buttonTodo.classList.add('standard-todo'), buttonTodo.classList.remove('light-todo', 'darker-todo')) :
+        index === 1 ? (buttonTodo.classList.add('light-todo'), buttonTodo.classList.remove('standard-todo', 'darker-todo')) :
+        (buttonTodo.classList.add('darker-todo'), buttonTodo.classList.remove('standard-todo', 'light-todo'));
+    }
 }
 
 function alphabeticalOrder(){
@@ -52,8 +56,6 @@ function UpperCase(TextTodoUpperCase){
     const concatenation = letterUper + TextTodoUpperCase.slice(1,);
 
     allTask[allTask.length - 1].textInput = concatenation;
-
-    console.log(concatenation);
 }
 
 function verifyInput(verifyTextTodo){
@@ -97,7 +99,7 @@ function addTask(bgIndex){
 
     for(let i = 0; i < allTask.length; i++){
         listTask.insertAdjacentHTML('beforeend', 
-            `<div class='todo darker-todo'>  
+            `<div class='todo standard-todo'>  
                 <li class='todo-item'>${allTask[i].textInput}</li>
                 <button class='check-btn darker-button' type='submit'>
                     <i class='fas fa-check'></i>
@@ -113,7 +115,6 @@ function addTask(bgIndex){
 window.onload = function(){
 
     const savedValue = localStorage.getItem('bgIndex'); //retorna uma string
-    console.log(savedValue);
     backgroundColor(parseInt(savedValue)); //converte a string em número
 }
 

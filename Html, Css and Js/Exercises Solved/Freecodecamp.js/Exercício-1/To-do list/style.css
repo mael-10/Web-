@@ -271,7 +271,7 @@ form button {
 
 /* Items themes */
 .standard-todo {
-    background-color: rgb(26, 27, 27);
+    background-color: #01394c;
 }
 
 .light-todo {
@@ -279,7 +279,7 @@ form button {
 }
 
 .darker-todo {
-    background-color: #01394c;
+    background-color: rgb(26, 27, 27);
 }
 
 .todo li{
