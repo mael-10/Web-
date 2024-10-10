@@ -4,6 +4,7 @@ const body = document.querySelector('body');
 const todBtn = document.querySelector('.todo-btn');
 const todoInput = document.querySelector('.todo-input');
 const listTask = document.querySelector('.todo-list');
+let checkBtn = '';
 let numberButton = 0;
 let taskCounter = 0;
 let allTask = [];
@@ -32,7 +33,8 @@ function backgroundColor(index){
         index === 0 ? (buttonTodo.classList.add('standard-todo'), buttonTodo.classList.remove('light-todo', 'darker-todo')) :
         index === 1 ? (buttonTodo.classList.add('light-todo'), buttonTodo.classList.remove('standard-todo', 'darker-todo')) :
         (buttonTodo.classList.add('darker-todo'), buttonTodo.classList.remove('standard-todo', 'light-todo'));
-    }
+
+    } //simplificar
 }
 
 function alphabeticalOrder(){
@@ -110,6 +112,13 @@ function addTask(bgIndex){
             </div>`
         );
     }
+
+    checkBtn = document.querySelector('.check-btn');
+
+    checkBtn.addEventListener('click', function(){
+        const buttonTodo = document.querySelector('.todo');
+        buttonTodo.classList.toggle('completed');
+    })
 }
 
 window.onload = function(){
