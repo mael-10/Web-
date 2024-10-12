@@ -73,21 +73,47 @@ function verifyInput(verifyTextTodo){
     }
 }
 
+function validateBtn() {
+
+    // Seleciona todos os elementos com a classe 'todo'
+    const buttonTodo = document.querySelectorAll('.todo');
+    console.log(buttonTodo);
+
+    // Itera sobre cada elemento 'todo'
+    buttonTodo.forEach(check => {
+        console.log(check);
+
+        // Seleciona o botão de check dentro do elemento 'todo'
+        const checkBtn = check.querySelector('.check-btn');
+
+        // Adiciona um event listener ao botão de check
+        checkBtn.addEventListener('click', function(event) {
+
+            // Evita que o evento se propague para outros elementos
+            event.stopPropagation();
+
+            // Alterna a classe 'completed' no elemento 'todo' correspondente
+            check.classList.toggle('completed');
+        });
+    });
+}
+
 function addTask(){
-    for(let i = 0; i < allTask.length; i++){
+    for(i = 0; i < allTask.length; i++){
         listTask.insertAdjacentHTML('beforeend', 
-            `<div class='todo standard-todo'>  
+            `<div id='btn-${taskCounter}' class='todo standard-todo'>  
                 <li class='todo-item'>${allTask[i].textInput}</li>
-                <button class='check-btn darker-button' type='submit'>
+                <button class='check-btn darker-button' type='button'>
                     <i class='fas fa-check'></i>
                 </button>
-                <button class='delete-btn darker-button' type='submit'>
+                <button class='delete-btn darker-button' type='button'>
                     <i class='fas fa-trash'></i>
                 </button>
             </div>`
         );
     }
 }
+
 
 function preperTask(bgIndex){
 
@@ -113,19 +139,8 @@ function preperTask(bgIndex){
     listTask.innerHTML = ''; //retira o antigo
     addTask();
     backgroundColor(bgIndex);
+    validateBtn();
 
-    console.log(checkBtn === undefined);
-
-    if(checkBtn === undefined){
-        checkBtn = document.querySelector('.check-btn');
-        const buttonTodo = document.querySelectorAll('.todo');
-
-        buttonTodo.forEach(check => {
-            check.addEventListener('click', function(){
-                document.querySelector('.todo').classList.toggle('completed');
-            })
-        })
-    }
 }
 
 window.onload = function(){
@@ -144,3 +159,5 @@ for(let i = 0; i < buttonColor.length; i++){
         backgroundColor(i);
     }); 
 }
+
+backgroundColor(0);
