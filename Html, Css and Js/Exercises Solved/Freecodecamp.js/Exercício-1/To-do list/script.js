@@ -122,7 +122,7 @@ function preperTask(bgIndex){
 
         buttonTodo.forEach(check => {
             check.addEventListener('click', function(){
-                check.classList.toggle('completed');
+                document.querySelector('.todo').classList.toggle('completed');
             })
         })
     }
