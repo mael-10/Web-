@@ -1,7 +1,7 @@
 const dataText = document.getElementById('datetime'); 
 const buttonColor = document.querySelectorAll('.flexrow-container div');
 const body = document.querySelector('body');
-const todBtn = document.querySelector('.todo-btn');
+const todoBtn = document.querySelector('.todo-btn');
 const todoInput = document.querySelector('.todo-input');
 const listTask = document.querySelector('.todo-list');
 let deleteBtnTask = undefined;
@@ -23,7 +23,7 @@ const interval = setInterval(() => { //Essa função recebe dois parametros
 }, 1000); 
 
 function backgroundColor(index){
-    const buttonTodo = document.querySelector('.todo');
+    const buttonTodo = document.querySelectorAll('.todo');
     localStorage.setItem('bgIndex', index); //localStorage transoforma o valor armazenado em string
 
     const classes = ['standard', 'light', 'darker'];
@@ -31,9 +31,12 @@ function backgroundColor(index){
     body.classList.add(classes[index]);
 
     if(buttonTodo !== null && buttonTodo !== NaN){ //verifica se existe botão antes de ser implementado as mudanças
-        index === 0 ? (buttonTodo.classList.add('standard-todo'), buttonTodo.classList.remove('light-todo', 'darker-todo')) :
-        index === 1 ? (buttonTodo.classList.add('light-todo'), buttonTodo.classList.remove('standard-todo', 'darker-todo')) :
-        (buttonTodo.classList.add('darker-todo'), buttonTodo.classList.remove('standard-todo', 'light-todo'));
+
+        buttonTodo.forEach(btn => {
+            index === 0 ? (btn.classList.add('standard-todo'), btn.classList.remove('light-todo', 'darker-todo')) :
+            index === 1 ? (btn.classList.add('light-todo'), btn.classList.remove('standard-todo', 'darker-todo')) :
+            (btn.classList.add('darker-todo'), btn.classList.remove('standard-todo', 'light-todo'));
+        });
     }
 }
 
@@ -53,9 +56,9 @@ function alphabeticalOrder(){
 }
 
 function UpperCase(text){
+    
     const concatenation = text.charAt(0).toUpperCase() + text.slice(1,);
     allTask[allTask.length - 1].textInput = concatenation;
-
 }
 
 function verifyInput(verifyTextTodo){
@@ -86,16 +89,6 @@ function addTask(){
     }
 }
 
-function deleteTask(){
-
-    // allTask.pop();
-    // taskCounter--;
-    // listTask.innerHTML = '';
-
-    // addTask();
-
-}
-
 function preperTask(bgIndex){
 
     const textTodo = todoInput.value;
@@ -119,16 +112,18 @@ function preperTask(bgIndex){
     alphabeticalOrder(allTask); //Colocar em ordem alfabética os objeto
     listTask.innerHTML = ''; //retira o antigo
     addTask();
-
+    backgroundColor(bgIndex);
 
     console.log(checkBtn === undefined);
 
     if(checkBtn === undefined){
         checkBtn = document.querySelector('.check-btn');
+        const buttonTodo = document.querySelectorAll('.todo');
 
-        checkBtn.addEventListener('click', function(){
-            const buttonTodo = document.querySelector('.todo');
-            buttonTodo.classList.toggle('completed');
+        buttonTodo.forEach(check => {
+            check.addEventListener('click', function(){
+                check.classList.toggle('completed');
+            })
         })
     }
 }
@@ -139,9 +134,9 @@ window.onload = function(){
     backgroundColor(parseInt(savedValue)); //converte a string em número
 }
 
-todBtn.addEventListener('click', function(e){
-    e.preventDefault();
-    preperTask(localStorage.getItem('bgIndex'));
+todoBtn.addEventListener('click', function(e){
+  e.preventDefault();
+    preperTask(parseInt(localStorage.getItem('bgIndex')));
 })
 
 for(let i = 0; i < buttonColor.length; i++){
