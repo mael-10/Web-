@@ -74,8 +74,13 @@ function verifyInput(verifyTextTodo){
     }
 }
 
+function deleteTask(){
+    console.log('oi');
+}
+
 function validateBtn() {
 
+    //Valida o botão check
     const buttonTodo = document.querySelectorAll('.todo');
     
     buttonTodo.forEach(check => {
@@ -90,7 +95,21 @@ function validateBtn() {
 
             checkBtn.hasListener = true;
         } 
+
+        //adiciona eventos ao delete
+
+        const Btndelete = check.querySelector('.delete-btn');
+
+        if(!Btndelete.hasListener){
+            Btndelete.addEventListener('click', function() {
+                deleteTask();
+            });
+
+            checkBtn.hasListener = true;
+        }
     });
+
+    
 }
 
 
@@ -109,7 +128,6 @@ function addTask(){
         );
     }
 }
-
 
 function preperTask(bgIndex){
 
@@ -132,9 +150,9 @@ function preperTask(bgIndex){
 
     UpperCase(textTodo); //Colocar o primeiro nome em letra maiúscula
     alphabeticalOrder(allTask); //Colocar em ordem alfabética os objeto
-    addTask();
-    backgroundColor(bgIndex);
-    validateBtn();
+    addTask(); //adiciona a tarefa
+    backgroundColor(bgIndex); // Muda todo o background colocar das cores
+    validateBtn(); //Valida o botão the check
 
 }
 
