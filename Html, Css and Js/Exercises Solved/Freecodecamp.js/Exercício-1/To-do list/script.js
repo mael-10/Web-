@@ -9,6 +9,7 @@ let checkBtn = undefined;
 let numberButton = 0;
 let taskCounter = 0;
 let allTask = [];
+let i = 0;
 
 const zeroFill = n => {
     return ('0' + n).slice(-2); //Adiciona 0 e paga somente os os dois últimos digitos
@@ -75,31 +76,26 @@ function verifyInput(verifyTextTodo){
 
 function validateBtn() {
 
-    // Seleciona todos os elementos com a classe 'todo'
     const buttonTodo = document.querySelectorAll('.todo');
-    console.log(buttonTodo);
-
-    // Itera sobre cada elemento 'todo'
+    
     buttonTodo.forEach(check => {
-        console.log(check);
 
-        // Seleciona o botão de check dentro do elemento 'todo'
         const checkBtn = check.querySelector('.check-btn');
 
-        // Adiciona um event listener ao botão de check
-        checkBtn.addEventListener('click', function(event) {
+        // Verifica se o listener já foi adicionado
+        if(!checkBtn.hasListener){
+            checkBtn.addEventListener('click', function() {
+                check.classList.toggle('completed');
+            });
 
-            // Evita que o evento se propague para outros elementos
-            event.stopPropagation();
-
-            // Alterna a classe 'completed' no elemento 'todo' correspondente
-            check.classList.toggle('completed');
-        });
+            checkBtn.hasListener = true;
+        } 
     });
 }
 
+
 function addTask(){
-    for(i = 0; i < allTask.length; i++){
+    for(i; i < allTask.length; i++){
         listTask.insertAdjacentHTML('beforeend', 
             `<div id='btn-${taskCounter}' class='todo standard-todo'>  
                 <li class='todo-item'>${allTask[i].textInput}</li>
@@ -136,7 +132,6 @@ function preperTask(bgIndex){
 
     UpperCase(textTodo); //Colocar o primeiro nome em letra maiúscula
     alphabeticalOrder(allTask); //Colocar em ordem alfabética os objeto
-    listTask.innerHTML = ''; //retira o antigo
     addTask();
     backgroundColor(bgIndex);
     validateBtn();
