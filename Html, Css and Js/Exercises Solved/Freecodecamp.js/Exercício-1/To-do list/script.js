@@ -9,7 +9,6 @@ let checkBtn = undefined;
 let numberButton = 0;
 let taskCounter = 0;
 let allTask = [];
-let i = 0;
 
 const zeroFill = n => {
     return ('0' + n).slice(-2); //Adiciona 0 e paga somente os os dois últimos digitos
@@ -114,7 +113,10 @@ function validateBtn() {
 
 
 function addTask(){
-    for(i; i < allTask.length; i++){
+
+    listTask.innerHTML = '';
+
+    for(i = 0; i < allTask.length; i++){
         listTask.insertAdjacentHTML('beforeend', 
             `<div id='btn-${taskCounter}' class='todo standard-todo'>  
                 <li class='todo-item'>${allTask[i].textInput}</li>
@@ -131,7 +133,7 @@ function addTask(){
 
 function preperTask(bgIndex){
 
-    const textTodo = todoInput.value;
+    const textTodo = todoInput.value.trim();
 
     if(verifyInput(textTodo)){
         todoInput.value = '';
