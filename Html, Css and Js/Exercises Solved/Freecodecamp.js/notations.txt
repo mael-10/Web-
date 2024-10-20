@@ -277,4 +277,21 @@ const finalResult = array[a === 1 ? 1 : 0];
 
 ---------------//------------------------------
 
-NUMBER() VS INT
+NUMBER() VS INTiger
+
+
+---------------//------------------------------
+
+O NodeList é uma coleção estática, isso significa que não é possível eu incrementar valores ou substituir apenas fazendo 
+
+Nodelist[index] = 'A'
+
+Não irá funcionar, é parecido com um array, mas não tem a mesma mutabilidade de um array.
+
+Para substituir tem que criar uma novaLista usando o método replace. Isso ajuda a manter estado atuais mantidos
+
+  nodeList.replaceWith(oldTaskList[index]);
+
+-  Com o replace ele apenas vai manter o estado atual (uma recuperação).
+-  Ele identifica automaticamente qual posição vai ser modifica
+
