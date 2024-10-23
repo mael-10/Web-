@@ -295,3 +295,6 @@ Para substituir tem que criar uma novaLista usando o método replace. Isso ajuda
 -  Com o replace ele apenas vai manter o estado atual (uma recuperação).
 -  Ele identifica automaticamente qual posição vai ser modifica
 
+----------------//--------------------------------
+
+Split vs Array.from()

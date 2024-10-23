@@ -47,3 +47,5 @@ const number = 1;
 /1/.teste(1); //true 
 
 Pro match() funciona o mesmo modelo.
+
+11 - transformar um array em uma string

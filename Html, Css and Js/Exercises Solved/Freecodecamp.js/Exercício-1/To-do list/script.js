@@ -4,14 +4,11 @@ const body = document.querySelector('body');
 const todoBtn = document.querySelector('.todo-btn');
 const todoInput = document.querySelector('.todo-input');
 const listTask = document.querySelector('.todo-list');
-let task = '';
 let deleteBtnTask = undefined;
 let checkBtn = undefined;
 let numberButton = 0;
 let taskCounter = 0;
 let allTask = [];
-
-let taskArray = [];
 
 const zeroFill = n => {
     return ('0' + n).slice(-2); //Adiciona 0 e paga somente os os dois últimos digitos
@@ -98,6 +95,7 @@ function validateBtn() {
         if(!checkBtn.hasListener){
             checkBtn.addEventListener('click', function() {
                 check.classList.toggle('completed');
+                saveButtonsTask(); //atualiza o localStore
             });
 
             checkBtn.hasListener = true;
@@ -110,6 +108,7 @@ function validateBtn() {
         if(!Btndelete.hasListener){
             Btndelete.addEventListener('click', function() {
                 deleteTask();
+                saveButtonsTask(); //atualiza o localStore
             });
 
             checkBtn.hasListener = true;
@@ -133,19 +132,19 @@ function savedValidate(oldTaskList) {
                 }
             });
         });
+
     }
 }
 
 function addTask(){
 
     listTask.innerHTML = '';
-    taskArray = []
 
     for(i = 0; i < allTask.length; i++){
-         
-        //Push transforma um string em um array
-        taskArray.push(` 
-            <div id='btn-${i+1}' class='todo standard-todo'>  
+       const task = allTask[i];
+
+        listTask.innerHTML += ` 
+            <div id='btn-${task.id}' class='todo standard-todo'>  
             <li class='todo-item'>${allTask[i].textInput}</li>
             <button class='check-btn darker-button' type='button'>
                 <i class='fas fa-check'></i>
@@ -153,12 +152,8 @@ function addTask(){
             <button class='delete-btn darker-button' type='button'>
                 <i class='fas fa-trash'></i>
             </button>
-        </div>`)
+        </div>`
     }
-
-    listTask.innerHTML = taskArray.join(""); //Junta o array em uma string
-
-    //console.log(task) // Array Antigo
 }
 
 function preperTask(bgIndex){
@@ -193,17 +188,35 @@ function preperTask(bgIndex){
     savedValidate(task); //salva o valor do check
     backgroundColor(bgIndex); // Muda todo o background colocar das cores
     validateBtn(); //Valida o botão the check
+    saveButtonsTask();
+
+}
+
+function saveButtonsTask(){
+    localStorage.setItem('btnRefresh', listTask.innerHTML); //Vai pegar a última atualização do btn
+    localStorage.setItem('saveAllTask', JSON.stringify(allTask)); //JSON.stringfy serve para salvar arrays no localStorage
+}
+
+//função para reescrever os botões
+const rewriteBtn = (btns) => {
+    listTask.innerHTML = btns;
 }
 
 window.onload = function(){
 
-    const savedValue = localStorage.getItem('bgIndex'); //retorna uma string
+    let savedValue = localStorage.getItem('bgIndex'); //retorna uma string
     backgroundColor(parseInt(savedValue)); //converte a string em número
+
+    savedValue = localStorage.getItem('btnRefresh');
+    rewriteBtn(savedValue);
+    validateBtn(); //Para fazer a validaçãod os botões
+
+    allTask = JSON.parse(localStorage.getItem('saveAllTask')); //serve para transformar a string em array novamente
 }
 
 todoBtn.addEventListener('click', function(e){
     
-  e.preventDefault();
+    e.preventDefault();
     preperTask(parseInt(localStorage.getItem('bgIndex')));
 })
 
