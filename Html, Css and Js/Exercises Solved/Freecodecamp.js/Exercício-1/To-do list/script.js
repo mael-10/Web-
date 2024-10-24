@@ -4,7 +4,6 @@ const body = document.querySelector('body');
 const todoBtn = document.querySelector('.todo-btn');
 const todoInput = document.querySelector('.todo-input');
 const listTask = document.querySelector('.todo-list');
-let deleteBtnTask = undefined;
 let checkBtn = undefined;
 let numberButton = 0;
 let taskCounter = 0;
@@ -78,8 +77,15 @@ function isDuplicateTask(newTaskText) {
     return allTask.some(task => task.textInput.toLowerCase() === newTaskText.toLowerCase());
 }
 
-function deleteTask(){
-    console.log('oi');
+function deleteTask(btnForDelete){
+
+
+    const ArrayIndex = parseInt(btnForDelete.id.slice(4) - 1)
+    console.log(ArrayIndex)
+    allTask.splice(ArrayIndex, 1);
+
+    console.log(allTask);
+
 }
 
 function validateBtn() {
@@ -107,7 +113,7 @@ function validateBtn() {
 
         if(!Btndelete.hasListener){
             Btndelete.addEventListener('click', function() {
-                deleteTask();
+                deleteTask(check);
                 saveButtonsTask(); //atualiza o localStore
             });
 
@@ -166,11 +172,14 @@ function preperTask(bgIndex){
         return; 
     }
 
-    if (isDuplicateTask(textTodo)) {
-        alert('Task already exists! Please enter a new task.');
-        todoInput.value = '';
-        return;
+    if(allTask !== null){ //verfica primeiro se há valor no alltask{
+        if (isDuplicateTask(textTodo)) {
+            alert('Task already exists! Please enter a new task.');
+            todoInput.value = '';
+            return;
+        }
     }
+
 
     taskCounter++;
     allTask.push(
@@ -179,6 +188,7 @@ function preperTask(bgIndex){
             textInput: `${textTodo}`
         }
     );
+
 
     todoInput.value = '';
 
@@ -207,11 +217,13 @@ window.onload = function(){
     let savedValue = localStorage.getItem('bgIndex'); //retorna uma string
     backgroundColor(parseInt(savedValue)); //converte a string em número
 
-    savedValue = localStorage.getItem('btnRefresh');
-    rewriteBtn(savedValue);
-    validateBtn(); //Para fazer a validaçãod os botões
+    // savedValue = localStorage.getItem('btnRefresh');
+    // rewriteBtn(savedValue);
+    // validateBtn(); //Para fazer a validaçãod os botões
 
-    allTask = JSON.parse(localStorage.getItem('saveAllTask')); //serve para transformar a string em array novamente
+    // if(JSON.parse(localStorage.getItem('saveAllTask')) !== null){ //verifica se o primeira vez a carregar tem o valor null
+    //     allTask = JSON.parse(localStorage.getItem('saveAllTask')); //serve para transformar a string em array novamente
+    // }
 }
 
 todoBtn.addEventListener('click', function(e){
