@@ -12,8 +12,6 @@ const taskInputField = document.querySelector('.todo-input');
 const taskList = document.querySelector('.todo-list');
 
 // Variáveis de controle
-let taskCompletionButton = undefined;
-let selectedColorIndex = 0;
 let taskCounter = 0;
 let allTasks = [];
 
@@ -187,8 +185,8 @@ function prepareTask(backgroundColorIndex) {
     capitalizeFirstLetter(taskText);
     sortTasksAlphabetically();
     renderTasks();
-    syncSavedTasks(tasks);
     setBackgroundColor(backgroundColorIndex);
+    syncSavedTasks(tasks);
     initializeTaskButtons();
     saveTasksToLocalStorage();
 }
