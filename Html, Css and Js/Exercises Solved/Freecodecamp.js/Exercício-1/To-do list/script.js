@@ -1,241 +1,238 @@
-const dataText = document.getElementById('datetime'); 
-const buttonColor = document.querySelectorAll('.flexrow-container div');
-const body = document.querySelector('body');
-const todoBtn = document.querySelector('.todo-btn');
-const todoInput = document.querySelector('.todo-input');
-const listTask = document.querySelector('.todo-list');
-let checkBtn = undefined;
-let numberButton = 0;
-let taskCounter = 0;
-let allTask = [];
+// Seleciona o elemento para mostrar data e hora
+const datetimeDisplay = document.getElementById('datetime');
+// Seleciona os botões de cor
+const colorButtons = document.querySelectorAll('.flexrow-container div');
+// Seleciona o body da página
+const pageBody = document.querySelector('body');
+// Seleciona botão de adicionar tarefa
+const addTaskButton = document.querySelector('.todo-btn');
+// Seleciona o campo de input para tarefa
+const taskInputField = document.querySelector('.todo-input');
+// Seleciona a lista de tarefas
+const taskList = document.querySelector('.todo-list');
 
-const zeroFill = n => {
-    return ('0' + n).slice(-2); //Adiciona 0 e paga somente os os dois últimos digitos
+// Variáveis de controle
+let taskCompletionButton = undefined;
+let selectedColorIndex = 0;
+let taskCounter = 0;
+let allTasks = [];
+
+// Função para preencher zeros à esquerda
+const padZero = n => {
+    return ('0' + n).slice(-2);
 }
 
-const interval = setInterval(() => { //Essa função recebe dois parametros
-    const date = new Date();
-    const dataHora = `${zeroFill(date.getUTCDate())} / ${zeroFill(date.getMonth() + 1)} / ${date.getFullYear()} - ${zeroFill(date.getHours())} :  ${zeroFill(date.getMinutes())} : ${zeroFill(date.getSeconds())} `;
-
-    dataText.innerText = dataHora;
-
+// Atualiza a data e hora a cada segundo
+const updateDatetimeInterval = setInterval(() => {
+    const currentDate = new Date();
+    const formattedDatetime = `${padZero(currentDate.getUTCDate())} / ${padZero(currentDate.getMonth() + 1)} / ${currentDate.getFullYear()} - ${padZero(currentDate.getHours())} : ${padZero(currentDate.getMinutes())} : ${padZero(currentDate.getSeconds())} `;
+    datetimeDisplay.innerText = formattedDatetime;
 }, 1000); 
 
-function backgroundColor(index){
-    const buttonTodo = document.querySelectorAll('.todo');
-    localStorage.setItem('bgIndex', index); //localStorage transoforma o valor armazenado em string
+// Função para mudar a cor de fundo
+function setBackgroundColor(index) {
+    const taskButtons = document.querySelectorAll('.todo');
+    localStorage.setItem('bgIndex', index);
 
-    const classes = ['standard', 'light', 'darker'];
-    body.className = '';  // Reseta classes anteriores (limpa todas as classes)
-    body.classList.add(classes[index]);
+    // Classes de estilo de fundo
+    const colorClasses = ['standard', 'light', 'darker'];
+    pageBody.className = ''; // Reseta classes antigas
+    pageBody.classList.add(colorClasses[index]);
 
-    if(buttonTodo !== null && buttonTodo !== NaN){ //verifica se existe botão antes de ser implementado as mudanças
-
-        buttonTodo.forEach(btn => {
-            index === 0 ? (btn.classList.add('standard-todo'), btn.classList.remove('light-todo', 'darker-todo')) :
-            index === 1 ? (btn.classList.add('light-todo'), btn.classList.remove('standard-todo', 'darker-todo')) :
-            (btn.classList.add('darker-todo'), btn.classList.remove('standard-todo', 'light-todo'));
+    // Verifica se há tarefas para atualizar o estilo
+    if (taskButtons !== null && taskButtons !== NaN) {
+        taskButtons.forEach(button => {
+            // Itera sobre cada botão de tarefa, aplicando o estilo correspondente à cor selecionada
+            index === 0 ? (button.classList.add('standard-todo'), button.classList.remove('light-todo', 'darker-todo')) :
+            index === 1 ? (button.classList.add('light-todo'), button.classList.remove('standard-todo', 'darker-todo')) :
+            (button.classList.add('darker-todo'), button.classList.remove('standard-todo', 'light-todo'));
         });
     }
 }
 
-function alphabeticalOrder(){
-    allTask.sort((a, b) => {
-        if(a.textInput < b.textInput){
-            return -1;
-        }
-
-        if(a.textInput > b.textInput){
-            return 1;
-        }
-
-        return 0;
-    });
-    
+// Função para ordenar tarefas em ordem alfabética
+function sortTasksAlphabetically() {
+    allTasks.sort((a, b) => a.text.localeCompare(b.text));
 }
 
-function UpperCase(text){
-    
-    const concatenation = text.charAt(0).toUpperCase() + text.slice(1,);
-    allTask[allTask.length - 1].textInput = concatenation;
+// Função para colocar a primeira letra da tarefa em maiúsculo
+function capitalizeFirstLetter(text) {
+    const formattedText = text.charAt(0).toUpperCase() + text.slice(1);
+    allTasks[allTasks.length - 1].text = formattedText;
 }
 
-function verifyInput(verifyTextTodo){
-
-    if(verifyTextTodo[0] === ' ' || /^\s|[^\w\s]/.test(verifyTextTodo)){ //Verifica se no primerio charactere é um espaço em branco ou tem carateres especiais (IMPLEMENTADO)
-        alert('Isnt possible special characters at biginning of a phrase');
-        return true;
-
+// Função para verificar se o input possui espaços ou caracteres especiais no início
+function validateTaskInput(taskText) {
+    // Verifica se o primeiro caractere é um espaço ou caractere especial
+    if (/^\s|[^\w\s]/.test(taskText)) {
+        alert('No special characters at the beginning of a phrase are allowed');
+        return true; // Retorna true se houver espaços ou caracteres especiais
     } else {
-        return false;
-
+        return false; // Caso contrário, retorna false
     }
 }
 
-function isDuplicateTask(newTaskText) {
-    // Verifica se já existe uma tarefa com o mesmo texto (ignorando maiúsculas e minúsculas)
-    return allTask.some(task => task.textInput.toLowerCase() === newTaskText.toLowerCase());
+// Verifica se a tarefa é duplicada
+function isTaskDuplicate(newTaskText) {
+    // Compara as tarefas existentes, ignorando a diferença entre maiúsculas e minúsculas
+    return allTasks.some(task => task.text.toLowerCase() === newTaskText.toLowerCase());
 }
 
-function deleteTask(btnForDelete){
+// Função para deletar tarefa
+function deleteTask(taskButton) {
+    allTasks.forEach((task, index) => {
+        const taskText = task.text;
+        // Encontra a tarefa correspondente e a remove do array allTasks
+        if (taskText === taskButton.innerText) {
+            allTasks.splice(index, 1); 
+        }
+    });
 
-
-    const ArrayIndex = parseInt(btnForDelete.id.slice(4) - 1)
-    console.log(ArrayIndex)
-    allTask.splice(ArrayIndex, 1);
-
-    console.log(allTask);
-
+    const tasks = document.querySelectorAll('.todo');
+    renderTasks();
+    syncSavedTasks(tasks);
+    initializeTaskButtons();
+    saveTasksToLocalStorage();
 }
 
-function validateBtn() {
-
-    //Valida o botão check
-    const buttonTodo = document.querySelectorAll('.todo');
+// Valida os botões de tarefas
+function initializeTaskButtons() {
+    const taskButtons = document.querySelectorAll('.todo');
     
-    buttonTodo.forEach(check => {
+    taskButtons.forEach(task => {
+        const completionButton = task.querySelector('.check-btn');
 
-        const checkBtn = check.querySelector('.check-btn');
-
-        // Verifica se o listener já foi adicionado
-        if(!checkBtn.hasListener){
-            checkBtn.addEventListener('click', function() {
-                check.classList.toggle('completed');
-                saveButtonsTask(); //atualiza o localStore
+        // Adiciona o evento de clique se ainda não foi adicionado
+        if (!completionButton.hasListener) {
+            completionButton.addEventListener('click', function() {
+                task.classList.toggle('completed'); // Marca/desmarca como completa
+                saveTasksToLocalStorage();
             });
-
-            checkBtn.hasListener = true;
+            completionButton.hasListener = true;
         } 
 
-        //adiciona eventos ao delete
-
-        const Btndelete = check.querySelector('.delete-btn');
-
-        if(!Btndelete.hasListener){
-            Btndelete.addEventListener('click', function() {
-                deleteTask(check);
-                saveButtonsTask(); //atualiza o localStore
+        const deleteButton = task.querySelector('.delete-btn');
+        // Adiciona o evento de exclusão se ainda não foi adicionado
+        if (!deleteButton.hasListener) {
+            deleteButton.addEventListener('click', function() {
+                deleteTask(task); // Remove a tarefa
+                saveTasksToLocalStorage();
             });
-
-            checkBtn.hasListener = true;
+            deleteButton.hasListener = true;
         }
     });
 }
 
-function savedValidate(oldTaskList) {
-    if (oldTaskList.length !== 0) { // verifica se existe valores no array
-        const newTaskList = document.querySelectorAll('.todo'); 
+// Verifica se há tarefas salvas
+function syncSavedTasks(savedTasksList) {
+    // Se houver tarefas antigas, mantém as existentes
+    if (savedTasksList.length !== 0) {
+        const newTasksList = document.querySelectorAll('.todo'); 
 
-        newTaskList.forEach((newTask, indexE) => {
-            const newCharTask = newTask.querySelector('.todo-item');
+        newTasksList.forEach((newTask) => {
+            const newTaskText = newTask.querySelector('.todo-item');
 
-            oldTaskList.forEach((oldTask, indexI) => {
-                const oldCharTask = oldTask.querySelector('.todo-item');
+            savedTasksList.forEach((oldTask, index) => {
+                const oldTaskText = oldTask.querySelector('.todo-item');
 
-                if (newCharTask.innerText === oldCharTask.innerText) { 
-                    // Substituir o nó inteiro da nova lista pelo da lista antiga
-                    newTask.replaceWith(oldTaskList[indexI]);
+                // Substitui as tarefas duplicadas com base no texto
+                if (newTaskText.innerText === oldTaskText.innerText) { 
+                    newTask.replaceWith(savedTasksList[index]);
                 }
             });
         });
-
     }
 }
 
-function addTask(){
-
-    listTask.innerHTML = '';
-
-    for(i = 0; i < allTask.length; i++){
-       const task = allTask[i];
-
-        listTask.innerHTML += ` 
-            <div id='btn-${task.id}' class='todo standard-todo'>  
-            <li class='todo-item'>${allTask[i].textInput}</li>
-            <button class='check-btn darker-button' type='button'>
-                <i class='fas fa-check'></i>
-            </button>
-            <button class='delete-btn darker-button' type='button'>
-                <i class='fas fa-trash'></i>
-            </button>
-        </div>`
+// Função para adicionar uma tarefa à lista
+function renderTasks() {
+    taskList.innerHTML = '';
+    for(i = 0; i < allTasks.length; i++) {
+       const task = allTasks[i];
+       taskList.innerHTML += ` 
+           <div id='btn-${task.id}' class='todo standard-todo'>  
+           <li class='todo-item'>${allTasks[i].text}</li>
+           <button class='check-btn darker-button' type='button'>
+               <i class='fas fa-check'></i>
+           </button>
+           <button class='delete-btn darker-button' type='button'>
+               <i class='fas fa-trash'></i>
+           </button>
+       </div>`;
     }
 }
 
-function preperTask(bgIndex){
+// Prepara uma nova tarefa e adiciona à lista
+function prepareTask(backgroundColorIndex) {
+    const tasks = document.querySelectorAll('.todo');
+    const taskText = taskInputField.value;
 
-    const task = document.querySelectorAll('.todo');
-    const textTodo = todoInput.value;
-
-    if(verifyInput(textTodo)){
-        todoInput.value = '';
+    // Verifica se o texto do input é válido
+    if (validateTaskInput(taskText)) {
+        taskInputField.value = '';
         return; 
     }
 
-    if(allTask !== null){ //verfica primeiro se há valor no alltask{
-        if (isDuplicateTask(textTodo)) {
-            alert('Task already exists! Please enter a new task.');
-            todoInput.value = '';
-            return;
-        }
+    // Verifica se a tarefa já existe
+    if (allTasks !== null && isTaskDuplicate(taskText)) {
+        alert('Task already exists! Please enter a new task.');
+        taskInputField.value = '';
+        return;
     }
 
-
     taskCounter++;
-    allTask.push(
-        {
-            id: taskCounter,
-            textInput: `${textTodo}`
-        }
-    );
+    allTasks.push({ id: taskCounter, text: taskText });
+    taskInputField.value = '';
 
-
-    todoInput.value = '';
-
-    UpperCase(textTodo); //Colocar o primeiro nome em letra maiúscula
-    alphabeticalOrder(allTask); //Colocar em ordem alfabética os objeto
-    addTask(); //adiciona a tarefa
-    savedValidate(task); //salva o valor do check
-    backgroundColor(bgIndex); // Muda todo o background colocar das cores
-    validateBtn(); //Valida o botão the check
-    saveButtonsTask();
-
+    capitalizeFirstLetter(taskText);
+    sortTasksAlphabetically();
+    renderTasks();
+    syncSavedTasks(tasks);
+    setBackgroundColor(backgroundColorIndex);
+    initializeTaskButtons();
+    saveTasksToLocalStorage();
 }
 
-function saveButtonsTask(){
-    localStorage.setItem('btnRefresh', listTask.innerHTML); //Vai pegar a última atualização do btn
-    localStorage.setItem('saveAllTask', JSON.stringify(allTask)); //JSON.stringfy serve para salvar arrays no localStorage
+// Salva a lista e tarefas no localStorage
+function saveTasksToLocalStorage() {
+    localStorage.setItem('savedTasksHTML', taskList.innerHTML);
+    localStorage.setItem('allTasksData', JSON.stringify(allTasks));
 }
 
-//função para reescrever os botões
-const rewriteBtn = (btns) => {
-    listTask.innerHTML = btns;
+// Função para reescrever os botões das tarefas
+const loadSavedTasks = (savedTasksHTML) => {
+    taskList.innerHTML = savedTasksHTML;
 }
 
-window.onload = function(){
+// Funções executadas ao carregar a página
+window.onload = function() {
+    let savedBackgroundColorIndex = localStorage.getItem('bgIndex');
+    // Converte o valor salvo para inteiro e aplica a cor de fundo
+    setBackgroundColor(parseInt(savedBackgroundColorIndex));
 
-    let savedValue = localStorage.getItem('bgIndex'); //retorna uma string
-    backgroundColor(parseInt(savedValue)); //converte a string em número
+    savedTasksHTML = localStorage.getItem('savedTasksHTML');
+    // Reescreve os botões das tarefas salvas
+    loadSavedTasks(savedTasksHTML);
+    initializeTaskButtons();
 
-    // savedValue = localStorage.getItem('btnRefresh');
-    // rewriteBtn(savedValue);
-    // validateBtn(); //Para fazer a validaçãod os botões
-
-    // if(JSON.parse(localStorage.getItem('saveAllTask')) !== null){ //verifica se o primeira vez a carregar tem o valor null
-    //     allTask = JSON.parse(localStorage.getItem('saveAllTask')); //serve para transformar a string em array novamente
-    // }
+    // Se houver tarefas salvas, carrega-as
+    if (JSON.parse(localStorage.getItem('allTasksData')) !== null) {
+        allTasks = JSON.parse(localStorage.getItem('allTasksData'));
+    }
 }
 
-todoBtn.addEventListener('click', function(e){
-    
+// Evento de clique no botão de adicionar tarefa
+addTaskButton.addEventListener('click', function(e) {
     e.preventDefault();
-    preperTask(parseInt(localStorage.getItem('bgIndex')));
-})
+    prepareTask(parseInt(localStorage.getItem('bgIndex')));
+});
 
-for(let i = 0; i < buttonColor.length; i++){
-    buttonColor[i].addEventListener('click', function(){
-        backgroundColor(i);
+// Evento de clique nos botões de cor
+for (let i = 0; i < colorButtons.length; i++) {
+    colorButtons[i].addEventListener('click', function() {
+        setBackgroundColor(i);
     }); 
 }
 
-backgroundColor(0);
+// Define a cor inicial de fundo
+setBackgroundColor(0); 
