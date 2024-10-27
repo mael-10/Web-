@@ -298,3 +298,36 @@ Para substituir tem que criar uma novaLista usando o método replace. Isso ajuda
 ----------------//--------------------------------
 
 Split vs Array.from()
+
+-----------------//-------------------------------
+
+As guard clauses servem para se fazer validações inciais com o if antes de excutar alguma parte de código
+
+a = 1;
+b = 2;
+
+if(!a || b === 1) return;
+
+console.log(a)
+
+Primeiro estou verificando se o 'a' não é vazio, como: null/undefined/0/NaN e false;
+Já na segunda parte verifico se o b === 1, ou seja, é um valor falso
+
+------------------//----------------------------------
+
+o charAt() é uma função onde te da o retorno da letra da posição da string. É passado como parâmentro a posição. 
+A primeria posição é semrpe 0. Ex: 
+
+const fruit = avocavo;
+const charFruit = fruit.charAt(1);
+console.log("A letra é: " charFruit); // v
+
+-----------------------//--------------------------------------
+every(), some(), find() e includes()
+
+-- every()
+O every verifica se todos os testes passados pelo array é true ou false
+
+[1, 2, 3].every(teste => return teste < 5) // true
+
+o every ele exige um valor de retorno. Ou retorna true ou retorna false

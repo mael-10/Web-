@@ -39,6 +39,8 @@ function updateTaskButtonColors(index) {
 
 // Funções de manipulação de tarefas
 function addTask(taskText) {
+    //se taskText não for um null/undefined, ou se tem caracteres especias ou não é repetido
+    //se for falso excuta o código normalmente
     if (!taskText || validateTaskInput(taskText) || isTaskDuplicate(taskText)) return;
 
     taskCounter++;
@@ -57,8 +59,10 @@ function deleteTask(taskButton) {
 function toggleTaskCompletion(taskId) {
     const task = allTasks.find(task => task.id === taskId);
     if (task) {
+        // Inverte o false pelo verdadeiro
         task.completed = !task.completed;
         saveTasksToLocalStorage();
+        // Reescreve como o valor renderizado
         renderTasks();
     }
 }
@@ -99,6 +103,7 @@ function getBackgroundClass() {
     return backgroundIndex === 0 ? 'standard-todo' : backgroundIndex === 1 ? 'light-todo' : 'darker-todo';
 }
 
+// Colocar as funções de check e delete
 function initializeTaskButtons() {
     const taskButtons = document.querySelectorAll('.todo');
     taskButtons.forEach(task => {
