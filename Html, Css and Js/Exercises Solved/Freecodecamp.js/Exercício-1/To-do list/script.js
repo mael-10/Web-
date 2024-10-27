@@ -13,6 +13,7 @@ const taskList = document.querySelector('.todo-list');
 
 // Variáveis de controle
 let taskCounter = 0;
+let counterWindowLoad = 0;
 let allTasks = [];
 
 // Função para preencher zeros à esquerda
@@ -22,10 +23,11 @@ const padZero = n => {
 
 // Atualiza a data e hora a cada segundo
 const updateDatetimeInterval = setInterval(() => {
+    //Metodo para pegar data
     const currentDate = new Date();
     const formattedDatetime = `${padZero(currentDate.getUTCDate())} / ${padZero(currentDate.getMonth() + 1)} / ${currentDate.getFullYear()} - ${padZero(currentDate.getHours())} : ${padZero(currentDate.getMinutes())} : ${padZero(currentDate.getSeconds())} `;
     datetimeDisplay.innerText = formattedDatetime;
-}, 1000); 
+}, 1000);
 
 // Função para mudar a cor de fundo
 function setBackgroundColor(index) {
@@ -46,10 +48,13 @@ function setBackgroundColor(index) {
             (button.classList.add('darker-todo'), button.classList.remove('standard-todo', 'light-todo'));
         });
     }
+
+
 }
 
 // Função para ordenar tarefas em ordem alfabética
 function sortTasksAlphabetically() {
+    //maneira simplificada de colocar objetos em ordem afabética
     allTasks.sort((a, b) => a.text.localeCompare(b.text));
 }
 
@@ -202,22 +207,29 @@ const loadSavedTasks = (savedTasksHTML) => {
     taskList.innerHTML = savedTasksHTML;
 }
 
-// Funções executadas ao carregar a página
 window.onload = function() {
-    let savedBackgroundColorIndex = localStorage.getItem('bgIndex');
-    // Converte o valor salvo para inteiro e aplica a cor de fundo
-    setBackgroundColor(parseInt(savedBackgroundColorIndex));
-
-    savedTasksHTML = localStorage.getItem('savedTasksHTML');
-    // Reescreve os botões das tarefas salvas
-    loadSavedTasks(savedTasksHTML);
-    initializeTaskButtons();
-
-    // Se houver tarefas salvas, carrega-as
-    if (JSON.parse(localStorage.getItem('allTasksData')) !== null) {
-        allTasks = JSON.parse(localStorage.getItem('allTasksData'));
+    //Coloca uma validação, pois a primeira vez que o programa é inicado a pagina é recarregada e o valor de bgIndex é undefined
+    if(counterWindowLoad != 0){
+        savedTasksHTML = localStorage.getItem('savedTasksHTML');
+        // Reescreve os botões das tarefas salvas
+        loadSavedTasks(savedTasksHTML);
+        //salva o save task value
+        initializeTaskButtons();
+        
+        // Se houver tarefas salvas, carrega-as
+        if (JSON.parse(localStorage.getItem('allTasksData')) !== null) {
+            allTasks = JSON.parse(localStorage.getItem('allTasksData'));
+        }
+        
+        let savedBackgroundColorIndex = localStorage.getItem('bgIndex');
+        console.log(savedBackgroundColorIndex);
+        // Converte o valor salvo para inteiro e aplica a cor de fundo
+        setBackgroundColor(parseInt(savedBackgroundColorIndex));
     }
+    //Validador para reexcutar o código
+    counterWindowLoad = 1;
 }
+
 
 // Evento de clique no botão de adicionar tarefa
 addTaskButton.addEventListener('click', function(e) {
@@ -231,6 +243,3 @@ for (let i = 0; i < colorButtons.length; i++) {
         setBackgroundColor(i);
     }); 
 }
-
-// Define a cor inicial de fundo
-setBackgroundColor(0); 
