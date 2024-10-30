@@ -118,9 +118,56 @@ Retorna o caractere de uma string em uma posição específica.
   - Exemplo: `[1, 2, 3].includes(2); // true`
 
 ## Slice(), Slipt(), Splice()
-  - **`Split`**   O Array de string ele dividido em substrings
-  - **`Slice`**   O Usado em Strings e arrays, é fatiado, para pegar partes específicas
-  - **`Splice`**  O Splice ele emenda o array original, ou seja, ele cria um nove array emendando-o
+
+  - **`Split`**   
+      Split é uma função que *divide* a string em um array de subtring. O Split não muda o array de strings original pois
+      irá retornar um novo array. Ou seja, primeiro ela cria um array de string, então o divide.
+
+    - Exemplo: 
+
+      ![Imagem Variável Split](https://media2.dev.to/dynamic/image/width=800%2Cheight=%2Cfit=scale-down%2Cgravity=auto%2Cformat=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fi%2Fr525ecv5gj6ae7b6jeji.png)
+
+      ![Valor de retorno Split](https://media2.dev.to/dynamic/image/width=800%2Cheight=%2Cfit=scale-down%2Cgravity=auto%2Cformat=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fi%2Frh2qnjrhas7ezpubnej8.png)
+
+  - **`Slice`**   
+      O Slice método não muda o array original, é um método tanto usando em strings e arrays. Basicamente o slice *fatia*.
+      O Slice tem dois argumentos, um é opcional que representa o inicio e outro não é opcional que representa o fim.
+
+    - Exemplo:
+
+      ![Slice Váriável](https://media2.dev.to/dynamic/image/width=800%2Cheight=%2Cfit=scale-down%2Cgravity=auto%2Cformat=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fi%2F35dm30ry5q6d4kzfbdg3.png)
+
+      ![Valor de retorno Slice](https://media2.dev.to/dynamic/image/width=800%2Cheight=%2Cfit=scale-down%2Cgravity=auto%2Cformat=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fi%2Fwqhebpdx4ze238t2f7mw.png)
+
+  - **`Splice`**  
+      O Splice (*Emenda*) método ele muda o array original. Pode remover elementos, substituir elementos existentes ou adicionar novos elementos ao array. Pode ter no maximo três argumentos. Terceiro e o segundo é opcional.
+
+      - O Primeiro argumento é o index (do array) e é obrigatóriamente e requirido.
+      - O Segundo é opcional, que representa o número de array a ser removido
+      - Terceiro é opcional e representa o número de items a ser adicinado. Nesse caso, é uma string representando os items a ser adicionado
+    
+    - Exemplo 1:
+
+      ![Splice Váriável](https://media2.dev.to/dynamic/image/width=800%2Cheight=%2Cfit=scale-down%2Cgravity=auto%2Cformat=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fi%2F0g2sms5wcf7nuggufei4.png)
+
+      ![Valor de retorno Splice](https://media2.dev.to/dynamic/image/width=800%2Cheight=%2Cfit=scale-down%2Cgravity=auto%2Cformat=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fi%2Fi5t340tcq4ntdztg8cdy.png)
+
+    - Exemplo 2: 
+
+      ![Splice Váriável](https://media2.dev.to/dynamic/image/width=800%2Cheight=%2Cfit=scale-down%2Cgravity=auto%2Cformat=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fi%2Fbqw2xvoigidz0koyenq3.png)
+
+      ![Valor de retorno Splice](https://media2.dev.to/dynamic/image/width=800%2Cheight=%2Cfit=scale-down%2Cgravity=auto%2Cformat=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fi%2F4qthp4d2wc5tj0tf630f.png)
+
+### Conclusão
+***Split() método é usado para string transforma-lá em array. Já o Slice() pode ser usado tanto em strings e arrays. E o Splice() é usado somente para arrays***
+
+# JSON.stringfy()
+Para adicionar um array no nodeList tem que usar o JSON.stringfy(), pois ao adicionar no NodeList, é tranformado em um array.
+O JSON.Stringfy adiciona o array transformando em string de maneira correta.
+
+`const arrayCar = ["Cross Fox"];`<br>
+`localStorage.setItem('arrayCar'. JSON.stringfy(arrayCar));`
+
 
 # Conceitos mais Avançados no Js
 
@@ -138,11 +185,15 @@ convencionais de manipulação de array
 
 **`Nodelist[index] = 'A'`**
 
-Isso não é possível fazer, pois o nodeList é uma coleção estática. Não tem a mesma mutabilidade de um array
+Isso não é possível fazer, pois o nodeList é uma coleção estática. Não tem a mesma mutabilidade de um array.
+Para mudar tem que usar o replace e modificar a posição específica.
 
-Para substituir tem que **criar uma novaLista usando o método replace**. Isso ajuda a manter estado atuais mantidos
+  `// Seleciona todos os parágrafos dentro de uma div com a classe "container"`<br>
+`const paragraphs = document.querySelectorAll('.container p');`<br>
 
-  **`nodeList.replaceWith(oldTaskList[index]);`**
-
--  Com o replace ele apenas vai manter o estado atual (uma recuperação).
--  Ele identifica automaticamente qual posição vai ser modifica
+`// Itera sobre o NodeList e substitui cada parágrafo por um novo elemento`<br>
+`paragraphs.forEach(paragraph => {`<br>
+    `const newElement = document.createElement('p');`<br>
+    `newElement.textContent = 'Este é um novo parágrafo substituído!';`<br>
+    `paragraph.replaceWith(newElement);`<br>
+`});`<br>
