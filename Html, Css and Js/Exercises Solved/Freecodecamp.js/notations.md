@@ -67,7 +67,7 @@ Permite acessar propriedades aninhadas de forma segura, evitando erros de refer�
 - **`.sort()`**: Ordena os elementos de um array em ordem alfabética ou numérica, podendo incluir uma função de comparação.
   - Exemplo: `const fruits = [{ name: "Apples", price: 0.99 }, { name: "Blueberries", price: 1.49 }, { name: "Grapes", price: 2.99 }]; fruits.sort((a, b) => a.name < b.name ? -1 : a.name > b.name ? 1 : 0);`
 
-## Métodos `.every()`, `.some()`, `.find()`, e `.includes()`
+## Métodos `.every()`, `.some()`, `.find()`, `.includes()` e `.filter()`
 - **`.every()`**: Todos os elementos passam pelo teste.
   - Exemplo: `[1, 2, 3].every(num => num < 5); // true`
 
@@ -79,6 +79,9 @@ Permite acessar propriedades aninhadas de forma segura, evitando erros de refer�
   
 - **`.includes()`**: Verifica se um elemento específico existe no array.
   - Exemplo: `[1, 2, 3].includes(2); // true`
+
+- **`.filter()`**: Filtra os elementos que são passados como parâmetros (retorna os elementos filtrados).
+  - Exemplo: `[1, 3, 5, 10, 15, 12, 89].find(num => num%2 === 0) //[10,12]` 
 
 ## Métodos de Áudio
 - **`audio.play()`**: Inicia a reprodução.
@@ -152,7 +155,6 @@ O JSON.Stringfy adiciona o array transformando em string de maneira correta.
 
 `const arrayCar = ["Cross Fox"];`<br>
 `localStorage.setItem('arrayCar'. JSON.stringfy(arrayCar));`
-
 
 # Conceitos mais Avançados no Js
 
