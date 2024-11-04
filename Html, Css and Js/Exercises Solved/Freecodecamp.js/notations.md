@@ -156,6 +156,52 @@ O JSON.Stringfy adiciona o array transformando em string de maneira correta.
 `const arrayCar = ["Cross Fox"];`<br>
 `localStorage.setItem('arrayCar'. JSON.stringfy(arrayCar));`
 
+# try...catch
+***É uma estrutura usada em JavaScript para capturar e tratar erros quando algo dá errado em uma parte do código***
+
+`try` - Nessa parte, onde é colocado o código que quer testar ou executar. O js roda esse código<br>
+mas se retornar algum erro na execução nesse código, como dados inesperados, o try é<br> 
+interrompido imediatamente para executar o catch.<br>
+
+`catch` - Este bloco só é executado se ocorrer um erro no bloco try. <br> 
+O erro que causou o problema é passado para o catch, que permite capturar detalhes sobre ele.
+
+`finally` - Este bloco é executado sempre, independentemente de um erro ter ocorrido ou não.<br> 
+Ele é útil para colocar comandos que devem ser executados no final, como uma mensagem de "todos os testes concluídos"<br> 
+ou liberar algum recurso, como um arquivo aberto.
+
+`try {`<br>
+    `result = subtrair("texto", 3);`<br>
+    `console.assert(false, "Erro esperado ao subtrair texto de número, mas nenhum erro foi lançado");`<br>
+`}`<br>
+
+- Aqui, você está tentando chamar a função subtrair("texto", 3), que provavelmente espera dois números para subtrair.
+
+- Como "texto" não é um número, espera-se que ocorra um erro de tipo.
+
+- A linha console.assert(false, "Erro esperado...") seria um teste manual para garantir que o erro ocorra.<br> Se o erro não acontecer, essa linha gera um aviso dizendo que você esperava um erro, mas ele não ocorreu.<br><br>
+
+`catch(e) {`<br>
+    `console.assert(e instanceof TypeError, "Erro: esperado um TypeError");`<br>
+`}`<br>
+
+- Se um erro for lançado no bloco `try`, ele será capturado aqui.<br>
+- A variável e representa o erro lançado.<br><br>
+
+## `TypeError`, `instanceof`, e `e`
+
+`TypeError`: Esse é um tipo específico de erro em JavaScript que ocorre quando se tenta usar um valor de tipo<br> 
+incorreto em uma operação, como usar uma string onde se esperava um número.<br>
+
+`instanceof`: O instanceof é um operador usado para verificar se uma variável pertence<br> a uma determinada classe ou tipo de erro. 
+Aqui, e instanceof TypeError verifica se o erro capturado (e) é do tipo TypeError<br>
+
+`e`: e contém as informações sobre o erro lançado.<br> 
+É comum dar um nome genérico, como e ou error, para essa variável.
+
+`console.assert(e instanceof TypeError, "Erro: esperado um TypeError");` verifica se o erro capturado<br> 
+é realmente do tipo TypeError. Se não for, exibe uma mensagem de erro personalizada dizendo "Erro: esperado um TypeError".<br>
+
 # Conceitos mais Avançados no Js
 
 ## Validação Ternária Dentro de um Array
@@ -187,7 +233,7 @@ Para mudar tem que usar o replace e modificar a posição específica.
 
 ## Teste unitário os 4 estágios
 
-1 - Preparação: Prepare um ambiente e os dados necessários para o teste
-2 - Execução: Execute a função que está sendo testada com os parâmetros de entrada
-3 - Verificação: Verifique se a saída é esperada mesmo com inesperados
-4 - Limpeza: (Opcional) Restabeleça o estado original do ambiente, se necessário
+1 - Preparação: Prepare um ambiente e os dados necessários para o teste<br>
+2 - Execução: Execute a função que está sendo testada com os parâmetros de entrada<br>
+3 - Verificação: Verifique se a saída é esperada mesmo com inesperados<br>
+4 - Limpeza: (Opcional) Restabeleça o estado original do ambiente, se necessário<br>
