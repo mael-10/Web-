@@ -8,9 +8,7 @@
 - **`.shift()`**: Remove o primeiro elemento do array.
   - Exemplo: `arr.shift(); // Remove 1, e arr vira [2, 3]`
 - **`.unshift()`**: Adiciona um elemento no início do array.
-  - Exemplo: `arr.unshift(0); // [0, 2, 3]`
-- **`.includes()`**: Verifica se um elemento está dentro do array.
-  - Exemplo: `arr.includes(2); // Retorna true`
+- Exemplo: `arr.unshift(0); // [0, 2, 3]`
 
 ## Gerar Valores Aleatórios e Manipulação de Condições
 - **`Math.random()`**: Retorna um valor entre 0 e 1.
@@ -25,6 +23,12 @@
 - Valores booleanos: `let isActive = false;`
 - Objetos: `let options = {};`
 - Exemplo de incremento: `let cachorro = 3; cachorro += 6; // Resultado: 9`
+
+## Console.assert();
+
+Esse método escreve a mensage no cosole se a expressão for falsa
+
+`console.assert(x + y == 11, "Expression returned false");`
 
 ## Manipulação do DOM (Document Object Model)
 - **`document.querySelector("h2")`**: Seleciona o primeiro elemento `<h2>` do documento.
@@ -63,21 +67,17 @@ Permite acessar propriedades aninhadas de forma segura, evitando erros de refer�
 - **`.sort()`**: Ordena os elementos de um array em ordem alfabética ou numérica, podendo incluir uma função de comparação.
   - Exemplo: `const fruits = [{ name: "Apples", price: 0.99 }, { name: "Blueberries", price: 1.49 }, { name: "Grapes", price: 2.99 }]; fruits.sort((a, b) => a.name < b.name ? -1 : a.name > b.name ? 1 : 0);`
 
-  ***Maneira Simplificada***
-
-  -- Text here
-
-## Métodos `.find()`, `.every()`, `.some()`, e `.includes()`
-- **`.find()`**: Encontra o primeiro elemento que satisfaz a condição da função callback.
-  - Exemplo: `const numbers = [10, 20, 30, 40, 50]; const foundNumber = numbers.find(num => num > 25); // Retorna 30`
-
-- **`.every()`**: Verifica se todos os elementos atendem a uma condição.
+## Métodos `.every()`, `.some()`, `.find()`, e `.includes()`
+- **`.every()`**: Todos os elementos passam pelo teste.
   - Exemplo: `[1, 2, 3].every(num => num < 5); // true`
 
-- **`.some()`**: Verifica se pelo menos um elemento atende a uma condição.
-  - Exemplo: `[1, 2, 3].some(num => num === 3); // true`
+- **`.some()`**: Pelo menos um elemento passa pelo teste.
+  - Exemplo: `[1, 2, 3].some(num => num === 2); // true`
 
-- **`.includes()`**: Verifica se um array contém um elemento específico.
+- **`.find()`**: Retorna o primeiro elemento que passa pelo teste.
+  - Exemplo: `[10, 20, 30].find(num => num > 25); // 30`
+  
+- **`.includes()`**: Verifica se um elemento específico existe no array.
   - Exemplo: `[1, 2, 3].includes(2); // true`
 
 ## Métodos de Áudio
@@ -95,27 +95,12 @@ São condições iniciais verificadas antes de executar o código principal.
 Retorna o caractere de uma string em uma posição específica.
 - Exemplo: `const fruit = "avocado"; const charFruit = fruit.charAt(1);`
 
-## parSet() vs Arram.from()
+## parSet() vs Number()
 
--- Text here
+Number() apenas aceita "digit strings", like: `"21", "25", "43"`<br>
 
-## Number vs Intiger
-
--- Text here
-
-
-## Diferença entre `.every()`, `.some()`, `.find()`, e `.includes()`
-- **`.every()`**: Todos os elementos passam pelo teste.
-  - Exemplo: `[1, 2, 3].every(num => num < 5); // true`
-
-- **`.some()`**: Pelo menos um elemento passa pelo teste.
-  - Exemplo: `[1, 2, 3].some(num => num === 2); // true`
-
-- **`.find()`**: Retorna o primeiro elemento que passa pelo teste.
-  - Exemplo: `[10, 20, 30].find(num => num > 25); // 30`
-  
-- **`.includes()`**: Verifica se um elemento específico existe no array.
-  - Exemplo: `[1, 2, 3].includes(2); // true`
+parseInt() aceita strings que tem ou não tem non-digit caracteres no final de uma string.
+For example: "34","34foo" e "34foo" que em todos os casos vão retornar o número.
 
 ## Slice(), Slipt(), Splice()
 
@@ -197,3 +182,10 @@ Para mudar tem que usar o replace e modificar a posição específica.
     `newElement.textContent = 'Este é um novo parágrafo substituído!';`<br>
     `paragraph.replaceWith(newElement);`<br>
 `});`<br>
+
+## Teste unitário os 4 estágios
+
+1 - Preparação: Prepare um ambiente e os dados necessários para o teste
+2 - Execução: Execute a função que está sendo testada com os parâmetros de entrada
+3 - Verificação: Verifique se a saída é esperada mesmo com inesperados
+4 - Limpeza: (Opcional) Restabeleça o estado original do ambiente, se necessário
