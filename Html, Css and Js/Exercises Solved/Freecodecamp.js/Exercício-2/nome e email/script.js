@@ -5,7 +5,7 @@ const inputEmail = document.getElementById('email');
 function congratulation(){
     alert('Its totally right');
     //recarrega a página automáticamente
-    location.reload(); 
+    location.reload();
 }
 
 function regexValidationInput(emailTextTest, nameTextTest){
@@ -13,7 +13,6 @@ function regexValidationInput(emailTextTest, nameTextTest){
     const regexName = /^[a-zA-ZÀ-ÖØ-öø-ÿ\s'-]+$/;
 
     emailTextTest.match(regexEmail) && nameTextTest.match(regexName) ? congratulation() : (alert("There's something wrong with name or email"), location.reload())
-
     return;
 }
 
