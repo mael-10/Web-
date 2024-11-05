@@ -11,13 +11,13 @@ function congratulation(){
 function regexValidationInput(emailTextTest, nameTextTest){
     const regexEmail = /[\w\.-]+@[a-zA-Z\d\.-]+\.[a-zA-Z]{2,}/;
     const regexName = /^[a-zA-ZÀ-ÖØ-öø-ÿ\s'-]+$/;
+    const isValid = emailTextTest.match(regexEmail) && nameTextTest.match(regexName);
 
-    emailTextTest.match(regexEmail) && nameTextTest.match(regexName) ? congratulation() : (alert("There's something wrong with name or email"), location.reload())
+    isValid ? congratulation() : (alert("There's something wrong with name or email"), location.reload())
     return;
 }
 
 const getInput = (emailText, nameText) => {
-    if(emailText === null ||  nameText === null) return;
     regexValidationInput(emailText, nameText);
 }
 
