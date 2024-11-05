@@ -19,8 +19,11 @@ export default function testarFuncoes(){ //exporte default pode ser importado co
         console.assert(false, "Erro esperado ao subtrair texto de número, mas nenhum erro foi lançado");
     } catch(e) {
         console.assert(e instanceof TypeError, "Erro: esperado um TypeError");
+        // Pega apenas a mensagem do erro
         console.error(e.message); // É um erro de tipo
     } finally{
         console.log("Todos os testes concluídos");
     }
 }
+
+//É possível forçar um erro com o throw new Error
