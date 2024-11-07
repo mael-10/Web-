@@ -53,6 +53,7 @@ button:hover {
     color: red;
     font-size: 0.8em;
     margin-top: 4px;
+    margin-top: 3px;
 }
 
 .success {
@@ -64,7 +65,8 @@ button:hover {
 
 #menssage {
     height: 20px;
-    margin: 25px; 
+    margin: 25px;
+    display: none;
 }
 
 .p-menssage {

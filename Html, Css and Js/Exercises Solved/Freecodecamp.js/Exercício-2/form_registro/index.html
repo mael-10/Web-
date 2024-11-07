@@ -11,23 +11,22 @@
         <h2>Formulário de Registro</h2>
         <form id="registroForm">
             <label for="nome">Nome Completo</label>
-            <input type="text" id="nome" name="nome" required>
+            <input type="text" id="nome" name="nome" placeholder="Full Name" required>
             <span class="error" id="nomeErro"></span>
 
             <label for="email">Email</label>
-            <input type="email" id="email" name="email" required>
+            <input type="email" id="email" name="email" placeholder="youremail@yourdomain.com" required>
             <span class="error" id="emailErro"></span>
 
             <label for="senha">Senha</label>
             <input type="password" id="senha" name="senha" required minlength="6">
-            <span class="error" id="senhaErro"></span>
+            <span class="error" id="senhaErro"a></span>
 
             <label for="confirmaSenha">Confirmação de Senha</label>
             <input type="password" id="confirmaSenha" name="confirmaSenha" required>
             <span class="error" id="confirmaSenhaErro"></span>
 
             <button type="submit">Registrar</button>
-            <span class="success" id="sucesso"></span>
         </form>
         <div id="menssage">
             <p class="p-menssage">Senha cadastrada com sucesso!</p>

@@ -74,6 +74,13 @@ function toggleTaskCompletion(taskId) {
         // Reescreve como o valor renderizado
         renderTasks();
     }
+    //está manipulando o referenciamento na memória desse objeto ou array
+    /* 
+        Isso significa que qualquer modificação no objeto task também reflete
+        automaticamente no array allTasks porque ambos estão apontando para o mesmo local na memória.
+
+        Ao modificar task.completed, você está alterando somente o objeto específico dentro do array allTasks
+    */
 }
 
 // Funções utilitárias de validação e formatação
