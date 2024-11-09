@@ -1,5 +1,11 @@
 # Conceitos e Notações do JavaScript
 
+## Tipo de dados
+
+- **`null`** - É um valor vazio ou inexistente, indica que a variável está vazia
+- **`undefined`** - Significa que não tem um valor definido, significa "sem referência"
+- **`undefined`** - Um valor que pode ser convertido para boolean ou seja é um falsy value
+
 ## Manipulação de Arrays
 - **`.push()`**: Adiciona um elemento ao final do array.
   - Exemplo: `let arr = [1, 2, 3]; arr.push(4); // [1, 2, 3, 4]`
