@@ -17,11 +17,7 @@ function regexValidationInput(emailTextTest, nameTextTest){
     return;
 }
 
-const getInput = (emailText, nameText) => {
-    regexValidationInput(emailText, nameText);
-}
-
 form.addEventListener('submit', (e) => {
     e.preventDefault();
-    getInput(inputEmail.value, inputName.value)
+    regexValidationInput(inputEmail.value, inputName.value)
 });

@@ -5,6 +5,7 @@ body {
     align-items: center;
     height: 100vh;
     margin: 0;
+    background-color: gray;
 }
 
 .container {
@@ -76,4 +77,12 @@ button:hover {
 .container #menssage {
     color: blue; 
     text-align: center;
+}
+
+#gender_id{
+    margin-top: 10px;
+    width: 50%;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
 }

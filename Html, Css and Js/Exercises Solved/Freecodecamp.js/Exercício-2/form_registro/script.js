@@ -4,3 +4,5 @@ const inputEmail = document.getElementById('email');
 const inputPassword = document.getElementById('senha');
 const inputCheckPassword = document.getElementById('confirmaSenha');
 const inputErros = document.querySelectorAll('span');
+const gender = document.getElementById('gender_id');
+
