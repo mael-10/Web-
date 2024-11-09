@@ -4,7 +4,7 @@
 
 - **`null`** - É um valor vazio ou inexistente, indica que a variável está vazia
 - **`undefined`** - Significa que não tem um valor definido, significa "sem referência"
-- **`undefined`** - Um valor que pode ser convertido para boolean ou seja é um falsy value
+- **`NaN`** - Um valor que pode ser convertido para boolean ou seja é um falsy value
 
 ## Manipulação de Arrays
 - **`.push()`**: Adiciona um elemento ao final do array.
