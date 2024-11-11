@@ -11,12 +11,10 @@ let ToSend = [];
 
 //Função para validar se todos os valores estão corretos antes de serem enviados para um bd
 function verifyToSend(){
-
     if(ToSend.some(n => n === false)){
         ToSend = [];
         return;
     }
-
     alert("It was sent to bd successfully");
     location.reload();
 }
@@ -24,7 +22,6 @@ function verifyToSend(){
 function verifyAge(){
     inputAge.value < 18 ? (inputErros[2].innerText = "Younger age! Can'n fill out the form", ToSend.push(false))  : inputAge.value > 120 ? (inputErros[2].innerText = "Are you alive???", ToSend.push(false)) : null;
     //Verificar se todos os campos estão corretos
-    debugger;
     verifyToSend();
 }
 
@@ -34,10 +31,8 @@ function verifyPassword(){
 }
 
 function errorMenssage(regex, position){
-
     inputErros[position].innerText = '';
     blankSpace();
-
     const mensagensErro = [
         "Name format is wrong! write correctly another name",
         "Email format is wrong! write correctly another Email",
