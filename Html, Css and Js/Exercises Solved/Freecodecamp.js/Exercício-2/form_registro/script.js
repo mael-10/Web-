@@ -6,13 +6,31 @@ const inputAge = document.getElementById('age');
 const inputCheckPassword = document.getElementById('confirmaSenha');
 const inputErros = document.querySelectorAll('span');
 const gender = document.getElementById('gender_id');
+//var para verificar se todos os valores estão corretos
+let ToSend = [];
+
+//Função para validar se todos os valores estão corretos antes de serem enviados para um bd
+function verifyToSend(){
+
+    if(ToSend.some(n => n === false)){
+        ToSend = [];
+        return;
+    }
+
+    alert("It was sent to bd successfully");
+    location.reload();
+}
 
 function verifyAge(){
-    inputAge.value < 18 ? inputErros[2].innerText = "Younger age! Can'n fill out the form"  : inputAge.value > 120 ? inputErros[2].innerText = "Are you alive???" : null;
+    inputAge.value < 18 ? (inputErros[2].innerText = "Younger age! Can'n fill out the form", ToSend.push(false))  : inputAge.value > 120 ? (inputErros[2].innerText = "Are you alive???", ToSend.push(false)) : null;
+    //Verificar se todos os campos estão corretos
+    debugger;
+    verifyToSend();
 }
 
 function verifyPassword(){
-    inputPassword.value !== inputCheckPassword.value ? inputErros[4].innerText = "The passwords must be the same" : null;
+    inputPassword.value !== inputCheckPassword.value ? (inputErros[4].innerText = "The passwords must be the same", ToSend.push(false)) :  inputErros[4].innerText = '';
+    verifyAge();
 }
 
 function errorMenssage(regex, position){
@@ -28,7 +46,7 @@ function errorMenssage(regex, position){
     ];
     
     // Se regex for falso, atribui a mensagem de erro de acordo com a posição
-    !regex ? inputErros[position].innerText = mensagensErro[position] : null;
+    !regex ? (inputErros[position].innerText = mensagensErro[position], ToSend.push(false)) : null;
 }
 
 function validateRegex(){
@@ -45,7 +63,6 @@ function validateRegex(){
 }
 
 function blankSpace(){
-    debugger;
     inputErros[0].innerText = '';
     if(inputName.value.match(/^\s*$/)){
         inputErros[0].innerText = 'blanck space isnt allowed';
@@ -56,5 +73,4 @@ sendForm.addEventListener('submit', (e) => {
     e.preventDefault();
     validateRegex();
     verifyPassword();
-    verifyAge();
-})
+});
