@@ -11,6 +11,7 @@ let ToSend = [];
 
 //Função para validar se todos os valores estão corretos antes de serem enviados para um bd
 function verifyToSend(){
+    //Caso alguma campo retorne um valor de erro, não será permitido processeguir
     if(ToSend.some(n => n === false)){
         ToSend = [];
         return;
@@ -19,12 +20,14 @@ function verifyToSend(){
     location.reload();
 }
 
+//valida a idade
 function verifyAge(){
     inputAge.value < 18 ? (inputErros[2].innerText = "Younger age! Can'n fill out the form", ToSend.push(false))  : inputAge.value > 120 ? (inputErros[2].innerText = "Are you alive???", ToSend.push(false)) : null;
     //Verificar se todos os campos estão corretos
     verifyToSend();
 }
 
+//valida a senha
 function verifyPassword(){
     inputPassword.value !== inputCheckPassword.value ? (inputErros[4].innerText = "The passwords must be the same", ToSend.push(false)) :  inputErros[4].innerText = '';
     verifyAge();
