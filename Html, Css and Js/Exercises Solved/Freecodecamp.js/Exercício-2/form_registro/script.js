@@ -31,8 +31,11 @@ function verifyPassword(){
 }
 
 function errorMenssage(regex, position){
+    //limpa os inputs de erros
     inputErros[position].innerText = '';
-    blankSpace();
+    //Valida apenas a primeira posição para evitar redundância
+    position === 0 ? blankSpace() : null;
+    //Coloca as mensagens de erros no array
     const mensagensErro = [
         "Name format is wrong! write correctly another name",
         "Email format is wrong! write correctly another Email",
@@ -58,9 +61,9 @@ function validateRegex(){
 }
 
 function blankSpace(){
-    inputErros[0].innerText = '';
     if(inputName.value.match(/^\s*$/)){
         inputErros[0].innerText = 'blanck space isnt allowed';
+        ToSend.push(false);
     }
 }
 
