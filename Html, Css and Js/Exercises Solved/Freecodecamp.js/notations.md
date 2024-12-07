@@ -162,6 +162,15 @@ O JSON.Stringfy adiciona o array transformando em string de maneira correta.
 `const arrayCar = ["Cross Fox"];`<br>
 `localStorage.setItem('arrayCar'. JSON.stringfy(arrayCar));`
 
+# toSorted()
+
+Foi adicionado no **ES2023**. É uma maneira segura de ordenar um array sem alterar o array orginal. 
+Basicamente cria um cópia, só que cria uma cópia do array alterado.
+
+`const months = ["Jan", "Feb", "Mar", "Apr"];`<br>
+`const sorted = months.toSorted();`<br>
+`console.log(sorted);` ***//Apr, Feb, Jan, Mar*** <br>
+
 # try...catch
 ***É uma estrutura usada em JavaScript para capturar e tratar erros quando algo dá errado em uma parte do código***
 
