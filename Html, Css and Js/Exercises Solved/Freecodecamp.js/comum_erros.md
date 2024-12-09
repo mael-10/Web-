@@ -19,7 +19,7 @@
 - Tentar iterar mais elementos do que o array possui pode resultar em um erro do tipo "cannot read property of undefined". Esse erro ocorre quando o código tenta acessar uma posição inexistente.
 ---
 ## 5. Uso de `.length` em Arrays
-- O método `.length` retorna o número total de elementos no array, mas essa contagem começa em 1, não em 0. Isso significa que, ao iterar, o índice máximo deve ser `.length - 1`.
+- O método `.length` retorna o número total de elementos no array, mas essa contagem começa em 0, não em 1. Isso significa que, ao iterar, o índice máximo deve ser `.length - 1`.
 ---
 ## 6. Problemas de Renderização e `DOMContentLoaded`
 - Quando o JavaScript afeta a renderização da página, pode-se evitar erros executando o código apenas após o carregamento completo do HTML e CSS.

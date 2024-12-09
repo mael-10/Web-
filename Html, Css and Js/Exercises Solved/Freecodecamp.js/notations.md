@@ -112,7 +112,7 @@ São condições iniciais verificadas antes de executar o código principal.
 
 ## `.charAt()`
 Retorna o caractere de uma string em uma posição específica.
-- Exemplo: `const fruit = "avocado"; const charFruit = fruit.charAt(1);`
+- Exemplo: `const fruit = "avocado"; const charFruit = fruit.charAt(1); //v`
 
 ## parSet() vs Number()
 
