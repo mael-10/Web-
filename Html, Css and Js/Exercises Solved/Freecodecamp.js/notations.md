@@ -87,7 +87,7 @@ Permite acessar propriedades aninhadas de forma segura, evitando erros de refer�
   - Exemplo: `[1, 2, 3].includes(2); // true`
 
 - **`.filter()`**: Filtra os elementos que são passados como parâmetros (retorna os elementos filtrados).
-  - Exemplo: `[1, 3, 5, 10, 15, 12, 89].find(num => num%2 === 0) //[10,12]` 
+  - Exemplo: `[1, 3, 5, 10, 15, 12, 89].filter(num => num%2 === 0) //[10,12]` 
 
 ## Métodos de Áudio
 - **`audio.play()`**: Inicia a reprodução.
@@ -102,7 +102,7 @@ São condições iniciais verificadas antes de executar o código principal.
 
 ## `.charAt()`
 Retorna o caractere de uma string em uma posição específica.
-- Exemplo: `const fruit = "avocado"; const charFruit = fruit.charAt(1);`
+- Exemplo: `const fruit = "avocado"; const charFruit = fruit.charAt(1); //v`
 
 ## parSet() vs Number()
 
