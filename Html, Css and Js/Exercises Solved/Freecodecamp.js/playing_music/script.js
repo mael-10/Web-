@@ -175,10 +175,3 @@ const sortSongs = () => {
 // Chama a função renderSongs para exibir as músicas na interface do usuário
 //renderSongs(userData?.songs); //Tem um objeto dentro de um objeto
 renderSongs(sortSongs()); //Vai passar todos os objetos na ordem alfabetica.
-
-
-const botoes = document.querySelector("button");
-
-botoes.addEventListener("click", () => {
-      console.log(this);
-});
