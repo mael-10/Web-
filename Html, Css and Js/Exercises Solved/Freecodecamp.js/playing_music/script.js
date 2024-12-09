@@ -1,4 +1,3 @@
-
 // Seleciona os elementos HTML para controle do player de música
 const playlistSongs = document.getElementById('playlist-songs');
 const playButton = document.getElementById('play');
@@ -92,9 +91,10 @@ let userData = {
 };
 
 const playSong = (id) => {
-  const song = userData?.songs.find((song) => song.id === id); //--> [0].id === id (está iterando sobre o parâmetro) (song é a posição). (find retorna a posição do array)
-  audio.src = song.src; //Isso fala para o áudio on achalo no som selecionado
-  audio.title = song.title;
+  const song = userData?.songs.find((song) => song.id === id); //Verifica qual a música que o usuário escolheu
+  //Acessa as propiedades do objeto audio
+  audio.src = song.src; //Atribui o audio no objeto
+  audio.title = song.title; //Atribui o título no no objeto
 
   if(userData?.currentSong === null || userData?.currentSong.id !== song.id){
     audio.currentTime = 0;
@@ -149,3 +149,10 @@ const sortSongs = () => {
 // Chama a função renderSongs para exibir as músicas na interface do usuário
 //renderSongs(userData?.songs); //Tem um objeto dentro de um objeto
 renderSongs(sortSongs()); //Vai passar todos os objetos na ordem alfabetica.
+
+
+const botoes = document.querySelector("button");
+
+botoes.addEventListener("click", () => {
+      console.log(this);
+});

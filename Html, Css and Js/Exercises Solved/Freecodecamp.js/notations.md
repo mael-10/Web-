@@ -87,7 +87,17 @@ Permite acessar propriedades aninhadas de forma segura, evitando erros de refer�
   - Exemplo: `[1, 2, 3].includes(2); // true`
 
 - **`.filter()`**: Filtra os elementos que são passados como parâmetros (retorna os elementos filtrados).
-  - Exemplo: `[1, 3, 5, 10, 15, 12, 89].find(num => num%2 === 0) //[10,12]` 
+  - Exemplo: `[1, 3, 5, 10, 15, 12, 89].find(num => num%2 === 0) //[10,12]` <br><br>
+
+
+Quando se usa o {} nessas funções, é necessário que tenha um valor de retorno pois é uma função e
+quando você usado {} em uma arrow function, você está dizendo explicitamente ao JavaScript:*
+
+  *"Eu vou escrever um bloco de código completo, e não apenas uma única expressão."*
+
+Por isso, o JavaScript não pode assumir automaticamente o que deve ser retornado desse bloco. Ele espera que você use return para deixar claro qual valor deseja retornar.
+
+Quando tem apenas uma única linha acontece o **retorno ímplicito**
 
 ## Métodos de Áudio
 - **`audio.play()`**: Inicia a reprodução.
