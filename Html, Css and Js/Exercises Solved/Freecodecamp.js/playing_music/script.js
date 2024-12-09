@@ -112,8 +112,15 @@ const playSong = (id) => {
 }
 
 const pauseSong = () => {
+  userData.songCurrentTime = audio.currentTime;
+  playButton.classList.remove("playing");
+
+  audio.pause();
 
 }
+
+//O segundo argumento é a função
+pauseButton.addEventListener("click", pauseSong);
 
 playButton.addEventListener('click', () =>{
   if(userData?.currentSong ===  null){
