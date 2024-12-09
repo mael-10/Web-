@@ -14,42 +14,42 @@ const allSongs = [
     title: "Numb",
     artist: "Link Park",
     duration: "3:07",
-    src: "my-musics/Numb (Official Music Video) [4K UPGRADE] – Linkin Park.mp3'>"
+    src: "my-musics/Numb (Official Music Video) [4K UPGRADE] – Linkin Park.mp3"
   }, 
   {
     id: 1,
     title: "Jigsaw Falling Into Place",
     artist: "Quincy Larson",
     duration: "4:18",
-    src: "my-musics/Radiohead - Jigsaw Falling Into Place.mp3'>",
+    src: "my-musics/Radiohead - Jigsaw Falling Into Place.mp3",
   }, 
   {
     id: 2,
     title: "Savior",
     artist: "Rise Against",
     duration: "4:01",
-    src: "my-musics/Rise Against - Savior (Official Music Video).mp3'>",
+    src: "my-musics/Rise Against - Savior (Official Music Video).mp3",
   },
   {
     id: 3,
-    title: "Cruising for a Musing",
-    artist: "Quincy Larson",
-    duration: "3:34",
-    src: "https://cdn.freecodecamp.org/curriculum/js-music-player/cruising-for-a-musing.mp3",
+    title: "November Rain",
+    artist: "Guns N' Roses",
+    duration: "9:16",
+    src: "my-musics/Guns N' Roses - November Rain.mp3",
   },
   {
     id: 4,
-    title: "Never Not Favored",
-    artist: "Quincy Larson",
-    duration: "3:35",
-    src: "https://cdn.freecodecamp.org/curriculum/js-music-player/never-not-favored.mp3",
+    title: "The Emptiness Machine",
+    artist: "Link Park",
+    duration: "3:20",
+    src: "my-musics/The Emptiness Machine (Official Music Video) - Linkin Park.mp3",
   },
   {
     id: 5,
-    title: "From the Ground Up",
-    artist: "Quincy Larson",
-    duration: "3:12",
-    src: "https://cdn.freecodecamp.org/curriculum/js-music-player/from-the-ground-up.mp3",
+    title: "Lovers in Japan",
+    artist: "Coldplay",
+    duration: "3:57",
+    src: "my-musics/Coldplay - Lovers In Japan (Official Video).mp3",
   },
   {
     id: 6,
@@ -102,15 +102,34 @@ const playSong = (id) => {
     audio.currentTime = userData?.songCurrentTime;
   }
   
-  userData.currentSong  = song;
+  //Adiciona o som atual apenas para fazer validação e analisar o som atual está tocando
+  userData.currentSong = song;
+
+  //Vai mudar a estilização o Css
+  playButton.classList.add("playing");
+  audio.play();
+
 }
+
+const pauseSong = () => {
+
+}
+
+playButton.addEventListener('click', () =>{
+  if(userData?.currentSong ===  null){
+    playSong(userData?.songs[0].id);
+  } else {
+    //Verifica o som atual
+    playSong(userData?.currentSong.id);
+  }
+})
 
 // Função que renderiza a lista de músicas na interface do usuário
 const renderSongs = (array) => {
   // Usa o método map para criar uma lista HTML das músicas
   const songsHTML = array.map((song) => { 
     return `<li id="song-${song.id}" class="playlist-song">
-      <button class="playlist-song-info">
+      <button class="playlist-song-info" onclick="playSong(${song.id})">
         <span class="playlist-song-title">${song.title}</span>
         <span class="playlist-song-artist">${song.artist}</span>
         <span class="playlist-song-duration">${song.duration}</span>
