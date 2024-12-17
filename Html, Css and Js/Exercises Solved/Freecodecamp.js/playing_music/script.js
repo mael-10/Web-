@@ -90,11 +90,33 @@ let userData = {
   songCurrentTime: 0 // O tempo atual da música é 0
 };
 
+const metaData = (nextId) => {
+  audio.preload = 'metadata'
+  audio.addEventListener('loadedmetadata', () => {
+    let audioDuration = Math.floor(audio.duration); // Mostra a duração do áudio 
+
+    const stopInterval = setInterval(() =>{
+      audioDuration--;
+      console.log(nextId);
+      if(audioDuration === 0){
+        nextId++;
+        console.log(nextId);
+        clearInterval(stopInterval);
+        playSong(nextId);
+      }
+      console.log(audioDuration);
+      //Atualiza o tempo restante da música
+      userData.songCurrentTime = audioDuration;
+    }, 1000);
+  });
+}
+
 const playSong = (id) => {
   const song = userData?.songs.find((song) => song.id === id); //Verifica qual a música que o usuário escolheu
   //Acessa as propiedades do objeto audio
   audio.src = song.src; //Atribui o audio no objeto
   audio.title = song.title; //Atribui o título no no objeto
+  //Objeto audio como parâmtero
 
   if(userData?.currentSong === null || userData?.currentSong.id !== song.id){
     audio.currentTime = 0;
@@ -108,6 +130,9 @@ const playSong = (id) => {
   //Vai mudar a estilização o Css
   playButton.classList.add("playing");
   audio.play();
+  metaData(id);
+  //auto para carregar os dados mais rápidos
+  audio.preload = 'auto';
 
 }
 
