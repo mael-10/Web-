@@ -114,12 +114,33 @@ const playSong = (id) => {
 const pauseSong = () => {
   userData.songCurrentTime = audio.currentTime;
   playButton.classList.remove("playing");
-
   audio.pause();
+}
+
+const playNextSong = () => {
+  let currentSongIndex = getCurrentSongIndex();
+  currentSongIndex++;
+  console.log(currentSongIndex);
+  currentSongIndex <= userData?.songs.length - 1 ? playSong(userData?.songs[currentSongIndex].id) : (currentSongIndex = 0, userData.currentSong = null, playButton.click());
+}
+
+const playPreviousSong = () => {
+  let currentSongIndex = getCurrentSongIndex();
+  currentSongIndex--;
+  console.log(currentSongIndex);
+  //Diminiu até aumentar
+  currentSongIndex < 0  ? (currentSongIndex = userData?.songs.length - 1, playSong(userData?.songs[currentSongIndex].id)) : playSong(userData?.songs[currentSongIndex].id);
 }
 
 //O segundo argumento é a função
 pauseButton.addEventListener("click", pauseSong);
+nextButton.addEventListener("click", playNextSong);
+previousButton.addEventListener("click", playPreviousSong);
+
+const getCurrentSongIndex = () => {
+  //Index do som atual (a posição do array)
+  return userData?.songs.indexOf(userData?.currentSong);
+}
 
 playButton.addEventListener('click', () =>{
   if(userData?.currentSong ===  null){
@@ -168,6 +189,7 @@ const sortSongs = () => {
     return 0;
   });
 
+  console.log(userData?.songs)
   return userData?.songs;
 }
 

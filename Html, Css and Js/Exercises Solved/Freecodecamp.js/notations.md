@@ -213,7 +213,7 @@ ou liberar algum recurso, como um arquivo aberto.
 - Se um erro for lançado no bloco `try`, ele será capturado aqui.<br>
 - A variável e representa o erro lançado.<br><br>
 
-## `TypeError`, `instanceof`, e `e`
+## TypeError, instanceof, e "e"
 
 `TypeError`: Esse é um tipo específico de erro em JavaScript que ocorre quando se tenta usar um valor de tipo<br> 
 incorreto em uma operação, como usar uma string onde se esperava um número.<br>
@@ -225,7 +225,15 @@ Aqui, e instanceof TypeError verifica se o erro capturado (e) é do tipo TypeErr
 É comum dar um nome genérico, como e ou error, para essa variável.
 
 `console.assert(e instanceof TypeError, "Erro: esperado um TypeError");` verifica se o erro capturado<br> 
-é realmente do tipo TypeError. Se não for, exibe uma mensagem de erro personalizada dizendo "Erro: esperado um TypeError".<br>
+é realmente do tipo TypeError. Se não for, exibe uma mensagem de erro personalizada dizendo "Erro: esperado um TypeError".<br><br>
+
+## indexOf()
+
+O **indexOf() retorna o o index passado da posição do array passado
+
+`const animals = ["dog", "cat", "horse"];`<br>
+`animals.indexOf("cat");`<br>
+
 
 # Conceitos mais Avançados no Js
 
