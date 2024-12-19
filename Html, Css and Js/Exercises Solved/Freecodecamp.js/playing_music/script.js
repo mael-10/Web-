@@ -109,28 +109,30 @@ const playSong = (id) => {
   //Vai mudar a estilização o Css
   playButton.classList.add("playing");
   audio.play();
-}
+};
 
 const pauseSong = () => {
   userData.songCurrentTime = audio.currentTime;
   playButton.classList.remove("playing");
   audio.pause();
-}
+};
 
 const playNextSong = () => {
   let currentSongIndex = getCurrentSongIndex();
+  //Icrementa para o próximo som
   currentSongIndex++;
   console.log(currentSongIndex);
+  //Se há próxima música, toca ela; senão, reinicia a lista e toca a primeira música.
   currentSongIndex <= userData?.songs.length - 1 ? playSong(userData?.songs[currentSongIndex].id) : (currentSongIndex = 0, userData.currentSong = null, playButton.click());
-}
+};
 
 const playPreviousSong = () => {
   let currentSongIndex = getCurrentSongIndex();
   currentSongIndex--;
   console.log(currentSongIndex);
-  //Diminiu até aumentar
+  //Se não há uma música anterior, reinicia a lista e toca a primeira música; senão, toca a música anterior.
   currentSongIndex < 0  ? (currentSongIndex = userData?.songs.length - 1, playSong(userData?.songs[currentSongIndex].id)) : playSong(userData?.songs[currentSongIndex].id);
-}
+};
 
 //O segundo argumento é a função
 pauseButton.addEventListener("click", pauseSong);
@@ -140,16 +142,22 @@ previousButton.addEventListener("click", playPreviousSong);
 const getCurrentSongIndex = () => {
   //Index do som atual (a posição do array)
   return userData?.songs.indexOf(userData?.currentSong);
-}
+};
 
 playButton.addEventListener('click', () =>{
   if(userData?.currentSong ===  null){
     playSong(userData?.songs[0].id);
   } else {
-    //Verifica o som atual
+    //Toca o som atual
     playSong(userData?.currentSong.id);
   }
-})
+});
+
+const highlightCurrentSong = () => {
+  const playlistSongElements = document.querySelectorAll('.playlist-song');
+  console.log(playlistSongElements);
+  const songToHighlight = document.getElementById(`song-${userData?.currentSong?.id}`);
+}
 
 // Função que renderiza a lista de músicas na interface do usuário
 const renderSongs = (array) => {
@@ -189,9 +197,11 @@ const sortSongs = () => {
     return 0;
   });
 
-  console.log(userData?.songs)
+  console.log(userData?.songs);
   return userData?.songs;
-}
+};
+
+highlightCurrentSong();
 
 // Chama a função renderSongs para exibir as músicas na interface do usuário
 //renderSongs(userData?.songs); //Tem um objeto dentro de um objeto
