@@ -18,7 +18,7 @@ const allSongs = [
   {
     id: 1,
     title: "Jigsaw Falling Into Place",
-    artist: "Quincy Larson",
+    artist: "Radiohead",
     duration: "4:18",
     src: "my-musics/Radiohead - Jigsaw Falling Into Place.mp3",
   }, 
@@ -109,6 +109,7 @@ const playSong = (id) => {
   //Vai mudar a estilização o Css
   playButton.classList.add("playing");
   highlightCurrentSong();
+  setPlayerDisplay();
   audio.play();
 };
 
@@ -136,7 +137,10 @@ const playPreviousSong = () => {
 };
 
 const setPlayerDisplay = () => {
-  
+  const songTitle = document.getElementById("player-song-title");
+  const songArtist = document.getElementById("player-song-artist");
+  songTitle.innerText = userData.currentSong.title;
+  songArtist.innerText = userData.currentSong.artist;
 };
 
 //O segundo argumento é a função
@@ -215,8 +219,6 @@ const sortSongs = () => {
   console.log(userData?.songs);
   return userData?.songs;
 };
-
-highlightCurrentSong();
 
 // Chama a função renderSongs para exibir as músicas na interface do usuário
 //renderSongs(userData?.songs); //Tem um objeto dentro de um objeto
