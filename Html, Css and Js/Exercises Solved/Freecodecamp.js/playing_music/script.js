@@ -201,6 +201,11 @@ const renderSongs = (array) => {
   playlistSongs.innerHTML = songsHTML;
 };
 
+//Ficará mais acessível para qual som será tocado
+const setPlayButtonAccessibleText = () => {
+  const song = userData?.currentSong || userData?.songs[0];
+}
+
 //Irá mostrar os Sons em ordem alfabética
 const sortSongs = () => {
   userData?.songs.sort((a, b) => {
