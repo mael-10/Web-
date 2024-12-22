@@ -108,6 +108,7 @@ const playSong = (id) => {
 
   //Vai mudar a estilização o Css
   playButton.classList.add("playing");
+  highlightCurrentSong();
   audio.play();
 };
 
@@ -134,6 +135,10 @@ const playPreviousSong = () => {
   currentSongIndex < 0  ? (currentSongIndex = userData?.songs.length - 1, playSong(userData?.songs[currentSongIndex].id)) : playSong(userData?.songs[currentSongIndex].id);
 };
 
+const setPlayerDisplay = () => {
+  
+};
+
 //O segundo argumento é a função
 pauseButton.addEventListener("click", pauseSong);
 nextButton.addEventListener("click", playNextSong);
@@ -154,10 +159,20 @@ playButton.addEventListener('click', () =>{
 });
 
 const highlightCurrentSong = () => {
+  //Pega todos os sons
   const playlistSongElements = document.querySelectorAll('.playlist-song');
   console.log(playlistSongElements);
+  //Id do som atual
   const songToHighlight = document.getElementById(`song-${userData?.currentSong?.id}`);
-}
+  playlistSongElements.forEach((songEl) => {
+    //Irá remover o parâmetro de cada elemento
+    songEl.removeAttribute("aria-current");
+  });
+  if(songToHighlight){
+    //Adiciona o parâmetro somente no som atual
+    songToHighlight.setAttribute("aria-current", "true");
+  }
+};
 
 // Função que renderiza a lista de músicas na interface do usuário
 const renderSongs = (array) => {

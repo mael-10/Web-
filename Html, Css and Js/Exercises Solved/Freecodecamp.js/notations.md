@@ -234,6 +234,14 @@ O **indexOf() retorna o o index passado da posição do array passado
 `const animals = ["dog", "cat", "horse"];`<br>
 `animals.indexOf("cat");`<br>
 
+## removeAttribute()
+
+O **removeAttribute() remove o atribute do html com o mesmo nome usando Js
+
+`<div id="div1" disabled width="200px">`<br>
+`document.getElementById("div1").removeAttribute("disabled");` <br>
+`<div id="div1" width="200px">`<br>
+
 
 # Conceitos mais Avançados no Js
 
