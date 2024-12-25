@@ -110,6 +110,7 @@ const playSong = (id) => {
   playButton.classList.add("playing");
   highlightCurrentSong();
   setPlayerDisplay();
+  setPlayButtonAccessibleText();
   audio.play();
 };
 
@@ -135,6 +136,10 @@ const playPreviousSong = () => {
   //Se não há uma música anterior, reinicia a lista e toca a primeira música; senão, toca a música anterior.
   currentSongIndex < 0  ? (currentSongIndex = userData?.songs.length - 1, playSong(userData?.songs[currentSongIndex].id)) : playSong(userData?.songs[currentSongIndex].id);
 };
+
+const shuffle = () => {
+  
+}
 
 const setPlayerDisplay = () => {
   const songTitle = document.getElementById("player-song-title");
@@ -203,7 +208,10 @@ const renderSongs = (array) => {
 
 //Ficará mais acessível para qual som será tocado
 const setPlayButtonAccessibleText = () => {
+  //Adiciona ao song a música atual ou a primeira música
   const song = userData?.currentSong || userData?.songs[0];
+  //Se há título no song .title, então coloca o play com o nome do song
+  playButton.setAttribute("aria-label", song?.title ? `Play ${song.title}` : "Play");
 }
 
 //Irá mostrar os Sons em ordem alfabética
