@@ -242,6 +242,13 @@ O **removeAttribute() remove o atribute do html com o mesmo nome usando Js
 `document.getElementById("div1").removeAttribute("disabled");` <br>
 `<div id="div1" width="200px">`<br>
 
+## Como fazer um random array
+
+Uma das maneiras de fazer um **random array** de items seria subtrair 0.5 da função Math.random(), <br>
+Onde irá ter números positivos e negativos, fazendo com que o array fique aleatório.<br><br>
+
+`const names = ["Tom", "Jessica", "Quincy", "Naomi"];`<br>
+`names.sort(() => Math.random() - 0.5);`<br>
 
 # Conceitos mais Avançados no Js
 
