@@ -151,11 +151,23 @@ const shuffle = () => {
 }
 
 const deleteSong = (id) => {
-  userData.songs = userData?.songs.filter((id) => {
-    return userData?.songs.id !== id
-  })
-  pauseSong();
-  renderSongs(userData?.songs);
+  if(userData?.currentSong?.id === id) {
+    userData.currentSong = null;
+    userData.songCurrentTime = 0;
+    pauseSong();
+    setPlayerDisplay();
+  }
+  //Sem o {} já acontece o retorno implícito.
+  //Se for falso, não adiciona
+  userData.songs = userData?.songs.filter((song) => song.id !== id);
+  renderSongs(userData?.songs); 
+  highlightCurrentSong(); 
+  setPlayButtonAccessibleText();
+  //Se a playlist for vazia, reinicia a playlist
+  if(userData?.songs.length === 0){
+    const resetButton = document.createElement('button');
+    const resetText = document.createTextNode("Reset Playlist");
+  }
 }
 
 const setPlayerDisplay = () => {
