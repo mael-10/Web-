@@ -160,14 +160,30 @@ const deleteSong = (id) => {
   //Sem o {} já acontece o retorno implícito.
   //Se for falso, não adiciona
   userData.songs = userData?.songs.filter((song) => song.id !== id);
-  renderSongs(userData?.songs); 
+  renderSongs(userData?.songs);
   highlightCurrentSong(); 
   setPlayButtonAccessibleText();
   //Se a playlist for vazia, reinicia a playlist
   if(userData?.songs.length === 0){
+    //Cria um elemento DOM
     const resetButton = document.createElement('button');
+    //Cria um texto para um elemento DOM
     const resetText = document.createTextNode("Reset Playlist");
-  }
+    //Cria um id e arialLabel para o dom
+    resetButton.id = "reset";
+    resetButton.ariaLabel = "Reset playlist";
+    //O appendChild() adiciona o elemento DOM ao filho
+    resetButton.appendChild(resetText);
+    playlistSongs.appendChild(resetButton);
+
+    resetButton.addEventListener('click', () => {
+      userData.songs = [...allSongs];
+      renderSongs(sortSongs());
+      setPlayButtonAccessibleText();
+      //Remove o elemento
+      resetButton.remove();
+    })
+  } 
 }
 
 const setPlayerDisplay = () => {
@@ -181,7 +197,25 @@ const setPlayerDisplay = () => {
 pauseButton.addEventListener("click", pauseSong);
 nextButton.addEventListener("click", playNextSong);
 previousButton.addEventListener("click", playPreviousSong);
-shuffleButton.addEventListener('click', shuffle);
+shuffleButton.addEventListener("click", shuffle);
+audio.addEventListener("ended", () => {
+  //Se o som atual for menor que o lenght do array então há uma próxima música
+  const currentSongIndex = getCurrentSongIndex();
+  const nextSongExists = currentSongIndex < userData.songs.length - 1 ? true : false;
+  //Se o som existe toca o próximo som
+  if(nextSongExists){
+    playNextSong();
+  }else{
+    userData.currentSong = null;
+    userData.songCurrentTime = 0;
+    pauseSong();
+    setPlayerDisplay();
+    highlightCurrentSong();
+    setPlayButtonAccessibleText();
+  }
+});
+
+
 
 const getCurrentSongIndex = () => {
   //Index do som atual (a posição do array)

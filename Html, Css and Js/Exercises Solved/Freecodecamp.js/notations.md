@@ -250,6 +250,26 @@ Onde irá ter números positivos e negativos, fazendo com que o array fique alea
 `const names = ["Tom", "Jessica", "Quincy", "Naomi"];`<br>
 `names.sort(() => Math.random() - 0.5);`<br>
 
+## Diferenças entre **resetButton.id** e **resetButton.ariaLabel** e **setAtributted**
+
+Quando se quer criar um id, classe ou arial-label é mais comudo usar propiedades do DOM <br>
+
+`resetButton.id = "reset";` <br>
+`resetButton.ariaLabel = "Reset playlist";` <br>
+
+Para elementos personalizados, usa-se setAttribute<br>
+
+# appendChild()
+
+appendChild() permite adicionar um nó ou elemento como filho de outro elemento.  <br>
+No exemplo abaixo, o texto “Clique em mim” seria anexado ao botão: <br>
+
+`const parentElement = document.createElement("button");`<br>
+`const parentElementText = document.createTextNode("Click me");`<br>
+
+// attach the text "Click me" to the button
+`parentElement.appendChild(parentElementText);`<br>
+
 # Conceitos mais Avançados no Js
 
 ## Validação Ternária Dentro de um Array
