@@ -21,14 +21,11 @@ const checkPolindrome = () => {
         if(x.match(/[\W_]/g)){
            return  x = '';
         } else{
+            polidromeTextInvert += x;
             return x.toLowerCase();
+            
         }   
     });
-
-    //Adiciona para inverter
-    for(let i = textPolindrome.length - 1; i >= 0; i--){
-        polidromeTextInvert += textPolindrome[i];
-    }
 
     polidromeTextInvert === textPolindrome.join('') ? isPolidrome(text) : isntPolidrome(text);
 }
