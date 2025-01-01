@@ -45,6 +45,8 @@
 - Para que um evento execute apenas uma vez, use `{ once: true }`.
   **Exemplo:**
   - `equal.addEventListener('click', function() { finalResult(displayInput); }, { once: true });`
+
+  **Não é recomendado colocar eventos dentro de função**
 ---
 ## 10. Verificação de Espaço em Branco
 - Verificar se um caractere é um espaço em branco usando `''` não é eficaz.
@@ -60,5 +62,13 @@
 ---
 ## 12. Transformar um Array em String
 - Para transformar todos os elementos de um array em uma única string, pode-se utilizar o método `.join()` com um delimitador, ou outro método similar, dependendo do contexto.
+
+**SOMENTE PARA TRNSFORMAR TODOS OS ELEMETOS EM UMA SÓ STRING**
 --- 
 Essas boas práticas e considerações auxiliam na escrita de código JavaScript mais robusto e eficiente.
+
+## 13. For loop
+
+For loop só executa quando o segundo parâmetro for verdadeiro. Ex: <br>
+`i=9`; <br>
+`i>0`; //executando, pois é verdadeiro
