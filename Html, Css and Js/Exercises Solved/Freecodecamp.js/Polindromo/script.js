@@ -41,3 +41,5 @@ const blanckInput = () => {
 checkBtn.addEventListener('click', () => {
     blanckInput();
 });
+
+//Obg 2024
