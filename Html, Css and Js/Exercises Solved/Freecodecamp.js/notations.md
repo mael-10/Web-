@@ -110,7 +110,7 @@ São condições iniciais verificadas antes de executar o código principal.
 - Exemplo: `let a = 1; let b = 2;` 
 `if (!a || b === 1) return; // Se a for falso ou b for 1, retorna sem executar o restante. console.log(a);`
 
-## `.charAt()`
+## .charAt()
 Retorna o caractere de uma string em uma posição específica.
 - Exemplo: `const fruit = "avocado"; const charFruit = fruit.charAt(1); //v`
 
@@ -165,14 +165,14 @@ For example: "34","34foo" e "34foo" que em todos os casos vão retornar o númer
 ### Conclusão
 ***Split() método é usado para string transforma-lá em array. Já o Slice() pode ser usado tanto em strings e arrays. E o Splice() é usado somente para arrays***
 
-# JSON.stringfy()
+## JSON.stringfy()
 Para adicionar um array no nodeList tem que usar o JSON.stringfy(), pois ao adicionar no NodeList, é tranformado em um array.
 O JSON.Stringfy adiciona o array transformando em string de maneira correta.
 
 `const arrayCar = ["Cross Fox"];`<br>
 `localStorage.setItem('arrayCar'. JSON.stringfy(arrayCar));`
 
-# toSorted()
+## toSorted()
 
 Foi adicionado no **ES2023**. É uma maneira segura de ordenar um array sem alterar o array orginal. 
 Basicamente cria um cópia, só que cria uma cópia do array alterado.
@@ -181,7 +181,7 @@ Basicamente cria um cópia, só que cria uma cópia do array alterado.
 `const sorted = months.toSorted();`<br>
 `console.log(sorted);` ***//Apr, Feb, Jan, Mar*** <br>
 
-# try...catch
+## try...catch
 ***É uma estrutura usada em JavaScript para capturar e tratar erros quando algo dá errado em uma parte do código***
 
 `try` - Nessa parte, onde é colocado o código que quer testar ou executar. O js roda esse código<br>
@@ -259,9 +259,9 @@ Quando se quer criar um id, classe ou arial-label é mais comudo usar propiedade
 
 Para elementos personalizados, usa-se setAttribute<br>
 
-# appendChild(), createElement(), createTextNode();
+## appendChild(), createElement(), createTextNode();
 
-## `appendChild()` <br> 
+### appendChild() <br> 
 
 Permite adicionar um nó ou elemento como filho de outro elemento.  <br>
 No exemplo abaixo, o texto “Clique em mim” seria anexado ao botão: <br><br>
@@ -278,16 +278,16 @@ OU <br><br>
 `const button = document.createElement("div");` <br>
 `const div.appendChild(button);`<br><br>
 
-`console.log(div);` //``<div><button><button><div>`
+`console.log(div);` //`<div><button><button><div>`
 
-## `createElement()`
+### createElement()
 
 Essa função cria um elemento, como p, button, span, div e etc.<br><br>
 
 `const teste = document.createElement('div');` <br>
 `console.log(teste);` //`<button><button>`
 
-##  `createTextNode()`
+###  createTextNode()
 
 Cria um texto dentro do elemento <br><br>
 
