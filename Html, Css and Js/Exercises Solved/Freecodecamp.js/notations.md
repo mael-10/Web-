@@ -172,6 +172,27 @@ O JSON.Stringfy adiciona o array transformando em string de maneira correta.
 `const arrayCar = ["Cross Fox"];`<br>
 `localStorage.setItem('arrayCar'. JSON.stringfy(arrayCar));`
 
+Quando se usa o `JSON.strinfy()`, o array é convetido em JSON, pois esse tipo de arquivo é extremamaente leve <br>
+para armazenar dados.
+
+`const tasks = [{ id: 1, name: "Comprar pão" }, { id: 2, name: "Estudar JavaScript" }];`<br>
+`const tasksJSON = JSON.stringify(tasks);`<br>
+`console.log(tasksJSON); // '[{"id":1,"name":"Comprar pão"},{"id":2,"name":"Estudar JavaScript"}]'`<br>
+
+### String Simples:<br>
+`Exemplo: 'oi', '123', 'true'.`<br>
+São armazenadas diretamente no localStorage sem conversão.<br><br>
+
+### JSON:<br>
+`Exemplo: '{"name":"João","age":30}', '[1, 2, 3]'.`<br>
+É uma string formatada que representa um objeto ou array. Para armazenar objetos ou arrays, você precisa usar JSON.<br> stringify.<br>
+
+## JSON.parse()
+
+O JSON.parse é utilizado para converter uma string JSON (que é o formato em que os dados são armazenados no localStorage) de volta para um objeto ou array JavaScript.
+
+`JSON.parse(localStorage.getItem('allTasksData')) || [];`
+
 ## toSorted()
 
 Foi adicionado no **ES2023**. É uma maneira segura de ordenar um array sem alterar o array orginal. 
@@ -234,6 +255,27 @@ O **indexOf() retorna o o index passado da posição do array passado
 `const animals = ["dog", "cat", "horse"];`<br>
 `animals.indexOf("cat");`<br>
 
+## .teste() vs.match()
+
+Em validação no regex, o .teste() verifica o regex passado como parâmetro é verdadeiro ou falso, isso significa <br>
+Ou seja, vai retornar true ou falso
+
+O .match irá retornar um array com os atributos.
+
+Quando o .match, falha é retornado null.
+
+## replace()
+
+`<p id="demo">Mr Blue has a blue house and a blue car.`</p><br>
+
+`let text = "Mr Blue has a blue house and a blue car";`<br>
+`let result = text.replace(/blue/g, "red");`<br>
+
+`document.getElementById("demo").innerHTML = res;`<br><br>
+
+`<p id="demo">Mr Blue has a blue house and a blue car.`</p>
+
+
 ## removeAttribute()
 
 O **removeAttribute() remove o atribute do html com o mesmo nome usando Js
@@ -241,6 +283,14 @@ O **removeAttribute() remove o atribute do html com o mesmo nome usando Js
 `<div id="div1" disabled width="200px">`<br>
 `document.getElementById("div1").removeAttribute("disabled");` <br>
 `<div id="div1" width="200px">`<br>
+
+## reverse()
+
+O reverse é uma maneira de inverter o array
+
+`const fruits = ["Banana", "Orange", "Apple", "Mango"];`
+`fruits.reverse();`
+`console.log(fruits); //["Mango", "Orange", "Apple", "Banana"];`
 
 ## Como fazer um random array
 
@@ -296,6 +346,14 @@ Cria um texto dentro do elemento <br><br>
 `button.createTextNode(text);`<br>
 `console.log(button); //<button>um texto realmente aleatório<button>`<br>
 
+## classList
+
+O classList, é possível remover e colocar atributos em uma classe. Existe o add, remove e o toggle.
+Quando clicado, se tem o atributo da classe é retirado. Se não tem é colado.
+
+`const list = element.classList;`<br>
+`list.toggle("myStyle");`<br>
+
 # Conceitos mais Avançados no Js
 
 ## Validação Ternária Dentro de um Array
@@ -320,7 +378,7 @@ Para mudar tem que usar o `replaceWith` e modificar a posição específica.
 
 `// Itera sobre o NodeList e substitui cada parágrafo por um novo elemento`<br>
 `paragraphs.forEach(paragraph => {`<br>
-    `const newElement = document.createElement('p');`<br>
+    `const newElement = document.createElement('p');`<br><br>
     `newElement.textContent = 'Este é um novo parágrafo substituído!';`<br>
     `paragraph.replaceWith(newElement);`<br>
 `});`<br>
@@ -331,3 +389,6 @@ Para mudar tem que usar o `replaceWith` e modificar a posição específica.
 2 - Execução: Execute a função que está sendo testada com os parâmetros de entrada<br>
 3 - Verificação: Verifique se a saída é esperada mesmo com inesperados<br>
 4 - Limpeza: (Opcional) Restabeleça o estado original do ambiente, se necessário<br>
+
+//const property
+//saber combinações
