@@ -2,7 +2,7 @@ const checkBtn = document.getElementById('check-btn');
 const textInput = document.getElementById('text-input');
 const result = document.getElementById('result');
 
-const isntPolidrome = (text) =>{
+const isNotPolidrome = (text) =>{
     result.innerText = `${text} is not a palindrome`;
 }
 
@@ -19,6 +19,7 @@ const checkPolindrome = () => {
     //Tira os não caracteres especias e coloca em lower case do array
     const textPolindrome = textSplit.map((x) => {
         if(x.match(/[\W_]/g)){
+            //Se tiver caracteres especiais, então o retira
            return  x = '';
         } else{
             polidromeTextInvert += x;
@@ -27,7 +28,7 @@ const checkPolindrome = () => {
         }   
     });
 
-    polidromeTextInvert === textPolindrome.join('') ? isPolidrome(text) : isntPolidrome(text);
+    polidromeTextInvert === textPolindrome.join('') ? isPolidrome(text) : isNotPolidrome(text);
 }
 
 const blanckInput = () => {
