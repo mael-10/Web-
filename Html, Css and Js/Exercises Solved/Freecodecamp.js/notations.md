@@ -259,16 +259,42 @@ Quando se quer criar um id, classe ou arial-label é mais comudo usar propiedade
 
 Para elementos personalizados, usa-se setAttribute<br>
 
-# appendChild()
+# appendChild(), createElement(), createTextNode();
 
-appendChild() permite adicionar um nó ou elemento como filho de outro elemento.  <br>
-No exemplo abaixo, o texto “Clique em mim” seria anexado ao botão: <br>
+## `appendChild()` <br> 
+
+Permite adicionar um nó ou elemento como filho de outro elemento.  <br>
+No exemplo abaixo, o texto “Clique em mim” seria anexado ao botão: <br><br>
 
 `const parentElement = document.createElement("button");`<br>
 `const parentElementText = document.createTextNode("Click me");`<br>
 
 // attach the text "Click me" to the button
-`parentElement.appendChild(parentElementText);`<br>
+`parentElement.appendChild(parentElementText);`<br><br>
+
+OU <br><br>
+
+`const div = document.createElement("div");` <br>
+`const button = document.createElement("div");` <br>
+`const div.appendChild(button);`<br><br>
+
+`console.log(div);` //``<div><button><button><div>`
+
+## `createElement()`
+
+Essa função cria um elemento, como p, button, span, div e etc.<br><br>
+
+`const teste = document.createElement('div');` <br>
+`console.log(teste);` //`<button><button>`
+
+##  `createTextNode()`
+
+Cria um texto dentro do elemento <br><br>
+
+`const text = "um texto realmente aleatório";`<br>
+`const button = document.getElementById('btn');`<br>
+`button.createTextNode(text);`<br>
+`console.log(button); //<button>um texto realmente aleatório<button>`<br>
 
 # Conceitos mais Avançados no Js
 
@@ -287,7 +313,7 @@ convencionais de manipulação de array
 **`Nodelist[index] = 'A'`**
 
 Isso não é possível fazer, pois o nodeList é uma coleção estática. Não tem a mesma mutabilidade de um array.
-Para mudar tem que usar o replace e modificar a posição específica.
+Para mudar tem que usar o `replaceWith` e modificar a posição específica.
 
   `// Seleciona todos os parágrafos dentro de uma div com a classe "container"`<br>
 `const paragraphs = document.querySelectorAll('.container p');`<br>
