@@ -30,6 +30,42 @@
 - Objetos: `let options = {};`
 - Exemplo de incremento: `let cachorro = 3; cachorro += 6; // Resultado: 9`
 
+## Const e Propiedades
+
+A imutabilidade de const se refere apenas à reatribuição, não ao conteúdo do valor. Isso significa:
+
+`const pessoa = { nome: "João" };`<br>
+`pessoa.nome = "Maria";` // Permitido: modificando o conteúdo do objeto<br>
+`pessoa = { nome: "Pedro" };` // Erro: reatribuição não permitida<br>
+
+## Atribuição por referência:
+
+`const a = [1, 2, 3];`<br>
+
+`const i = a;` // 'i' referencia o mesmo array que 'a'<br>
+- Use quando você quer que `i` e a compartilhem o mesmo valor.<br>
+- Útil para evitar duplicação de dados na memória.<br>
+- Se mudar o valor de i, muda o valor de a vice-versa.<br><br>
+
+`const j = [...a];` // j é uma cópia do array a<br>
+- Use quando você quer que i seja independente de a.<br>
+- Útil para evitar efeitos colaterais, onde modificações em i não devem afetar a.<br>
+- O endereço na é distintos<br>
+
+## Method Chaining
+
+Em JavaScript, a capacidade de combinar métodos ou funções depende do tipo de dado que você está manipulando e dos métodos disponíveis para esse tipo.
+
+Arrays: Possuem métodos como `map`, `filter`, `reduce`, `reverse`, etc.<br>
+Strings: Possuem métodos como `split`, `slice`, `replace`, `toUpperCase`, etc.<br>
+Objetos: Possuem métodos como `Object.keys`, `Object.values`, `Object.entries`, etc.<br>
+
+### Lógica Geral para Saber se uma Combinação Funciona
+
+**Conheça o Tipo de Dados**: Antes de tentar combinar métodos, saiba qual é o tipo de dado que você está manipulando.<br>
+**Conheça o Retorno de Cada Método**: Verifique o que cada método retorna. Se o método retornar um valor que não é compatível com o próximo método que você quer chamar, a combinação não funcionará.<br>
+**Leia a Documentação:** A documentação oficial (como MDN) é sua melhor amiga para entender o que cada método faz e o que ele retorna.<br>
+
 ## Console.assert();
 
 Esse método escreve a mensage no cosole se a expressão for falsa
@@ -170,7 +206,7 @@ Para adicionar um array no nodeList tem que usar o JSON.stringfy(), pois ao adic
 O JSON.Stringfy adiciona o array transformando em string de maneira correta.
 
 `const arrayCar = ["Cross Fox"];`<br>
-`localStorage.setItem('arrayCar'. JSON.stringfy(arrayCar));`
+`localStorage.setItem('arrayCar', JSON.stringfy(arrayCar));`
 
 Quando se usa o `JSON.strinfy()`, o array é convetido em JSON, pois esse tipo de arquivo é extremamaente leve <br>
 para armazenar dados.
@@ -181,7 +217,7 @@ para armazenar dados.
 
 ### String Simples:<br>
 `Exemplo: 'oi', '123', 'true'.`<br>
-São armazenadas diretamente no localStorage sem conversão.<br><br>
+São armazenadas diretamente no localStorage sem conversão.<br>
 
 ### JSON:<br>
 `Exemplo: '{"name":"João","age":30}', '[1, 2, 3]'.`<br>
@@ -266,6 +302,8 @@ Quando o .match, falha é retornado null.
 
 ## replace()
 
+O replace é usado que, quando um texto bater com o parâmetos de regex dentro dele, irá substituir por outro texto
+
 `<p id="demo">Mr Blue has a blue house and a blue car.`</p><br>
 
 `let text = "Mr Blue has a blue house and a blue car";`<br>
@@ -278,7 +316,7 @@ Quando o .match, falha é retornado null.
 
 ## removeAttribute()
 
-O **removeAttribute() remove o atribute do html com o mesmo nome usando Js
+O **removeAttribute()** atribute do html com o mesmo nome usando Js remove
 
 `<div id="div1" disabled width="200px">`<br>
 `document.getElementById("div1").removeAttribute("disabled");` <br>
@@ -307,7 +345,9 @@ Quando se quer criar um id, classe ou arial-label é mais comudo usar propiedade
 `resetButton.id = "reset";` <br>
 `resetButton.ariaLabel = "Reset playlist";` <br>
 
-Para elementos personalizados, usa-se setAttribute<br>
+Para elementos personalizados, usa-se setAttribute: <br><br>
+
+`resetButton.setAttribute("btn", "btn-click")` <br>
 
 ## appendChild(), createElement(), createTextNode();
 
@@ -346,7 +386,7 @@ Cria um texto dentro do elemento <br><br>
 `button.createTextNode(text);`<br>
 `console.log(button); //<button>um texto realmente aleatório<button>`<br>
 
-## classList
+## classList()
 
 O classList, é possível remover e colocar atributos em uma classe. Existe o add, remove e o toggle.
 Quando clicado, se tem o atributo da classe é retirado. Se não tem é colado.
@@ -389,6 +429,3 @@ Para mudar tem que usar o `replaceWith` e modificar a posição específica.
 2 - Execução: Execute a função que está sendo testada com os parâmetros de entrada<br>
 3 - Verificação: Verifique se a saída é esperada mesmo com inesperados<br>
 4 - Limpeza: (Opcional) Restabeleça o estado original do ambiente, se necessário<br>
-
-//const property
-//saber combinações
