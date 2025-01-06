@@ -394,6 +394,17 @@ Quando clicado, se tem o atributo da classe é retirado. Se não tem é colado.
 `const list = element.classList;`<br>
 `list.toggle("myStyle");`<br>
 
+## New
+
+1- Um dos usos do New, é um cria Built Constructor, como: <br>
+- New Date();<br>
+- New Array();<br>
+- New Object();<br>
+- New Strings();<br>
+É uma maneira de criar objetos com funções perdeterminadas, diminuindo a quantidade de código.<br>
+
+**A primeira letra das funções depois do new, tem que começar com letra maiúscula**
+
 # Conceitos mais Avançados no Js
 
 ## Validação Ternária Dentro de um Array
