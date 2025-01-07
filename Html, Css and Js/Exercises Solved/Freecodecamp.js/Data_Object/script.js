@@ -11,7 +11,20 @@ const hours = date.getHours();
 const minutes = date.getMinutes();
 const formattedDate = `${day}-${month}-${year}`;
 currentDateParagraph.textContent = formattedDate;
-//Change, propiedade para
+//Change, propiedade para quandomudar o select
 dateOptionsSelectElement.addEventListener("change", () => {
+    switch(dateOptionsSelectElement.value){
+        case 'yyyy-mm-dd': 
+            //Toda vez que tem uma "-" é separado por array
+            currentDateParagraph.textContent = formattedDate.split("-").reverse().join("-");
+            console.log(currentDateParagraph.textContent);
+            break;
+        case 'dd-mm-yyyy':
+            currentDateParagraph.textContent = formattedDate;
+            break;
+        case 'mm-dd-yyyy-h-mm':
+            currentDateParagraph.textContent = `${month}-${day}-${year}-${hours}-${minutes}`;
+            break;
 
+    }
 });
