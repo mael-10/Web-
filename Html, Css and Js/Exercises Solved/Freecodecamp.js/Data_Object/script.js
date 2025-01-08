@@ -9,6 +9,7 @@ const year = date.getFullYear();
 const hours = date.getHours();
 //De 0 à 59;
 const minutes = date.getMinutes();
+console.log(hours);
 const formattedDate = `${day}-${month}-${year}`;
 currentDateParagraph.textContent = formattedDate;
 //Change, propiedade para quandomudar o select
@@ -23,8 +24,9 @@ dateOptionsSelectElement.addEventListener("change", () => {
             currentDateParagraph.textContent = formattedDate;
             break;
         case 'mm-dd-yyyy-h-mm':
-            currentDateParagraph.textContent = `${month}-${day}-${year}-${hours}-${minutes}`;
+            currentDateParagraph.textContent = `${month}-${day}-${year} ${hours} Hours ${minutes} Minutes`;
             break;
-
+        default: 
+            currentDateParagraph.textContent = formattedDate;
     }
 });
