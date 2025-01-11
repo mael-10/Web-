@@ -169,3 +169,5 @@ const myFavoriteFootballTeam = {
       },
     ],
 };
+//O object freeze é uma maneira de congelar o valor, ou seja, valores não podem se modificados
+Object.freeze(myFavoriteFootballTeam);
