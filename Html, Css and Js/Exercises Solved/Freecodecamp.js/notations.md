@@ -403,7 +403,21 @@ Quando clicado, se tem o atributo da classe é retirado. Se não tem é colado.
 - New Strings();<br>
 É uma maneira de criar objetos com funções perdeterminadas, diminuindo a quantidade de código.<br>
 
-**A primeira letra das funções depois do new, tem que começar com letra maiúscula**
+**A primeira letra das funções depois do new, tem que começar com letra maiúscula**<br>
+
+## Destructuring Assignment Syntax
+
+É uma maneira de desembalar as propiedades dos objetos e colocar em uma variável. Como:
+
+`person = {`<br>
+`  firstName: "João",`<br>
+`  LastName: "Luktis",`<br>
+`}`<br>
+
+`const {firstName, LastName} = person;`<br>
+`console.log(firstName)` //João<br><br>
+
+É uma maneira mais facilitada de acessar objetos, o que reduz o número de linhas e deixa o código menos verboso<br>
 
 # Conceitos mais Avançados no Js
 
@@ -433,6 +447,8 @@ Para mudar tem que usar o `replaceWith` e modificar a posição específica.
     `newElement.textContent = 'Este é um novo parágrafo substituído!';`<br>
     `paragraph.replaceWith(newElement);`<br>
 `});`<br>
+
+
 
 ## Teste unitário os 4 estágios
 

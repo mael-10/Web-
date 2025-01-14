@@ -171,3 +171,28 @@ const myFavoriteFootballTeam = {
 };
 //O object freeze é uma maneira de congelar o valor, ou seja, valores não podem se modificados
 Object.freeze(myFavoriteFootballTeam);
+const { sport, team, year, players } = myFavoriteFootballTeam;
+const { coachName } = myFavoriteFootballTeam.headCoach;
+typeOfSport.textContent = sport;
+teamName.textContent = team;
+worldCupYear.textContent = year;
+headCoach.textContent = coachName;
+//A função terá como parâmetro um valor padrão
+const setPlayerCards = (arr = players) => {
+    console.log(arr);
+    //já adiciona no .map com os objetos unpacked
+    playerCards.innerHTML += arr.map(({ name, position, number, isCaptain, nickname }) => {
+      return `
+        <div class="player-card">
+           <h2>${name}</h2>
+           <p>Position: ${position}</p>
+          <p>Number: 1</p>
+          <p>Nickname: N/A</p>
+        </div> 
+      `;
+    }
+  );
+}
+// playersDropdownList.addEventListener('change',() =>{
+//   console.log("Oi como está");
+// });
