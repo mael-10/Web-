@@ -185,9 +185,10 @@ const setPlayerCards = (arr = players) => {
       return `
         <div class="player-card">
            <h2>{isCaptain === true ? "(Captain)" : ""} ${name}</h2>
-           <p>Position: ${position}</p>
-          <p>Number: 1</p>
-          <p>Nickname: N/A</p>
+          <p>Position: ${position}</p>
+          
+          <p>Number: ${number}</p>
+          <p>Nickname: ${nickname !== null ? nickname : "N/A"}</p>
         </div> 
       `;
     }
