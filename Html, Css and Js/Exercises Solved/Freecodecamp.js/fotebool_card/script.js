@@ -184,7 +184,7 @@ const setPlayerCards = (arr = players) => {
     playerCards.innerHTML += arr.map(({ name, position, number, isCaptain, nickname }) => {
       return `
         <div class="player-card">
-           <h2>{isCaptain === true ? "(Captain)" : ""} ${name}</h2>
+           <h2>${isCaptain === true ? "(Captain)" : ""} ${name}</h2>
           <p>Position: ${position}</p>
           
           <p>Number: ${number}</p>
@@ -192,8 +192,10 @@ const setPlayerCards = (arr = players) => {
         </div> 
       `;
     }
-  );
-}
-// playersDropdownList.addEventListener('change',() =>{
-//   console.log("Oi como está");
-// });
+  ).join('');
+};
+playersDropdownList.addEventListener('change', (e) =>{
+  //'e' acessa as propiedades do event listner
+  //'target acessa o DOM quando o evento 'change'
+  console.log(e.target.value);
+});
