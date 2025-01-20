@@ -15,5 +15,3 @@ Also, in this repository you can check out git commands as well
 ### MarkDown 
 
 [Markdown's Syntax](https://www.markdownguide.org/basic-syntax/)
-
-
