@@ -200,7 +200,17 @@ playersDropdownList.addEventListener('change', (e) =>{
   // e.target.value
   playerCards.innerHTML = '';
   switch (e.target.value) {
+    //players é um array
     case "nickname":
     setPlayerCards(players.filter((player) => player.nickname !== null));
+    break;
+    
+    case "forward":
+    setPlayerCards(players.filter((player) => player.position === "forward"));
+    break;
+
+    case "mildfielder":
+  setPlayerCards(players.filter((player) => player.position === "midfielder")); 
+break;
   }
 });
