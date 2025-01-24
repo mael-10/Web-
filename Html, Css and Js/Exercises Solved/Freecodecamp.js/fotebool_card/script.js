@@ -199,8 +199,10 @@ playersDropdownList.addEventListener('change', (e) =>{
   //'target acessa o DOM quando o evento 'change'
   // e.target.value
   playerCards.innerHTML = '';
+  console.log(e.target.value);
   switch (e.target.value) {
     //players é um array
+    //Player volta ao normal porque está dentro de uma função
     case "nickname":
     setPlayerCards(players.filter((player) => player.nickname !== null));
     break;
@@ -210,7 +212,18 @@ playersDropdownList.addEventListener('change', (e) =>{
     break;
 
     case "mildfielder":
-  setPlayerCards(players.filter((player) => player.position === "midfielder")); 
-break;
+    setPlayerCards(players.filter((player) => player.position === "midfielder")); 
+    break;
+
+    case "defender":
+    setPlayerCards(players.filter((player) => player.position === "defender"));
+    break;
+
+    case "goalkeeper":
+    setPlayerCards(players.filter((player) => player.position === "goalkeeper"));
+    break;
+
+    default:
+    setPlayerCards();
   }
 });
