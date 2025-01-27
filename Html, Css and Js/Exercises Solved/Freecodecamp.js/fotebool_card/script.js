@@ -172,6 +172,7 @@ const myFavoriteFootballTeam = {
 //O object freeze é uma maneira de congelar o valor, ou seja, valores não podem se modificados
 Object.freeze(myFavoriteFootballTeam);
 const { sport, team, year, players } = myFavoriteFootballTeam;
+//O nome do objeto vai ser a varivel
 const { coachName } = myFavoriteFootballTeam.headCoach;
 typeOfSport.textContent = sport;
 teamName.textContent = team;
