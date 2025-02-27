@@ -25,5 +25,9 @@ But if you have many differents commits:
 
 git reset --hard hash_code
 meaning i want of the changes to not just be unstaged
-but completely removed s
+but completely removed
+
+After that use:
+
+git push --force
 
